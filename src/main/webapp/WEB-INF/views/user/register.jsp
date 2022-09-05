@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- 재윤이 없었음 어쩔뻔했어 -->
+
 </body>
 </html>
