@@ -88,6 +88,7 @@ CREATE TABLE user
 	user_password varchar(50) NOT NULL,
 	user_name varchar(100) NOT NULL,
 	user_regdate datetime DEFAULT now(),
+	authorities varchar(200) DEFAULT 'ROLE_MEMBER',
 	PRIMARY KEY (user_num),
 	UNIQUE (user_id)
 );
