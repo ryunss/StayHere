@@ -16,7 +16,9 @@ public class UserDTO {
 	private String user_id;
 	private String user_password;
 	private String user_name;
+	private String authorities;
 	private LocalDateTime user_regdate;
+	
 	
 	public String getRegDateTime() {
 		if(this.user_regdate == null) return "";

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.Service;
+import service.user.RegisterService;
 
 
 
@@ -51,7 +52,22 @@ public class UserController extends HttpServlet {
 		
 		switch(command) {
 		case "/user/register":
-			viewPage = "register.jsp";
+			switch(method) {
+			case "GET":
+				viewPage = "/user/register.jsp";
+				break;
+			case "POST":
+				service = new RegisterService();
+				service.execute(request, response);
+				viewPage = "/user/registerOk.jsp";
+				break;
+			}
+			break;
+		case "/user/login":
+			viewPage = "/user/login.jsp";
+			break;
+		case "/user/logout":
+			viewPage = "/logout.jsp";
 			break;
 		}
 		
