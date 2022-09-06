@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 public class C {
    public static final String REDIRECT_ATTR_NAME = "REDIRECT_ATTR";
+   public static final String PRINCIPAL = "PRINCIPAL";
    public static void addRedirectAttribute(HttpServletRequest request, String name, Object value) {
       if(request == null || name == null || value == null) return;
       
