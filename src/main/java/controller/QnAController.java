@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.C;
 import service.Service;
+import service.qna.QnAWriteService;
 
 public class QnAController {
 	@WebServlet("/qna/*")

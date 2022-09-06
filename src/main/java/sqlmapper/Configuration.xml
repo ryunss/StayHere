@@ -29,6 +29,7 @@
     <!-- 설정할 Mapper 파일들  -->
     <mapper resource="domain/UserDAO.xml"/>
     <mapper resource="domain/RoomDAO.xml"/>
+    <mapper resource="domain/QnADAO.xml"/>
   </mappers>
 
 </configuration>
