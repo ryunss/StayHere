@@ -1,12 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 
-</body>
-</html>
+<c:choose>
+	<c:when test="${result == 0 }">
+		<script>
+			alert("가입 실패");
+			history.back();
+		</script>
+	</c:when>
+	<c:otherwise>
+		<script>
+			alert("가입 성공");
+			location.href = "login";
+		</script>
+	</c:otherwise>
+</c:choose>

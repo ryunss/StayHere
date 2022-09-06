@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.C;
 import service.Service;
+import service.user.LoginService;
 import service.user.RegisterService;
 
 
@@ -54,17 +56,33 @@ public class UserController extends HttpServlet {
 		case "/user/register":
 			switch(method) {
 			case "GET":
+				C.retrieveRedirectAttribute(request);
 				viewPage = "/user/register.jsp";
 				break;
 			case "POST":
 				service = new RegisterService();
 				service.execute(request, response);
-				viewPage = "/user/registerOk.jsp";
+				if(!response.isCommitted())
+					viewPage = "/user/registerOk.jsp";
 				break;
 			}
 			break;
 		case "/user/login":
-			viewPage = "/user/login.jsp";
+			switch(method) {
+			case "GET":
+				C.retrieveRedirectAttribute(request);
+				viewPage = "/user/login.jsp";
+				break;
+			case "POST":
+				service = new LoginService();
+				service.execute(request, response);
+				if(!response.isCommitted()) {
+					String redirectUrl = request.getContextPath() + "/home";
+					
+					response.sendRedirect(redirectUrl);
+				}
+				break;
+			}
 			break;
 		case "/user/logout":
 			viewPage = "/logout.jsp";

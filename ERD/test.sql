@@ -160,5 +160,12 @@ ALTER TABLE room_like
 	ON DELETE CASCADE
 ;
 
+DELETE FROM `user` ;
 
+INSERT INTO `user`  (user_id, user_password, user_name, authorities) VALUES
+('USER1', '1234', '회원1', 'ROLE_MEMBER'),
+('USER2', '1234', '회원2', null),
+('ADMIN1', '1234', '관리자1', 'ROLE_MEMBER,ROLE_ADMIN')
+;
 
+SELECT user_num, user_id, user_password, user_name, authorities,user_regdate FROM `user`  ORDER BY user_num DESC;
