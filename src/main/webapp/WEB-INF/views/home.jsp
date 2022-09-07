@@ -14,19 +14,15 @@
 
 	<nav class="navbar navbar-expand-sm bg-white navbar-white">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">LOGO</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+			<img src="${pageContext.request.contextPath}/img/mainlogo.png" class="ms-5" height="75px">
+
 			<div class="collapse navbar-collapse justify-content-end"
 				id="collapsibleNavbar">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">About</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Resiter</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="#">SEARCH</a></li>
+					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="#">QnA</a></li>
+					<li class="nav-item me-3 ms-3 fw-bold"><a class="nav-link text-dark" href="#">MAP</a></li>
+					<li class="nav-item me-5 ms-5 fw-bold"><a class="nav-link text-dark" href="${pageContext.request.contextPath}/user/login">Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -40,27 +36,27 @@
 
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="${pageContext.request.contextPath}/img/1.png"
-					alt="New York" class="d-block" style="width: 100%" height="910">
+				<img src="${pageContext.request.contextPath}/img/test1.jpg" class="mx-auto d-block"
+					alt="New York" class="d-block" style="width: 1800px" height="850px">
 				<div class="carousel-caption">
-					<h3>Los Angeles</h3>
-					<p>We had such a great time in LA!</p>
+					<h3>test</h3>
+					<p>asdasd</p>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="${pageContext.request.contextPath}/img/2.png"
-					alt="New York" class="d-block" style="width: 100%" height="910">
+				<img src="${pageContext.request.contextPath}/img/test2.jpg" class="mx-auto d-block"
+					alt="New York" class="d-block" style="width: 1800px" height="850px">
 				<div class="carousel-caption">
-					<h3>Chicago</h3>
-					<p>Thank you, Chicago!</p>
+					<h3>test</h3>
+					<p>asdasd</p>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img src="${pageContext.request.contextPath}/img/3.png"
-					alt="New York" class="d-block" style="width: 100%" height="910">
+				<img src="${pageContext.request.contextPath}/img/test3.jpg" class="mx-auto d-block"
+					alt="New York" class="d-block" style="width: 1800px" height="850px">
 				<div class="carousel-caption">
-					<h3>New York</h3>
-					<p>We love the Big Apple!</p>
+					<h3>test</h3>
+					<p>asdasd</p>
 				</div>
 			</div>
 		</div>
