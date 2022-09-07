@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class QnADTO {
 	
-	private int qna_num;
+	private int qna_num; 
 	private UserDTO user_num;
 	private String qna_subject;
 	private String qna_content;

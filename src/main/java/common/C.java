@@ -41,11 +41,11 @@ public class C {
    }
    
    
-// securityCheck 를 통과하면 true 아니면 false 를 리턴한다
+   // securityCheck 를 통과하면 true 아니면 false 를 리턴
    public static boolean securityCheck(
    		HttpServletRequest request,
    		HttpServletResponse response,
-   		String [] authorities   // 접근에 필요한 권한(들)  OR
+   		String [] authorities   // 접근에 필요한 권한 혹은 권한들
    		) throws IOException {
    	
    	String conPath = request.getContextPath();
@@ -54,12 +54,12 @@ public class C {
    	String qry = request.getQueryString();
    	String url_prior = request.getRequestURL() + ((qry != null) ? "?" + qry : "");
    	
-   	// 로그인(인증) 되었을 user 객체 가져오기
+   	// 로그인(인증) 되었을 user 객체 가져오게 함
    	HttpSession session = request.getSession();
    	UserDTO user = (UserDTO)session.getAttribute(PRINCIPAL);
    	
 		// 로그인이 되어 있지 않다면 
-		// 로그인 페이지로 유도하고 로그인이 완료되면 URL_PRIOR 로 돌아오게 하기
+		// 로그인 페이지로 유도하고 로그인이 완료되면 URL_PRIOR 로 돌아오게 함
 		if(user == null) {
 			session.setAttribute(URL_PRIOR, url_prior);
 			response.sendRedirect(conPath + "/user/login");
@@ -70,7 +70,7 @@ public class C {
 		if(authorities != null && authorities.length > 0) {
 			String auths = user.getAuthorities();
 			
-			// 그런데 로그인한 사용자의 권한이 아예 없다면?
+			// 그런데 로그인한 사용자의 권한이 아예 없으면
 			if(auths == null) {
 				response.sendRedirect(conPath + "/user/rejectAuth");
 				return false;
