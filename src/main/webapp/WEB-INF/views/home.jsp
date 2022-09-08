@@ -6,14 +6,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Bootstrap Example</title>
+<title>메인</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
@@ -23,7 +22,7 @@
 		<%-- 
 			<img src="${pageContext.request.contextPath}/img/main0.png" class="ms-3">
 		--%>
-			<h1 class="ms-5">여긴 어때</h1>
+			<h1 class="ms-5"><a class="text-decoration-none fw-bold text-dark" href="${pageContext.request.contextPath}/home">여긴 어때</a></h1>
 		</div>
 			<div class="collapse navbar-collapse justify-content-end"
 				id="collapsibleNavbar">
@@ -38,7 +37,7 @@
 	                			<button class="btn btn-outline-dark ms-5" type="submit">LOGIN</button>
 	            			</form>
 	            			<form action="${pageContext.request.contextPath}/user/register">
-	                			<button class="btn btn-outline-dark me-5 ms-2" type="submit">REGISTER</button>
+	                			<button class="btn btn-outline-dark me-5 ms-2" type="submit">JOIN</button>
 	            			</form>
 						</c:when>
 						 
