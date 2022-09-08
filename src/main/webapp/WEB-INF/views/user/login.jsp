@@ -13,6 +13,24 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <title>로그인</title>
+<head>
+<meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id"
+	content="1059151165091-l4hdvpjtr28k6pstr1sn621k17re7o12.apps.googleusercontent.com">
+<!-- KaKao Login Js -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/kakao.js"></script>
+<!-- Google Login Js -->
+<script src="https://apis.google.com/js/platform.js?onload=onLoad" async
+	defer></script>
+<script
+	src="https://apis.google.com/js/platform.js?onload=triggerGoogleLoaded"></script>
+<script src="https://apis.google.com/js/platform.js?onload=init" async
+	defer></script>
+<script src="${pageContext.request.contextPath}/platform.js" async defer></script>
+<!-- Naver Login Js -->
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
+	charset="utf-8"></script>
 </head>
 
 <body>
@@ -63,7 +81,28 @@
 
 		</form>
 	</div>
-
+	<hr>
+<div>
+	<!--  Google Login Btn -->
+	<div class="g-signin2" style="max-width: 400px; max-height: 60px"
+		data-onsuccess="onSignIn" data-theme="dark" data-width="auto"
+		data-height="60">
+	</div>
+	<!--  Naver Login Btn -->
+	<div id="naverIdLogin">
+		<a id="naverIdLogin_loginButton"> 
+		<img src="https://static.nid.naver.com/oauth/big_g.PNG?version=js-2.0.0"
+			width="100%" height="auto" style="max-width: 400px; max-height: 60px" />
+		</a>
+	</div>
+	<!--  KaKao Login Btn -->
+	<div>
+		<a id="login-form-btn" href="javascript:loginFormWithKakao()"> <img
+			src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+			width="100%" height="auto" style="max-width: 400px; max-height: 60px" />
+		</a>
+	</div>
+</div>
 </body>
 
 </html>

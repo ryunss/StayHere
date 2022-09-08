@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,20 +19,38 @@
 
 	<nav class="navbar navbar-expand-sm bg-white navbar-white">
 		<div class="container-fluid">
-			<img src="${pageContext.request.contextPath}/img/mainlogo.png" class="ms-5" height="75px">
-
+		<div>
+		<%-- 
+			<img src="${pageContext.request.contextPath}/img/main0.png" class="ms-3">
+		--%>
+			<h1 class="ms-5">여긴 어때</h1>
+		</div>
 			<div class="collapse navbar-collapse justify-content-end"
 				id="collapsibleNavbar">
 				<ul class="navbar-nav">
-					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="#">SEARCH</a></li>
-					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="#">QnA</a></li>
-					<li class="nav-item me-3 ms-3 fw-bold"><a class="nav-link text-dark" href="#">MAP</a></li>
-					<li class="nav-item me-5 ms-5 fw-bold"><a class="nav-link text-dark" href="${pageContext.request.contextPath}/user/login">Login</a></li>
+					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="${pageContext.request.contextPath}/room/search">SEARCH</a></li>
+					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="${pageContext.request.contextPath}/qnaboard/qnaList">QnA</a></li>
+					<li class="nav-item me-5 ms-3 fw-bold"><a class="nav-link text-dark" href="#">MAP</a></li>
 				</ul>
+					<c:choose>
+						<c:when test="${empty sessionScope.PRINCIPAL}">
+							<form action="${pageContext.request.contextPath}/user/login">
+	                			<button class="btn btn-outline-dark ms-5" type="submit">LOGIN</button>
+	            			</form>
+	            			<form action="${pageContext.request.contextPath}/user/register">
+	                			<button class="btn btn-outline-dark me-5 ms-2" type="submit">REGISTER</button>
+	            			</form>
+						</c:when>
+						 
+						<c:otherwise>	
+							<form action="${pageContext.request.contextPath}/user/logout" method="POST">
+	                			<button class="btn btn-outline-dark me-5" type="submit">Logout</button>
+	            			</form> 
+						</c:otherwise>	
+					</c:choose>
 			</div>
 		</div>
 	</nav>
-
 
 	<!-- Carousel -->
 	<div id="demo" class="carousel slide" data-bs-ride="carousel">
