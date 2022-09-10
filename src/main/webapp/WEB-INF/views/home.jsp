@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-sm bg-white navbar-white">
+	<nav class="navbar navbar-expand-sm bg-white navbar-white navbar-fixed-top">
 		<div class="container-fluid">
 		<div>
 		<%-- 
