@@ -1,1 +1,1 @@
-{"resources":{"ERD/test.sql":{"sql-editor-data-source-id":"mysql8-182fe408f06-c5ed874ce678bc8","default-datasource":"mysql8-182fe408f06-c5ed874ce678bc8","default-catalog":"staydb"}}}
+{"resources":{"ERD/test.sql":{"sql-editor-data-source-id":"mysql8-182fe408f06-c5ed874ce678bc8","default-datasource":"mysql8-18317723339-43bd49ba4dcfe39b","default-catalog":"staydb"},"ERD/testqry.sql":{"default-datasource":"mysql8-18317723339-43bd49ba4dcfe39b","default-catalog":"staydb"}}}

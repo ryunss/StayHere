@@ -1,13 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.QnADAO">
-
+	
+	<sql id="SELECTQnA">
+		SELECT
+			q.qna_num "q_num",
+			q.qna_subject "q_subject",
+			q.qna_content "q_content",
+			q.qna_regdate "q_regdate",
+			u.user_num "u_num",
+			u.user_id "u_id",
+			u.user_name "u_name",
+			u.authorities "u_authorities",
+			u.user_regdate "u_regdate"
+		FROM
+			qnaboard q, user u
+		WHERE
+			q.user_num = u.user_num
+	</sql>
+	
+	<resultMap type="domain.UserDTO" id="mapUser">
+		<result column="u_num" property="user_num"/>
+		<result column="u_id" property="user_id"/>
+		<result column="u_name" property="user_name"/>
+		<result column="u_authorities" property="authorities"/>
+		<result column="u_regdate" property="user_regdate"/>
+	</resultMap>
+	
+	<resultMap type="domain.QnADTO" id="mapQnA">
+		<result column="q_num" property="qna_num"/>
+		<result column="q_subject" property="qna_subject"/>
+		<result column="q_content" property="qna_content"/>
+		<result column="q_regdate" property="qna_regdate"/>
+	</resultMap>
+	
+	<select id="select" resultMap="mapQnA">
+		<include refid="SELECTQnA"/>
+		ORDER BY
+			q.qna_num DESC
+	</select>
+	
+	<!-- 글작성 -->
 	<insert id="insert" flushCache="true"
 	parameterType="domain.QnADTO"
 	useGeneratedKeys="true" keyColumn="qna_num" keyProperty="qna_num" >
 	INSERT INTO qnaboard
 		(user_num, qna_subject, qna_content)
 	VALUES
-		(#{subject}, #{content}, #{user.user_num})
+		(#{qna_subject}, #{qna_content}, #{user.user_num})
 	</insert>
+	
+	<!-- 페이징 -->
+	<select id="selectFormRow" resultMap="mapQnA">
+		<include refid="SELECTQnA"/>
+		ORDER BY q.qna_num DESC
+		LIMIT  #{param1}, #{param2}
+	</select>
+	
+	<select id="countAll" resultType="int">
+		SELECT count(*) FROM qnaboard
+	</select>
 </mapper>

@@ -62,10 +62,19 @@ public class QnAController extends HttpServlet {
 					break;
 				}
 			}
-		case "qna/list":
+		case "/qna/list":
 			service = new ListService();
 			service.execute(request, response);
-			viewPage = "list,jsp";
+			viewPage = "/qnaboard/qnaList.jsp";
+			break;
+			
+		//페이징
+		//pageRows 변경시 동작
+		case "/qna/pageRows":
+			int page = Integer.parseInt(request.getParameter("page"));
+			Integer pageRows = Integer.parseInt(request.getParameter("pageRows"));
+			request.getSession().setAttribute("pageRows", pageRows);
+			response.sendRedirect(request.getContextPath() + "/qna/list?page=" + page);
 			break;
 		}
 		if(viewPage != null) {

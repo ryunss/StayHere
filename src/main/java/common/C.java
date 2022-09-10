@@ -10,6 +10,9 @@ import javax.servlet.http.HttpSession;
 import domain.UserDTO;
 
 public class C {
+	public static final Integer WRITE_PAGES = 10; 
+	public static final Integer PAGE_ROWS = 10;
+	
    public static final String REDIRECT_ATTR_NAME = "REDIRECT_ATTR";
    public static final String PRINCIPAL = "PRINCIPAL";
    public static final String URL_PRIOR = "URL_PRIOR";
