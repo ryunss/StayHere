@@ -28,7 +28,7 @@
 				id="collapsibleNavbar">
 				<ul class="navbar-nav">
 					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="${pageContext.request.contextPath}/room/search">SEARCH</a></li>
-					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="${pageContext.request.contextPath}/qnaboard/qnaList">QnA</a></li>
+					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="${pageContext.request.contextPath}/qna/list">QnA</a></li>
 					<li class="nav-item me-5 ms-3 fw-bold"><a class="nav-link text-dark" href="#">MAP</a></li>
 				</ul>
 					<c:choose>
