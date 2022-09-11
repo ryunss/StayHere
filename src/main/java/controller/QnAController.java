@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import common.C;
 import service.Service;
+import service.qna.DetailService;
 import service.qna.ListService;
 import service.qna.QnAWriteService;
 
@@ -62,10 +63,19 @@ public class QnAController extends HttpServlet {
 					break;
 				}
 			}
+			break;
 		case "/qna/list":
 			service = new ListService();
 			service.execute(request, response);
-			viewPage = "/qnaboard/qnaList.jsp";
+			viewPage = "qnaList.jsp";
+			break;
+		
+		case "/qna/detail":
+			if(C.securityCheck(request, response, null)) {
+				service = new DetailService();
+				service.execute(request, response);
+				viewPage = "qnaDetail.jsp";
+			}
 			break;
 			
 		//페이징
@@ -79,7 +89,7 @@ public class QnAController extends HttpServlet {
 		}
 		if(viewPage != null) {
 			RequestDispatcher dispatcher = 
-					request.getRequestDispatcher("/WEB-INF/views" + viewPage);
+					request.getRequestDispatcher("/WEB-INF/views/qnaboard/" + viewPage);
 			
 			dispatcher.forward(request, response);
 		}

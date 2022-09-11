@@ -78,8 +78,8 @@ public class QnAWriteService implements Service {
 		// 3. 게시글 및 첨부파일 -> DB 에 저장 
 		// ★ request 에서가 아닌 MultipartRequest 객체로부터 가져와야 한다
 		// 입력한 값을 받아오기
-		String subject = multi.getParameter("subject");
-		String content = multi.getParameter("content");
+		String subject = multi.getParameter("qna_subject");
+		String content = multi.getParameter("qna_content");
 		// ※ 이 단계에서 parameter 검증 해야 한다.
 		
 		// 현재 로그인 한 사용자 정보

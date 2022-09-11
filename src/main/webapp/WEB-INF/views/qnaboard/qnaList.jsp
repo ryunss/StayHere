@@ -46,7 +46,6 @@
                     <th>#</th>
                     <th>제목</th>
                     <th>작성자</th>
-                    <th>조회수</th>
                     <th>작성일</th>
                 </tr>
             </thead>
@@ -54,8 +53,8 @@
             <c:forEach var="dto" items="${list }">
                 <tr>
                     <td>${dto.qna_num }</td>
-                    <td><a href="detail?id=${dto.qna_num }">${dto.qna_subject }</a></td>
-                    <td>${dto.user_num }</td>
+                    <td><a href="detail?num=${dto.qna_num }">${dto.qna_subject }</a></td>
+                    <td>${dto.user_num}</td>
                     <td>${dto.regDateTime}</td>
                 </tr>            
             </c:forEach>           

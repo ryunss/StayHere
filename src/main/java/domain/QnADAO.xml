@@ -40,6 +40,14 @@
 			q.qna_num DESC
 	</select>
 	
+	<!-- 특정 글 읽기 (Detail)-->
+	<select id="selectByNum" resultMap='mapQnA'>
+		<include refid="SELECTQnA"/>
+			AND q.qna_num = #{qna_num}
+		ORDER BY
+			q.qna_num DESC
+	</select>
+	
 	<!-- 글작성 -->
 	<insert id="insert" flushCache="true"
 	parameterType="domain.QnADTO"

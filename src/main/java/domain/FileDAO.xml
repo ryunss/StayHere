@@ -2,4 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.FileDAO">
 
+	<insert id="insert" flushCache="true"
+		parameterType="arraylist">
+		INSERT INTO file (file_source, file_name, qna_num)
+		VALUES
+			<foreach collection="param1" item="e" separator=",">
+				(#{e.qna_source}, #{e.qna_name}, #{e.param2})
+			</foreach>
+	</insert>
+
+	<sql id="SELECTFILE">
+		SELECT file_num, file_source, file_name, qna_num
+		FROM file
+	</sql>
+	
+	<select id="selectFileByQnA" resultType="domain.FileDTO">
+		<include refid="SELECTFILE"/>
+		WHERE
+			qna_num = #{param1}
+		ORDER BY file_num ASC
+	</select>
 </mapper>

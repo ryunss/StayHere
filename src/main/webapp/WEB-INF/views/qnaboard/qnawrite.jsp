@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -37,7 +37,7 @@ $(document).ready(function(){
         	enctype="Multipart/form-data">
             <div class="mb-3">
                 <label for="name">작성자:</label>
-                <span class="form-control">${PRINCIPAL.username } (${PRINCIPAL.name })</span>
+                <span class="form-control">${PRINCIPAL.user_id } (${PRINCIPAL.user_name })</span>
             </div>
             <div class="mb-3 mt-3">
                 <label for="subject">제목:</label>

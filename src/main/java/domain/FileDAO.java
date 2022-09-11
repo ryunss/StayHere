@@ -18,4 +18,7 @@ public interface FileDAO {
      */
 	
 	public int insert(List<Map<String, Object>> list, int qna_num) throws SQLException;
+	
+	// 특정 글의 첨부파일 읽어오기
+	public List<FileDTO> selectFileByQnA(int qna_num) throws SQLException;
 }
