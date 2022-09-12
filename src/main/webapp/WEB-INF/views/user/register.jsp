@@ -58,6 +58,7 @@
                 <h1 class="h3 mb-3 fw-normal">J O I N</h1>
 				<h5 class="h5 mb-5 fw-normal">회원가입</h5>
             </div>
+            	<div class="w-50" style="margin:0 auto"><hr></div>
         </div>
         <div class="row mt-5">
             <div class="col-12 text-danger">
@@ -66,19 +67,19 @@
         </div>
         <div class="row">
             <form method="POST" action="${pageContext.request.contextPath}/user/register">
-                <div class="form-group mt-3">
+                <div class="form-group mt-3 w-50" style="margin:0 auto">
                     <label for="username">사용자 아이디</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="사용자아이디" value="${REDIRECT_ATTR.username }" required>
                 </div>
-                <div class="form-group mt-3">
+                <div class="form-group mt-3 w-50" style="margin:0 auto">
                     <label for="name">사용자 이름</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="사용자 이름" value="${REDIRECT_ATTR.name }" required>
                 </div>
-                <div class="form-group mt-3">
+                <div class="form-group mt-3 w-50" style="margin:0 auto">
                     <label for="password">비밀번호</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호" required>
                 </div>
-                <div class="form-group mt-3">
+                <div class="form-group mt-3 w-50" style="margin:0 auto">
                     <label for="re-password">비밀번호 확인</label>
                     <input type="password" class="form-control" id="re-password" name="re-password" placeholder="비밀번호 확인" required>
                 </div>

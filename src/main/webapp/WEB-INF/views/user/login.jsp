@@ -50,27 +50,28 @@
 		</div>
 	</nav>
 	<hr>
-	<div class="container mt-3 text-center">
+	<div class="container mt-5 text-center">
 		<form action="${pageContext.request.contextPath }/user/login"
 			method="POST">
 			<h1 class="h3 mb-3 fw-normal">L O G I N</h1>
 			<h5 class="h5 mb-5 fw-normal">로그인</h5>
+			<div class="w-50" style="margin:0 auto"><hr></div>
 			<div class="row mt-5">
 				<div class="col-12 text-danger">${REDIRECT_ATTR.error }</div>
 			</div>
-			<div class="form-floating">
+			<div class="form-floating w-50 mt-5"  style="margin:0 auto">
 				<input type="text" class="form-control" name="username"
 					id="username" value="${REDIRECT_ATTR.username }" placeholder="User Name" required> <label
 					for="username">Username</label>
 			</div>
-			<div class="form-floating mt-1">
+			<div class="form-floating mt-2 w-50" style="margin:0 auto">
 				<input type="password" class="form-control" name="password"
 					id="password" value="" placeholder="Password" required> <label
 					for="password">Password</label>
 			</div>
 
 
-			<button class="w-50 btn btn-lg btn-dark my-1" type="submit">로그인</button>
+			<button class="w-50 btn btn-lg btn-dark my-2" type="submit">로그인</button>
 			<a class="w-50 btn btn-lg btn-outline-dark my-1"
 				href="${pageContext.request.contextPath}/user/register">회원가입</a>
 

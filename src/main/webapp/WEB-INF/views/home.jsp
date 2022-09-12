@@ -28,7 +28,7 @@
 				id="collapsibleNavbar">
 				<ul class="navbar-nav">
 					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="${pageContext.request.contextPath}/room/search">SEARCH</a></li>
-					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="${pageContext.request.contextPath}/qna/list">QnA</a></li>
+					<li class="nav-item ms-3 fw-bold"><a class="nav-link text-dark" href="${pageContext.request.contextPath}">QnA</a></li>
 					<li class="nav-item me-5 ms-3 fw-bold"><a class="nav-link text-dark" href="#">MAP</a></li>
 				</ul>
 					<c:choose>
@@ -60,25 +60,25 @@
 			<div class="carousel-item active">
 				<img src="${pageContext.request.contextPath}/img/test1.jpg" class="mx-auto d-block"
 					alt="New York" class="d-block" style="width: 1800px" height="850px">
-				<div class="carousel-caption">
-					<h3>test</h3>
-					<p>asdasd</p>
+				<div class="carousel-caption" style="width:250px;height:250px;background-color:white;margin-left:1200px; margin-bottom:75px;">
+					<h3 style="color:black">test</h3>
+					<p style="color:black">asdasd</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="${pageContext.request.contextPath}/img/test2.jpg" class="mx-auto d-block"
 					alt="New York" class="d-block" style="width: 1800px" height="850px">
-				<div class="carousel-caption">
-					<h3>test</h3>
-					<p>asdasd</p>
+				<div class="carousel-caption" style="width:250px;height:250px;background-color:white;margin-left:1200px; margin-bottom:75px;">
+					<h3 style="color:black">test</h3>
+					<p style="color:black">asdasd</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="${pageContext.request.contextPath}/img/test3.jpg" class="mx-auto d-block"
 					alt="New York" class="d-block" style="width: 1800px" height="850px">
-				<div class="carousel-caption">
-					<h3>test</h3>
-					<p>asdasd</p>
+				<div class="carousel-caption" style="width:250px;height:250px; background-color:white;margin-left:1200px; margin-bottom:75px;">
+					<h3 style="color:black">test</h3>
+					<p style="color:black">asdasd</p>
 				</div>
 			</div>
 		</div>
