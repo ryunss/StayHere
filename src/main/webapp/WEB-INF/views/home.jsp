@@ -64,7 +64,7 @@
 						href="${pageContext.request.contextPath}/room/search">숙소 검색</a></li>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
-						href="${pageContext.request.contextPath}">문의하기</a></li>
+						href="${pageContext.request.contextPath}/qna/list">문의하기</a></li>
 					<li class="nav-item me-5 ms-3 fw-bold"><a
 						class="nav-link text-dark" href="#">지도</a></li>
 				</ul>
