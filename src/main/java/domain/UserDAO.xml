@@ -4,7 +4,7 @@
 
 <select id="selectByUsername" parameterType="domain.UserDTO"
 		resultType="domain.UserDTO">
-		SELECT user_num, user_id, user_password, user_name, authorities,
+		SELECT user_num, user_id, user_password, user_name,
 		user_regdate
 		FROM user
 		WHERE user_id = #{user_id}
@@ -12,11 +12,10 @@
 
 <select id="selectById" parameterType="domain.UserDTO" 
 	    resultType="domain.UserDTO">
-		SELECT user_num, user_id, user_password, user_name, authorities,
+		SELECT user_num, user_id, user_password, user_name,
 		user_regdate
 		FROM user
 		WHERE user_num = #{user_num}
-
 </select>
 <insert id="register" flushCache="true" parameterType="domain.UserDTO"
 	keyProperty="user_num" useGeneratedKeys="true" keyColumn="user_num">

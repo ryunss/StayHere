@@ -18,6 +18,7 @@ public class UserDTO {
 	private String user_name;
 	private String authorities;
 	private LocalDateTime user_regdate;
+
 	
 	
 	public String getRegDateTime() {
