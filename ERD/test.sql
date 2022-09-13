@@ -62,7 +62,6 @@ CREATE TABLE room
 	PRIMARY KEY (room_num)
 );
 
-SELECT * FROM room
 
 CREATE TABLE room_comment
 (
@@ -90,10 +89,12 @@ CREATE TABLE user
 	user_password varchar(50) NOT NULL,
 	user_name varchar(100) NOT NULL,
 	user_regdate datetime DEFAULT now(),
-	authorities varchar(200) DEFAULT 'ROLE_MEMBER',
+	authorities varchar(200),
 	PRIMARY KEY (user_num),
 	UNIQUE (user_id)
 );
+
+
 
 /* Create Foreign Keys */
 
@@ -159,5 +160,6 @@ ALTER TABLE room_like
 	ON UPDATE RESTRICT
 	ON DELETE CASCADE
 ;
+
 
 
