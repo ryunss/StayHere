@@ -57,7 +57,7 @@
         	</form>
             <div class="mb-3">
                 <label for="name">작성자:</label>
-                <span class="form-control" >${dto.user.user_id} (${dto.user.user_id})</span>
+                <span class="form-control" >${dto.user_num.user_id} (${dto.user_num.user_id})</span>
             </div>    
             <div class="mb-3 mt-3">
                 <label for="subject">제목:</label>
@@ -91,13 +91,13 @@
 			<!-- 첨부파일목록 -->
 
             <!-- 하단 링크 -->
-            <c:if test="${fn:contains(PRINCIPAL.authorities, 'ROLE_MEMBER' ) && (PRINCIPAL.user_num == dto.user.user_num)}">
+            <c:if test="${fn:contains(PRINCIPAL.authorities, 'ROLE_MEMBER' ) && (PRINCIPAL.user_num == dto.user_num.user_num)}">
             <a class="btn btn-outline-dark" href="update?id=${dto.qna_num }">수정</a>
             </c:if>
             
             <a class="btn btn-outline-dark" href="list?page=${page != null ? page : '' }">목록</a>
             
-            <c:if test="${fn:contains(PRINCIPAL.authorities, 'ROLE_MEMBER' ) && (PRINCIPAL.user_num == dto.user.user_num)}">
+            <c:if test="${fn:contains(PRINCIPAL.authorities, 'ROLE_MEMBER' ) && (PRINCIPAL.user_num == dto.user_num.user_num)}">
             <button type="button" class="btn btn-outline-dark" onclick="chkDelete()">삭제</button>
             </c:if>
             

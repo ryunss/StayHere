@@ -24,7 +24,7 @@ public class DetailService implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		int num = Integer.parseInt(request.getParameter("qna_num"));
+		int num = Integer.parseInt(request.getParameter("num"));
 		
 		HttpSession session = request.getSession();
 		Integer page = (Integer)session.getAttribute("page");
