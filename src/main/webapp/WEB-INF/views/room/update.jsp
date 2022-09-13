@@ -59,36 +59,38 @@ h3{
 	메인로고
 	<div>임시 조회수 체크 : ${dto.viewcnt }</div>
 </header>
+<form action="update" method="post">
+	<div id="wrap">
+		<input type="hidden" name="num" value="${dto.num }"/>
+		<div id="img" name="image">${dto.image }</div>
+		<input type="text" id="name" name="name"value="${dto.name }"/>
+		<input type="textarea" id="info" name="info"value="${dto.info }"/>
+		<button type="submit" class="btn btn-outline-info">수정완료</button>
+		<button type="button" class="btn btn-outline-info" onclick="histoy.back()">이전으로</button>
+		<a href="list" class="btn btn-outline-info">목록</a>
 
-<div id="wrap">
-	<div id="img">${dto.image }</div>
-	<div id="name">${dto.name }</div>
-	<div id="info">${dto.info }</div>
-	<a href="update?num=${dto.num}" class="btn btn-outline-info">수정</a>
-	<a href="list" class="btn btn-outline-info">목록</a>
-	<a href="delete" class="btn btn-outline-info">삭제</a>
-	<a href="register" class="btn btn-outline-info">작성</a>
+
 	<h3>숙소후기</h3>
 	<hr>
-			<table>
-			<thead>
-				<tr>
-					<th style="width: 16.66%">작성자</th>
-					<th>내용</th>
-					<th style="width: 16.66%">작성일</th>
-				</tr>
-			</thead>
-			<tbody>
-				
-			</tbody>
-		</table>
-</div>
-<footer>
+	<table>
+		<thead>
+			<tr>
+				<th style="width: 16.66%">작성자</th>
+				<th>내용</th>
+				<th style="width: 16.66%">작성일</th>
+			</tr>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
+	</div>
+</form>	
+	<footer>
 	project
 </footer>
 </body>
 </html>
 
-	
 	</c:otherwise>
 </c:choose>

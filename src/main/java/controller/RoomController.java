@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.Service;
-import service.room.SearchService;
 import service.room.DetailService;
 import service.room.ListService;
 import service.room.RegisterService;
+import service.room.SearchService;
+import service.room.SelectService;
+import service.room.UpdateService;
 
 
 @WebServlet("/room/*")
@@ -77,8 +79,22 @@ public class RoomController extends HttpServlet {
 			service.execute(request, response);
 			viewPage = "list.jsp";
 			break;
+		case "/room/update":
+			switch(method) {
+			case "GET":
+				service = new SelectService();
+				service.execute(request, response);
+				viewPage = "update.jsp";
+				break;
+			case "POST":
+				service = new UpdateService();
+				service.execute(request, response);
+				viewPage = "updateOk.jsp";
+				break;
+			}
+			break;
 		}
-		
+
 		if(viewPage != null) {
 			RequestDispatcher dispatcher =
 					request.getRequestDispatcher("/WEB-INF/views/room/" + viewPage);

@@ -16,5 +16,8 @@ public interface RoomDAO {
 	// 특정 num 숙소 조회수
 	public abstract int incViewCnt(int num) throws SQLException;
 	
+	// 특정 num 숙소 수정
+	public abstract int update(RoomDTO dto) throws SQLException;
+	
 	
 }
