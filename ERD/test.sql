@@ -90,6 +90,7 @@ CREATE TABLE user
 	user_name varchar(100) NOT NULL,
 	user_regdate datetime DEFAULT now(),
 	authorities varchar(200),
+	business varchar(40),
 	PRIMARY KEY (user_num),
 	UNIQUE (user_id)
 );
@@ -161,5 +162,5 @@ ALTER TABLE room_like
 	ON DELETE CASCADE
 ;
 
-
+SELECT * FROM `user`  ORDER BY user_num  DESC;
 

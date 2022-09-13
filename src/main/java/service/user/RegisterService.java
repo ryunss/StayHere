@@ -23,11 +23,13 @@ public class RegisterService implements Service {
         String password = request.getParameter("password"); // 유저 PW
         String re_password = request.getParameter("re-password"); 
         String name = request.getParameter("name"); // 유 이름
-        
-		username = username.trim();
+ 
+		
+        username = username.trim();
 		password = password.trim();
 		re_password = re_password.trim();
 		name = name.trim();
+
 		
 		String conPath = request.getContextPath();
 		
