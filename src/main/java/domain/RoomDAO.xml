@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.RoomDAO">
+	<select id="select" resultType="domain.RoomDTO">
+		SELECT
+			room_num "num",
+			room_name "name",
+			room_image "image",
+			room_region "region",
+			room_viewcnt "viewcnt"
+		FROM room
+	</select>
 
+	<insert id="insert" flushCache="true" parameterType="domain.RoomDTO" keyProperty="num" useGeneratedKeys="true" keyColumn="room_num">
+	INSERT INTO room
+		(room_name, room_address, room_category, room_info, room_region, room_personnel, room_price, room_image) 
+	VALUES 
+		(#{name}, #{address}, #{category}, #{info}, #{region}, #{personnel}, #{price}, #{image})
+	</insert>
+	
+	<select id="selectByNum" resultType="domain.RoomDTO">
+		SELECT
+			room_num "num",
+			room_name "name",
+			room_image "image",
+			room_info "info",
+			room_viewcnt "viewcnt"
+		FROM room
+		WHERE room_num = #{num}
+	</select>
+	
+	<update id="incViewCnt" flushCache="true">
+		UPDATE room
+		SET room_viewcnt = room_viewcnt + 1
+		WHERE room_num = ${num}
+	</update>
+	
 </mapper>

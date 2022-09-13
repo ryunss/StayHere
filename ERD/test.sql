@@ -62,6 +62,7 @@ CREATE TABLE room
 	PRIMARY KEY (room_num)
 );
 
+SELECT * FROM room
 
 CREATE TABLE room_comment
 (
@@ -93,8 +94,6 @@ CREATE TABLE user
 	PRIMARY KEY (user_num),
 	UNIQUE (user_id)
 );
-
-
 
 /* Create Foreign Keys */
 
@@ -160,6 +159,5 @@ ALTER TABLE room_like
 	ON UPDATE RESTRICT
 	ON DELETE CASCADE
 ;
-
 
 

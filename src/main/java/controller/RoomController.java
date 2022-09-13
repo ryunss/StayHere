@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.Service;
 import service.room.SearchService;
+import service.room.DetailService;
+import service.room.ListService;
+import service.room.RegisterService;
 
 
 @WebServlet("/room/*")
@@ -32,7 +35,7 @@ public class RoomController extends HttpServlet {
 	}
 	
 	protected void action(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("\n>> "+getClass().getName()+".atcion() 호출");
+		System.out.println("\n>> "+getClass().getName()+".action() 호출");
 		
 		String uri = request.getRequestURI();
 		String conPath = request.getContextPath();
@@ -54,7 +57,25 @@ public class RoomController extends HttpServlet {
 			viewPage = "search.jsp";
 			break;
 		case "/room/detail":
+			service = new DetailService();
+			service.execute(request, response);
 			viewPage = "detail.jsp";
+			break;
+		case "/room/register":
+			switch(method) {
+			case "GET":
+				viewPage = "register.jsp";
+				break;
+			case "POST":
+				service = new RegisterService();
+				service.execute(request, response);
+				viewPage = "registerOk.jsp";	
+				break;
+			}
+		case "/room/list":
+			service = new ListService();
+			service.execute(request, response);
+			viewPage = "list.jsp";
 			break;
 		}
 		

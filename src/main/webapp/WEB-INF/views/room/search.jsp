@@ -83,7 +83,7 @@ header, footer {
 <hr>
 	<div>
 	    <div class="wrapper container">
-	      <div><p>img1</p></div>
+	      <div><img src="file:///C:/Users/doyex/Desktop/IT/Backend/DevRoot/Dropbox/Web/Project/StayHere/src/test1.jpg"></div>
 	      <div><p>img2</p></div>
 	      <div><p>img3</p></div>
 	    </div>
