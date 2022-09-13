@@ -69,11 +69,11 @@
             <form method="POST" action="${pageContext.request.contextPath}/user/register">
                 <div class="form-group mt-3 w-50" style="margin:0 auto">
                     <label for="username">사용자 아이디</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="사용자아이디" value="${REDIRECT_ATTR.username }" required>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="아이디" value="${REDIRECT_ATTR.username }" required>
                 </div>
                 <div class="form-group mt-3 w-50" style="margin:0 auto">
                     <label for="name">사용자 이름</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="사용자 이름" value="${REDIRECT_ATTR.name }" required>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="이름" value="${REDIRECT_ATTR.name }" required>
                 </div>
                 <div class="form-group mt-3 w-50" style="margin:0 auto">
                     <label for="password">비밀번호</label>
