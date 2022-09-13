@@ -67,24 +67,24 @@
         </div>
         <div class="row">
             <form method="POST" action="${pageContext.request.contextPath}/user/register">
-                <div class="form-group mt-3 w-50" style="margin:0 auto">
+                <div class="form-group mt-2 w-50" style="margin:0 auto">
                     <label for="username">사용자 아이디</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="아이디" value="${REDIRECT_ATTR.username }" required>
-                </div>
-                <div class="form-group mt-3 w-50" style="margin:0 auto">
+                </div> 
+                <div class="form-group mt-2 w-50" style="margin:0 auto">
                     <label for="name">사용자 이름</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="이름" value="${REDIRECT_ATTR.name }" required>
                 </div>
-                <div class="form-group mt-3 w-50" style="margin:0 auto">
+                <div class="form-group mt-2 w-50" style="margin:0 auto">
                     <label for="password">비밀번호</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호" required>
                 </div>
-                <div class="form-group mt-3 w-50" style="margin:0 auto">
+                <div class="form-group mt-2 w-50" style="margin:0 auto">
                     <label for="re-password">비밀번호 확인</label>
                     <input type="password" class="form-control" id="re-password" name="re-password" placeholder="비밀번호 확인" required>
                 </div>
                 <div class="text-center">
-                <button class="w-50 btn btn-lg btn-dark my-3" type="submit">등록</button>
+                <button class="w-50 btn btn-lg btn-dark mt-5" type="submit">등록</button>
                 </div>
             </form>
         </div>
