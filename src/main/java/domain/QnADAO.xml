@@ -32,6 +32,7 @@
 		<result column="q_subject" property="qna_subject"/>
 		<result column="q_content" property="qna_content"/>
 		<result column="q_regdate" property="qna_regdate"/>
+		<collection property="user_num" resultMap="mapUser"/>
 	</resultMap>
 	
 	<select id="select" resultMap="mapQnA">
@@ -51,7 +52,7 @@
 	<!-- 글작성 -->
 	<insert id="insert" flushCache="true"
 	parameterType="domain.QnADTO"
-	useGeneratedKeys="true" keyColumn="qna_num" keyProperty="qna_num" >
+	useGeneratedKeys="true" keyColumn="qna_num" keyProperty="qna_num">
 	INSERT INTO qnaboard
 		(user_num, qna_subject, qna_content)
 	VALUES

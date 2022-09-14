@@ -44,7 +44,7 @@
     <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
     <div class="container mt-3">
-        <h2>조회 - ${dto.qna_subject }</h2>
+        <h2>조회 - ${dto.qna_subject}</h2>
         <hr>
         <div class="mb-3 mt-3 clearfix">
             <span class="float-start me-2">#: ${dto.qna_num}</span>
@@ -92,7 +92,7 @@
 
             <!-- 하단 링크 -->
             <c:if test="${fn:contains(PRINCIPAL.authorities, 'ROLE_MEMBER' ) && (PRINCIPAL.user_num == dto.user_num.user_num)}">
-            <a class="btn btn-outline-dark" href="update?id=${dto.qna_num }">수정</a>
+            <a class="btn btn-outline-dark" href="update?num=${dto.qna_num }">수정</a>
             </c:if>
             
             <a class="btn btn-outline-dark" href="list?page=${page != null ? page : '' }">목록</a>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.QnACommentDAO">
+
+	
+	<resultMap type="domain.UserDTO" id="mapUser">
+		<result column="u_num" property="user_num"/>
+		<result column="u_id" property="user_id"/>
+		<result column="u_name" property="user_name"/>
+		<result column="u_authorities" property="authorities"/>
+		<result column="u_regdate" property="user_regdate"/>
+	</resultMap>
+	
+	<resultMap type="domain.QnACommentDTO" id="mapComment">
+		<result column="qc_num" property="qc_num"/>
+		<result column="qc_content" property="qc_content"/>
+		<result column="qc_regdate" property="qc_regdate"/>
+		<collection property="user_num" resultMap="mapUser"/>
+	</resultMap>
+	
+	<select id="selectByNum" resultMap="mapComment">
+		SELECT
+			c.qc_num "qc_num",
+			c.qc_content "qc_content",
+			c.qc_regdate" qc_regdate",
+			u.user_num "user_num",
+			u.user_id "user_id",
+			u.user_name "user_name",
+			u.user_authorities "user_authorities",
+			u.user_regdate "user_regdate"
+		FROM qna_comment c, user u
+		WHERE
+			c.user_num = u.user_num
+			AND
+			c.qna_num = #{param1}
+		ORDER BY c.qc_num DESC
+	</select>
+	
+	<insert id="insert" flushCache="true" parameterType="domain.QnACommentDTO"
+		useGeneratedKeys="true" keyColumn="qc_num" keyProperty="qc_num">
+		INSERT INTO qna_comment(user_num, qna_num, qc_content)
+		VALUES(#(user_num.user_num), #(qna_num.qna_num), #(qc_content))
+	</insert>
+	
+	<delete id="deleteByNum" flushCache="true">
+		DELETE FROM qna_comment WHERE qc_num = #{qc_num}
+	</delete>
+</mapper>

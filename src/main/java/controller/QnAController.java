@@ -13,6 +13,7 @@ import common.C;
 import service.Service;
 import service.qna.DetailService;
 import service.qna.ListService;
+import service.qna.QnADownloadService;
 import service.qna.QnAWriteService;
 import service.qna.SelectService;
 import service.qna.UpdateService;
@@ -107,6 +108,11 @@ public class QnAController extends HttpServlet {
 			Integer pageRows = Integer.parseInt(request.getParameter("pageRows"));
 			request.getSession().setAttribute("pageRows", pageRows);
 			response.sendRedirect(request.getContextPath() + "/qna/list?page=" + page);
+			break;
+			
+		case "/qna/download":
+			service = new QnADownloadService();
+			service.execute(request, response);
 			break;
 		}
 		if(viewPage != null) {
