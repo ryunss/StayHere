@@ -56,7 +56,7 @@ function chkDelete(){
         </form>
             <div class="mb-3">
                 <label for="image">숙소이미지</label>
-                <span class="form-control" >${dto.image}</span>
+                <span class="form-control" ><img src="http://localhost:8085/StayHere/${dto.image }" alt="${dto.name }"/></span>
             </div>    
             <div class="mb-3 mt-3">
                 <label for="name">숙소명</label>
