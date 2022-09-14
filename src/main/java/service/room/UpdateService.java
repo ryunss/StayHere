@@ -13,50 +13,41 @@ import domain.RoomDTO;
 import service.Service;
 import sqlmapper.SqlSessionManager;
 
-public class RegisterService implements Service {
+public class UpdateService implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String name = request.getParameter("name");
-		String address = request.getParameter("address");
-		String category = request.getParameter("category");
-		String info = request.getParameter("info");
-		String region = request.getParameter("region");
-		int personnel = Integer.parseInt(request.getParameter("personnel"));
-		int price = Integer.parseInt(request.getParameter("price"));
-		String image = request.getParameter("image");
-
-		RoomDTO dto = new RoomDTO();
-		dto.setName(name);
-		dto.setAddress(address);
-		dto.setCategory(category);
-		dto.setInfo(info);
-		dto.setRegion(region);
-		dto.setPersonnel(personnel);
-		dto.setPrice(price);
-		dto.setImage(image);
 		
-		int cnt = 0;
+		int num = Integer.parseInt(request.getParameter("num"));
+		String image = request.getParameter("image");
+		String name = request.getParameter("name");
+		String info = request.getParameter("info");
 		
 		SqlSession sqlSession = null;
-		RoomDAO dao = null;		
+		RoomDAO dao = null;
+		
+		int cnt = 0;
+		RoomDTO dto = new RoomDTO();
+		dto.setNum(num);
+		dto.setImage(image);
+		dto.setName(name);
+		dto.setInfo(info);
 		
 		try {
 			sqlSession = SqlSessionManager.getInstance().openSession();
 			dao = sqlSession.getMapper(RoomDAO.class);
-			cnt = dao.insert(dto);
-			System.out.println("숙소등록 성공 : "+ cnt);
+			
+			cnt = dao.update(dto);
 			
 			sqlSession.commit();
-		} catch (SQLException e) {
+		}catch(SQLException e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			if(sqlSession != null) sqlSession.close();
 		}
-		
+
 		request.setAttribute("result", cnt);
 		request.setAttribute("dto", dto);
-
 	}
 
 }

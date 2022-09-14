@@ -10,9 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.Service;
-import service.room.SearchService;
+import service.room.DeleteService;
 import service.room.DetailService;
 import service.room.ListService;
+import service.room.SearchService;
+import service.room.SelectService;
+import service.room.UpdateService;
 import service.room.RegisterService;
 
 
@@ -68,8 +71,7 @@ public class RoomController extends HttpServlet {
 				break;
 			case "POST":
 				service = new RegisterService();
-				service.execute(request, response);
-				viewPage = "registerOk.jsp";	
+				viewPage = "register.jsp";
 				break;
 			}
 		case "/room/list":
@@ -77,8 +79,30 @@ public class RoomController extends HttpServlet {
 			service.execute(request, response);
 			viewPage = "list.jsp";
 			break;
+		case "/room/update":
+			switch(method) {
+			case "GET":
+				service = new SelectService();
+				service.execute(request, response);
+				viewPage = "update.jsp";
+				break;
+			case "POST":
+				service = new UpdateService();
+				service.execute(request, response);
+				viewPage = "updateOk.jsp";
+				break;
+			}
+			break;
+		case "/room/delete":
+			switch(method) {
+			case "POST":
+				service = new DeleteService();
+				service.execute(request, response);
+				viewPage = "deleteOk.jsp";
+				break;
+			}
 		}
-		
+
 		if(viewPage != null) {
 			RequestDispatcher dispatcher =
 					request.getRequestDispatcher("/WEB-INF/views/room/" + viewPage);

@@ -32,7 +32,17 @@
 	<update id="incViewCnt" flushCache="true">
 		UPDATE room
 		SET room_viewcnt = room_viewcnt + 1
-		WHERE room_num = ${num}
+		WHERE room_num = #{num}
 	</update>
+	
+	<update id="update" flushCache="true" parameterType="domain.RoomDTO">
+		UPDATE room
+		SET room_image = #{image}, room_name = #{name}, room_info = #{info}
+		WHERE room_num = #{num} 
+	</update>
+	
+	<delete id="deleteByNum" flushCache="true">
+		DELETE FROM room WHERE room_num = #{num}
+	</delete>
 	
 </mapper>

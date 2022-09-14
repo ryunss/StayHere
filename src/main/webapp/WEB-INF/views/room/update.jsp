@@ -26,55 +26,41 @@ header, footer {
 }
 </style>
 </head>
-
-<script>
-function chkDelete(){
-	let answer = confirm("삭제하시겠습니까?");
-	if(answer){
-		document.forms['frmDelete'].submit();
-	}
-}
-</script>
-
 <body>
 <header>
 	메인로고
 </header>
-
-<div class="container mt-3">
-        <h2>조회 - ${dto.name}</h2>
+    <div class="container mt-3">
+        <h2>수정</h2>
         <hr>
         <div class="mb-3 mt-3 clearfix">
-            <span class="float-start me-2">${dto.image }</span>
-            <span class="float-end ms-4">${dto.name}</span>
-            <span class="float-end">${dto.viewcnt}</span>
+            <span class="float-start me-2">image ${dto.image}</span>
+            <span class="float-end ms-4">num ${dto.num}</span>
+            <span class="float-end">조회수: ${dto.viewcnt}</span>
         </div>
  
-        <section>
-        <form name="frmDelete" action="delete" method="POST">
-        	<input type="hidden" name="num" value="${dto.num }">
-        </form>
+        <form action="update" method="POST">
+            <input type="hidden" name="num" value="${dto.num}"/>
             <div class="mb-3">
-                <label for="image">숙소이미지</label>
-                <span class="form-control" ><img src="http://localhost:8085/StayHere/${dto.image }" alt="${dto.name }"/></span>
+                <label for="image">이미지</label>
+                <input type="text" class="form-control" id="image" name="image" value="${dto.image}" required>
             </div>    
             <div class="mb-3 mt-3">
-                <label for="name">숙소명</label>
-                <span class="form-control" >${dto.name}</span>
-            </div>    
+                <label for="name">이름</label>
+                <input type="text" class="form-control" id="name" name="name" value="${dto.name}" required>
+            </div>
             <div class="mb-3 mt-3">
                 <label for="info">정보</label>
-                <span class="form-control" >${dto.info}</span>
-            </div>    
+                <textarea class="form-control" rows="5" id="info" name="info">${dto.info}</textarea>
+            </div>
  
             <!-- 하단 링크 -->
-            <a class="btn btn-outline-dark" href="update?num=${dto.num}">수정</a>
+            <button type="submit" class="btn btn-outline-dark">수정완료</button>
+            <button type="button" class="btn btn-outline-dark" onclick="history.back()">이전으로</button>
             <a class="btn btn-outline-dark" href="list">목록</a>
-            <button type="button" class="btn btn-outline-dark" onclick="chkDelete()">삭제</button>
-            <a class="btn btn-outline-dark" href="register">작성</a>
-            <!-- 하단 링크 -->        
- 
-        </section>
+            <!-- 하단 링크 -->
+
+        </form>
     </div>
 <footer>
 	project
@@ -82,6 +68,5 @@ function chkDelete(){
 </body>
 </html>
 
-	
 	</c:otherwise>
 </c:choose>

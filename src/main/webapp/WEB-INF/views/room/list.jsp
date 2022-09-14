@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -10,8 +10,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	#frm{
+		width: 700px;
+		height: hidden;
+		margin : 0 auto;
+	}
+	
+	h4{
+		text-align : center;
+	}
+</style>
 </head>
 <body>
+<form id="frm">
  <div class="container mt-3">
     <h2>숙소 리스트</h2>
 	<br>
@@ -29,14 +41,15 @@
       <c:forEach var="dto" items="${list}">
         <tr>
           <td>${dto.num }</td>
-          <td><a href="detail?num=${dto.num}">${dto.image }</a></td>
+          <td><a href="detail?num=${dto.num}"><img src="http://localhost:8085/StayHere/${dto.image }" alt="${dto.name }"/></a></td>
           <td>${dto.name }</td>
           <td>${dto.region }</td>
           <td>${dto.viewcnt }</td>
-        </tr>      	
+        </tr>
       </c:forEach>
       </tbody>
     </table>
   </div>
+</form>
 </body>
 </html>
