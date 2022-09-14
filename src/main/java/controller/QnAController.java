@@ -14,6 +14,8 @@ import service.Service;
 import service.qna.DetailService;
 import service.qna.ListService;
 import service.qna.QnAWriteService;
+import service.qna.SelectService;
+import service.qna.UpdateService;
 
 @WebServlet("/qna/*")
 public class QnAController extends HttpServlet {
@@ -59,7 +61,7 @@ public class QnAController extends HttpServlet {
 				case "POST":
 					service = new QnAWriteService();
 					service.execute(request, response);
-					viewPage = "qnawriteOk.jsp";
+					viewPage = "qnaWriteOk.jsp";
 					break;
 				}
 			}
@@ -75,6 +77,26 @@ public class QnAController extends HttpServlet {
 				service = new DetailService();
 				service.execute(request, response);
 				viewPage = "qnaDetail.jsp";
+			}
+			break;
+			
+		case "/qna/update" :
+			if(C.securityCheck(request, response, new String[] {"ROLE_MEMBER"})) {				
+				switch(method) {
+				case "GET":
+					service = new SelectService();
+					service.execute(request, response);
+					
+					if(!response.isCommitted()) {
+						viewPage = "qnaUpdate.jsp";
+					}
+					break;
+				case "POST" :
+					service = new UpdateService();
+					service.execute(request, response);
+					viewPage = "qnaUpdateOk.jsp";
+					break;
+				}
 			}
 			break;
 			

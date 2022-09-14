@@ -55,8 +55,21 @@
 	INSERT INTO qnaboard
 		(user_num, qna_subject, qna_content)
 	VALUES
-		(#{qna_subject}, #{qna_content}, #{user.user_num})
+		(#{user_num.user_num}, #{qna_subject}, #{qna_content})
 	</insert>
+	
+	<!-- 글수정 -->
+	<update id="updateQnA" flushCache="true"
+		parameterType="domain.QnADTO">
+		UPDATE qnaboard
+		SET qna_subject = #{qna_subject}, content = #{content}
+		WHERE qna_num = #{qna_num}	
+	</update>
+	
+	<!-- 글삭제 -->
+	<delete id="deleteByNum" flushCache="true">
+		DELETE FROM qnaboard WHERE file_num = #{file_num}
+	</delete>
 	
 	<!-- 페이징 -->
 	<select id="selectFormRow" resultMap="mapQnA">

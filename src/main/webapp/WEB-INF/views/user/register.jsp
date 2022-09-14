@@ -15,6 +15,8 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/authorities.js"></script>
+
 
 <body>
 	<nav class="navbar navbar-expand-sm bg-white navbar-white">
@@ -76,8 +78,7 @@
 			<div class="col-12 text-danger">${REDIRECT_ATTR.error }</div>
 		</div>
 		<div class="row">
-			<form method="POST"
-				action="${pageContext.request.contextPath}/user/register">
+			<form method="POST" name="joinForm"	action="${pageContext.request.contextPath}/user/register">
 				<div class="form-group mt-2 w-50" style="margin: 0 auto">
 					<label for="username">사용자 아이디</label> <input type="text"
 						class="form-control" id="username" name="username"
@@ -91,18 +92,20 @@
 				<div class="form-group mt-2 w-50" style="margin: 0 auto">
 					<label for="password">비밀번호</label> <input type="password"
 						class="form-control" id="password" name="password"
-						placeholder="비밀번호" required>
+						placeholder="영문(대소문자 구분), 숫자, 특수문자 조합, 9~12자리" required>
 				</div>
 				<div class="form-group mt-2 w-50" style="margin: 0 auto">
 					<label for="re-password">비밀번호 확인</label> <input type="password"
 						class="form-control" id="re-password" name="re-password"
 						placeholder="비밀번호 확인" required>
 				</div>
-			
+				<input type="checkbox" name="authorities" id="authorities" style="margin-left:325px; margin-top:15px"
+					onchange="YnCheck(this);"><label for="authorities">사업자 회원가입</label>
 
 				<div class="text-center">
-					<button class="w-50 btn btn-lg btn-dark mt-5" type="submit">등록</button>
+					<button class="w-50 btn btn-lg btn-dark mt-3" type="submit">회원가입</button>
 				</div>
+
 			</form>
 		</div>
 

@@ -16,10 +16,35 @@
 		FROM file
 	</sql>
 	
+	<!-- 특정 글 파일 -->	
 	<select id="selectFileByQnA" resultType="domain.FileDTO">
 		<include refid="SELECTFILE"/>
 		WHERE
 			qna_num = #{param1}
 		ORDER BY file_num ASC
 	</select>
+	
+	<!-- 특정 파일 1개 -->
+	<select id="selectByNum" resultType="domain.FileDTO">
+		<include refid="SELECTFILE"/>
+		WHERE file_num = #{file_num}
+	</select>
+	
+	<select id="selectByNums" resultType="domain.FileDTO"
+		parameterType="java.util.ArrayList">
+		<include refid="SELECTFILE"/>
+		WHERE qna_num IN
+			<foreach collection="array" item="e" separator=","
+				open="(" close=")">
+				#{e}
+			</foreach>
+		ORDER BY file_num ASC		
+	</select>
+	
+	<!-- 파일삭제 -->
+	<delete id="deleteByNums" flushCache="true"
+		parameterType="java.util.ArrayList">
+		DELETE FROM file
+		WHERE file_num IN ( <foreach collection="array" item="e" separator=",">${e}</foreach>)
+	</delete>
 </mapper>
