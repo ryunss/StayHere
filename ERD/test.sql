@@ -90,7 +90,6 @@ CREATE TABLE user
 	user_name varchar(100) NOT NULL,
 	user_regdate datetime DEFAULT now(),
 	authorities varchar(200),
-	business varchar(40),
 	PRIMARY KEY (user_num),
 	UNIQUE (user_id)
 );
@@ -162,5 +161,10 @@ ALTER TABLE room_like
 	ON DELETE CASCADE
 ;
 
-SELECT * FROM `user`  ORDER BY user_num  DESC;
+INSERT INTO `user`  (user_id , user_password ,user_name  , authorities) VALUES
+('USER', '1234', '회원1', 'ROLE_MEMBER'),
+('USER2', '1234', '회원2', null),
+('ADMIN1', '1234', '관리자1', 'ROLE_MEMBER,ROLE_ADMIN')
+;
 
+SELECT * FROM `user`  ORDER BY user_num  DESC;

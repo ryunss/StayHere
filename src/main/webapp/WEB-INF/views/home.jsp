@@ -49,15 +49,9 @@
 				</div>
 
 				<ul class="navbar-nav">
-					<c:if
-						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_ADMIN' )}">
-					
-					</c:if>
-					<c:if
-						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
-						<li class="nav-item ms-3 fw-bold"><a
-							class="nav-link text-dark"
-							href="${pageContext.request.contextPath}/room/new">숙소 등록</a></li>
+					<c:if test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
+						<li class="nav-item ms-3 fw-bold">
+						<a class="nav-link text-dark" href="${pageContext.request.contextPath}/room/new">숙소 등록</a></li>
 					</c:if>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
