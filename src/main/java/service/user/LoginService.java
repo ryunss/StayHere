@@ -33,6 +33,7 @@ public class LoginService implements Service {
 
 		SqlSession sqlSession = null;
 		UserDAO dao = null;
+		
 
 		try {
 			sqlSession = SqlSessionManager.getInstance().openSession();
@@ -41,6 +42,7 @@ public class LoginService implements Service {
 			// 존재하지 않는 아이디(username) 인 경우
 			List<UserDTO> list = dao.selectByUsername(dto);
 			if(list.size() == 0) {
+				
 				C.addRedirectAttribute(request, "error", "존재하지 않는 아이디(username)");
 				C.addRedirectAttribute(request, "username", username);				
 				

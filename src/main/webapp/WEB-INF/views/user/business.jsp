@@ -15,10 +15,8 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<%-- 
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/authorities.js"></script>
-	--%>
 
 
 <body>
@@ -103,16 +101,12 @@
 						class="form-control" id="re-password" name="re-password"
 						placeholder="비밀번호 확인" required>
 				</div>
-				<%-- 
-				<input type="checkbox" name="authorities" id="authorities"
-					style="margin-left: 325px; margin-top: 15px"
-					onchange="YnCheck(this);"><label for="authorities">사업자
-					회원가입</label>
-				--%>
+
+				<input type="hidden" name="authorities" id="authorities" value="ROLE_MEMBER">
+				
+
 				<div class="text-center">
 					<button class="w-50 btn btn-lg btn-dark mt-3" type="submit">회원가입</button>
-					<a class="w-50 btn btn-lg btn-outline-dark mt-2"
-						href="${pageContext.request.contextPath}/user/business">사업자 회원가입</a>
 				</div>
 
 			</form>

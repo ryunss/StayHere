@@ -14,6 +14,12 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- KaKao Login Js -->
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/kakao.js"></script>
+
 </head>
 <body>
 	<nav class="navbar navbar-expand-sm bg-white navbar-white">
@@ -83,8 +89,18 @@
 			<button class="w-50 btn btn-lg btn-dark mt-5" type="submit">로그인</button>
 			<a class="w-50 btn btn-lg btn-outline-dark mt-2"
 				href="${pageContext.request.contextPath}/user/register">회원가입</a>
+			<ul>
+				<li onclick="kakaoLogin();"><a href="javascript:kakaoLogin()"> 
+					<span>카카오 로그인</span>
+				</a></li>
+				<li onclick="kakaoLogout();"><a href="javascript:kakaoLogout()">
+						<span>카카오 로그아웃</span>
+				</a></li>
+			</ul>
+
 
 		</form>
+
 	</div>
 
 </body>

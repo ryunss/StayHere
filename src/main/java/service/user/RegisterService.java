@@ -33,7 +33,7 @@ public class RegisterService implements Service {
 		password = password.trim();
 		re_password = re_password.trim();
 		name = name.trim();
-//		authorities = authorities.trim();
+
 
 		String conPath = request.getContextPath();
 		
