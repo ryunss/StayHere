@@ -41,14 +41,15 @@
       <c:forEach var="dto" items="${list}">
         <tr>
           <td>${dto.num }</td>
-          <td><a href="detail?num=${dto.num}">${dto.image }</a></td>
+          <td><a href="detail?num=${dto.num}"><img src="${dto.image }" alt="${dto.name }"/></a></td>
           <td>${dto.name }</td>
           <td>${dto.region }</td>
           <td>${dto.viewcnt }</td>
-        </tr>      	
+        </tr>
       </c:forEach>
       </tbody>
     </table>
   </div>
+</form>
 </body>
 </html>

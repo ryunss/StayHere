@@ -41,4 +41,8 @@
 		WHERE room_num = #{num} 
 	</update>
 	
+	<delete id="deleteByNum" flushCache="true">
+		DELETE FROM room WHERE room_num = #{num}
+	</delete>
+	
 </mapper>

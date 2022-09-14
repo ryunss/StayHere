@@ -12,7 +12,7 @@ import domain.RoomDAO;
 import domain.RoomDTO;
 import service.Service;
 import sqlmapper.SqlSessionManager;
-// 숙소등록 페이지. 관리자만 접근가능
+
 public class RegisterService implements Service {
 
 	@Override
@@ -56,7 +56,7 @@ public class RegisterService implements Service {
 		
 		request.setAttribute("result", cnt);
 		request.setAttribute("dto", dto);
-		
+
 	}
 
 }

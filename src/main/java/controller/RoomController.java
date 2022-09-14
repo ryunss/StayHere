@@ -10,12 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.Service;
+import service.room.DeleteService;
 import service.room.DetailService;
 import service.room.ListService;
-import service.room.RegisterService;
 import service.room.SearchService;
 import service.room.SelectService;
 import service.room.UpdateService;
+import service.room.RegisterService;
 
 
 @WebServlet("/room/*")
@@ -70,8 +71,7 @@ public class RoomController extends HttpServlet {
 				break;
 			case "POST":
 				service = new RegisterService();
-				service.execute(request, response);
-				viewPage = "registerOk.jsp";	
+				viewPage = "register.jsp";
 				break;
 			}
 		case "/room/list":
@@ -93,6 +93,14 @@ public class RoomController extends HttpServlet {
 				break;
 			}
 			break;
+		case "/room/delete":
+			switch(method) {
+			case "POST":
+				service = new DeleteService();
+				service.execute(request, response);
+				viewPage = "deleteOk.jsp";
+				break;
+			}
 		}
 
 		if(viewPage != null) {

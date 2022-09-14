@@ -24,69 +24,45 @@ header, footer {
 	height: 100px;
 	background-color: green;
 }
-#wrap{
-	width: 1200px;
-	height: hidden;
-	margin: 0 auto;
-/*	border: 3px solid red; */
-}
-#img{
-	width: 1200px;
-	height: 300px;
-	border: 1px solid blue;
-	margin-bottom: 20px;
-}
-#name{
-	width: 1200px;
-	height: 100px;
-	border: 1px solid blue;
-	margin-bottom: 20px;
-}
-#info{
-	width: 1200px;
-	height: 200px;
-	border: 1px solid blue;
-	margin-bottom: 20px;
-}
-
-h3{
-	text-align : center;
-}
 </style>
 </head>
 <body>
 <header>
 	메인로고
-	<div>임시 조회수 체크 : ${dto.viewcnt }</div>
 </header>
-<form action="update" method="post">
-	<div id="wrap">
-		<input type="hidden" name="num" value="${dto.num }"/>
-		<div id="img" name="image">${dto.image }</div>
-		<input type="text" id="name" name="name"value="${dto.name }"/>
-		<input type="textarea" id="info" name="info"value="${dto.info }"/>
-		<button type="submit" class="btn btn-outline-info">수정완료</button>
-		<button type="button" class="btn btn-outline-info" onclick="histoy.back()">이전으로</button>
-		<a href="list" class="btn btn-outline-info">목록</a>
+    <div class="container mt-3">
+        <h2>수정</h2>
+        <hr>
+        <div class="mb-3 mt-3 clearfix">
+            <span class="float-start me-2">image ${dto.image}</span>
+            <span class="float-end ms-4">num ${dto.num}</span>
+            <span class="float-end">조회수: ${dto.viewcnt}</span>
+        </div>
+ 
+        <form action="update" method="POST">
+            <input type="hidden" name="num" value="${dto.num}"/>
+            <div class="mb-3">
+                <label for="image">이미지</label>
+                <input type="text" class="form-control" id="image" name="image" value="${dto.image}" required>
+            </div>    
+            <div class="mb-3 mt-3">
+                <label for="name">이름</label>
+                <input type="text" class="form-control" id="name" name="name" value="${dto.name}" required>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="info">정보</label>
+                <textarea class="form-control" rows="5" id="info" name="info">${dto.info}</textarea>
+            </div>
+ 
+            <!-- 하단 링크 -->
+            <button type="submit" class="btn btn-outline-dark">수정완료</button>
+            <button type="button" class="btn btn-outline-dark" onclick="history.back()">이전으로</button>
+            <a class="btn btn-outline-dark" href="list">목록</a>
+            <!-- 하단 링크 -->
 
-
-	<h3>숙소후기</h3>
-	<hr>
-	<table>
-		<thead>
-			<tr>
-				<th style="width: 16.66%">작성자</th>
-				<th>내용</th>
-				<th style="width: 16.66%">작성일</th>
-			</tr>
-		</thead>
-		<tbody>
-
-		</tbody>
-	</table>
-	</div>
-</form>	
-	<footer>
+        </form>
+    </div>
+<footer>
 	project
 </footer>
 </body>

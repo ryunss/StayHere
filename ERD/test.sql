@@ -62,6 +62,12 @@ CREATE TABLE room
 	PRIMARY KEY (room_num)
 );
 
+-- room 등록 안되서 SQL 로 등록중
+INSERT INTO room (room_name, room_address, room_category, room_info, room_region, room_personnel, room_price, room_image)
+VALUES ('바다', '경기도 수원시', '호텔', '좋음', '수원', 4, 350000, 'file:///C:/Users/doyex/Desktop/IT/Backend/DevRoot/Dropbox/Web/Project/StayHere/src/main/webapp/img/1.PNG')
+
+SELECT * FROM room
+
 
 CREATE TABLE room_comment
 (

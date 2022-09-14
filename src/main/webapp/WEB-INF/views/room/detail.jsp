@@ -24,65 +24,58 @@ header, footer {
 	height: 100px;
 	background-color: green;
 }
-#wrap{
-	width: 1200px;
-	height: hidden;
-	margin: 0 auto;
-/*	border: 3px solid red; */
-}
-#img{
-	width: 1200px;
-	height: 300px;
-	border: 1px solid blue;
-	margin-bottom: 20px;
-}
-#name{
-	width: 1200px;
-	height: 100px;
-	border: 1px solid blue;
-	margin-bottom: 20px;
-}
-#info{
-	width: 1200px;
-	height: 200px;
-	border: 1px solid blue;
-	margin-bottom: 20px;
-}
-
-h3{
-	text-align : center;
-}
 </style>
 </head>
+
+<script>
+function chkDelete(){
+	let answer = confirm("삭제하시겠습니까?");
+	if(answer){
+		document.forms['frmDelete'].submit();
+	}
+}
+</script>
+
 <body>
 <header>
 	메인로고
-	<div>임시 조회수 체크 : ${dto.viewcnt }</div>
 </header>
 
-<div id="wrap">
-	<div id="img">${dto.image }</div>
-	<div id="name">${dto.name }</div>
-	<div id="info">${dto.info }</div>
-	<a href="update?num=${dto.num}" class="btn btn-outline-info">수정</a>
-	<a href="list" class="btn btn-outline-info">목록</a>
-	<a href="delete" class="btn btn-outline-info">삭제</a>
-	<a href="register" class="btn btn-outline-info">작성</a>
-	<h3>숙소후기</h3>
-	<hr>
-			<table>
-			<thead>
-				<tr>
-					<th style="width: 16.66%">작성자</th>
-					<th>내용</th>
-					<th style="width: 16.66%">작성일</th>
-				</tr>
-			</thead>
-			<tbody>
-				
-			</tbody>
-		</table>
-</div>
+<div class="container mt-3">
+        <h2>조회 - ${dto.name}</h2>
+        <hr>
+        <div class="mb-3 mt-3 clearfix">
+            <span class="float-start me-2">${dto.image }</span>
+            <span class="float-end ms-4">${dto.name}</span>
+            <span class="float-end">${dto.viewcnt}</span>
+        </div>
+ 
+        <section>
+        <form name="frmDelete" action="delete" method="POST">
+        	<input type="hidden" name="num" value="${dto.num }">
+        </form>
+            <div class="mb-3">
+                <label for="image">숙소이미지</label>
+                <span class="form-control" >${dto.image}</span>
+            </div>    
+            <div class="mb-3 mt-3">
+                <label for="name">숙소명</label>
+                <span class="form-control" >${dto.name}</span>
+            </div>    
+            <div class="mb-3 mt-3">
+                <label for="info">정보</label>
+                <span class="form-control" >${dto.info}</span>
+            </div>    
+ 
+            <!-- 하단 링크 -->
+            <a class="btn btn-outline-dark" href="update?num=${dto.num}">수정</a>
+            <a class="btn btn-outline-dark" href="list">목록</a>
+            <button type="button" class="btn btn-outline-dark" onclick="chkDelete()">삭제</button>
+            <a class="btn btn-outline-dark" href="register">작성</a>
+            <!-- 하단 링크 -->        
+ 
+        </section>
+    </div>
 <footer>
 	project
 </footer>
