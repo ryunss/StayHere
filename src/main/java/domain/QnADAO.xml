@@ -63,7 +63,7 @@
 	<update id="updateQnA" flushCache="true"
 		parameterType="domain.QnADTO">
 		UPDATE qnaboard
-		SET qna_subject = #{qna_subject}, content = #{content}
+		SET qna_subject = #{qna_subject}, qna_content = #{qna_content}
 		WHERE qna_num = #{qna_num}	
 	</update>
 	
