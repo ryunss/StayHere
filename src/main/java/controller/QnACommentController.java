@@ -12,7 +12,7 @@ import service.qnacomment.QnACmtDeleteService;
 import service.qnacomment.QnACmtListService;
 import service.qnacomment.QnACmtWriteService;
 
-@WebServlet("/qnacomment/*")
+@WebServlet("/qcomment/*")
 public class QnACommentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -12,13 +12,13 @@ $(function(){
 		}
 		
 		const data = {
-			"qna_num" : qna_num,
+			"qaa_num" : qna_num,
 			"user_num" : user_num,
-			"qna_content" : qna_content,
+			"qc_content" : qna_content,
 		};
 		
 		$.ajax({
-			url: conPath + "/comment/write",
+			url: conPath + "/qcomment/write",
 			type: "POST",
 			data: data,
 			cache: false,
@@ -36,7 +36,7 @@ $(function(){
 
 function loadComment(qna_num) {
 	$.ajax({
-		url: conPath + "/comment/list?num=" + qna_num,
+		url: conPath + "/qcomment/list?num=" + qna_num,
 		type: "GET",
 		cache: false,
 		success: function(data, status){
@@ -61,11 +61,11 @@ function buildComment(result){
 	result.data.forEach(comment => {
         let qc_num = comment.qc_num;
         let qc_content = comment.qc_content.trim();
-        let regdate = comment.qc_regdate;
+        let regDate = comment.regDate;
 
-        let user_num = parseInt(comment.user_num.user_num);
-        let user_id = comment.user_num.user_id;
-        let user_name = comment.user_num.user_name;
+        let user_num = parseInt(comment.user_num);
+        let user_id = comment.user_id;
+        let user_name = comment.user_name;
         
         const delBtn = (logged_id !== user_num) ? '' : `
                 <i class="btn fa-solid fa-delete-left text-danger" data-bs-toggle="tooltip"
@@ -74,11 +74,11 @@ function buildComment(result){
             
         const row = `
 	        <tr>
-	        <td><span><strong>${user_name}</strong><br><small class="text-secondary">(${user_name})</small></span></td>
+	        <td><span><strong>${user_id}</strong><br><small class="text-secondary">(${user_name})</small></span></td>
 	        <td>
 	            <span>${qc_content}</span>${delBtn}            
 	        </td>
-	        <td><span><small class="text-secondary">${qc_regdate}</small></span></td>
+	        <td><span><small class="text-secondary">${regDate}</small></span></td>
 	        </tr>      
 	        `;
 		out.push(row);		
@@ -98,10 +98,10 @@ function addDelete(){
 		const comment_num = $(this).attr("data-cmtdel-id");
 		
 		$.ajax({
-			url: conPath + "/comment/delete",
+			url: conPath + "/qcomment/delete",
 			type: "POST",
 			cache: false,
-			data: {"id": comment_num},
+			data: {"num": comment_num},
 			success: function(data, status){
 				if(status == "success"){
 					if(data.status !== "OK"){

@@ -14,19 +14,19 @@
 	<resultMap type="domain.QnACommentDTO" id="mapComment">
 		<result column="qc_num" property="qc_num"/>
 		<result column="qc_content" property="qc_content"/>
-		<result column="qc_regdate" property="qc_regdate"/>
+		<result column="qc-regdate" property="regDate"/>
 		<collection property="user_num" resultMap="mapUser"/>
 	</resultMap>
 	
-	<select id="selectByNum" resultMap="mapComment">
+	<select id="selectByQnA" resultMap="mapComment">
 		SELECT
 			c.qc_num "qc_num",
 			c.qc_content "qc_content",
-			c.qc_regdate" qc_regdate",
+			c.qc_regdate "regDate",
 			u.user_num "user_num",
 			u.user_id "user_id",
 			u.user_name "user_name",
-			u.user_authorities "user_authorities",
+			u.authorities "authorities",
 			u.user_regdate "user_regdate"
 		FROM qna_comment c, user u
 		WHERE

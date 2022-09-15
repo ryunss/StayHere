@@ -23,7 +23,7 @@ public class QnACmtListService implements Service {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//qna_num
-		int num = Integer.parseInt(request.getParameter("qna_num"));
+		int num = Integer.parseInt(request.getParameter("num"));
 		
 		QnAQryCommentList obj = new QnAQryCommentList();
 		ObjectMapper mapper = new ObjectMapper();
