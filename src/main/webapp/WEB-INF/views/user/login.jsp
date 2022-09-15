@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
@@ -13,21 +12,17 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <!-- KaKao Login Js -->
-<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/js/kakao.js"></script>
 
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-sm bg-white navbar-white">
 		<div class="container-fluid">
 			<div>
-				<%-- 
-			<img src="${pageContext.request.contextPath}/img/main0.png" class="ms-3">
-		--%>
 				<h1 class="ms-5">
 					<a class="text-decoration-none fw-bold text-dark"
 						href="${pageContext.request.contextPath}/home">여긴 어때</a>
@@ -54,7 +49,6 @@
 							<button class="btn btn-outline-dark me-5 ms-2" type="submit">JOIN</button>
 						</form>
 					</c:when>
-
 					<c:otherwise>
 						<form action="${pageContext.request.contextPath}/user/logout"
 							method="POST">
@@ -74,6 +68,9 @@
 			<div class="w-50" style="margin: 0 auto">
 				<hr>
 			</div>
+			<div class="row mt-5">
+				<div class="col-12 text-danger">${REDIRECT_ATTR.error }</div>
+			</div>
 			<div class="form-floating w-50 mt-5" style="margin: 0 auto">
 				<input type="text" class="form-control" name="username"
 					id="username" value="${REDIRECT_ATTR.username }"
@@ -84,25 +81,77 @@
 					id="password" value="" placeholder="Password" required> <label
 					for="password">Password</label>
 			</div>
-
-
 			<button class="w-50 btn btn-lg btn-dark mt-5" type="submit">로그인</button>
 			<a class="w-50 btn btn-lg btn-outline-dark mt-2"
 				href="${pageContext.request.contextPath}/user/register">회원가입</a>
-			<ul>
-				<li onclick="kakaoLogin();"><a href="javascript:kakaoLogin()"> 
-					<span>카카오 로그인</span>
-				</a></li>
-				<li onclick="kakaoLogout();"><a href="javascript:kakaoLogout()">
-						<span>카카오 로그아웃</span>
-				</a></li>
-			</ul>
-
-
 		</form>
-
 	</div>
 
-</body>
+	<%-- 카카오 로그인 --%>
+	
+	<a id="kakao-login-btn"><input type="submit" name="username" id="username" value="zz"> </a>
+	<button class="api-btn" onclick="unlinkApp()"> 로그아웃</button>
+	
+	<div id="result"></div>
+	<script type="text/javascript">
+		function unlinkApp() {
+			Kakao.API.request({
+				url : '/v1/user/unlink',
+				success : function(res) {
+					alert('success: ' + JSON.stringify(res) + "로그아웃 완료")
+				},
+				fail : function(err) {
+					alert('fail: ' + JSON.stringify(err))
+				},
+			})
+		}
+	</script>
+     <form action="${pageContext.request.contextPath }/user/login" method="POST">   
+	<script type="text/javascript">
+		Kakao.init('b756a4fee6791d4e8b35ee51a69ef322');
 
+
+		Kakao.Auth
+				.createLoginButton({
+					container : '#kakao-login-btn',
+					success : function(authObj) {
+						Kakao.API
+								.request({
+									url : '/v2/user/me',
+									success : function(result) {
+										$('#result').append(result);
+										id = result.id
+										
+										kakao_account = result.kakao_account
+										$('#result').append(kakao_account);
+										resultdiv = "<h2>로그인 성공 !!"
+										
+										
+										email = "";
+										if (typeof kakao_account != 'undefined') {
+											email = kakao_account.email;
+										}
+										resultdiv += '<h4>email: ' + email
+												+ '<h4>'
+										resultdiv += '<h4>result: ' + kakao_account.email;
+												+ '<h4>'
+										$('#result').append(resultdiv);
+										 
+										
+									},
+									fail : function(error) {
+										alert('login success, but failed to request user information: '
+												+ JSON.stringify(error))
+									},
+								})
+					},
+					fail : function(err) {
+						alert('failed to login: ' + JSON.stringify(err))
+					},
+				})
+			
+	</script>
+										
+</form>
+</body>
 </html>

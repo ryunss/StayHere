@@ -75,12 +75,12 @@
 				<hr>
 			</div>
 		</div>
-		<div class="row mt-5">
+		<div class="row mt-5 text-center">
 			<div class="col-12 text-danger">${REDIRECT_ATTR.error }</div>
 		</div>
 		<div class="row">
 			<form method="POST" name="joinForm"
-				action="${pageContext.request.contextPath}/user/register">
+				action="${pageContext.request.contextPath}/user/business">
 				<div class="form-group mt-2 w-50" style="margin: 0 auto">
 					<label for="username">사용자 아이디</label> <input type="text"
 						class="form-control" id="username" name="username"
@@ -90,6 +90,11 @@
 					<label for="name">사용자 이름</label> <input type="text"
 						class="form-control" id="name" name="name" placeholder="이름"
 						value="${REDIRECT_ATTR.name }" required>
+				</div>
+				<div class="form-group mt-2 w-50" style="margin: 0 auto">
+					<label for="business_num">사업자 등록번호</label> 
+					<input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="business_num" name="business_num" placeholder="사업자 등록 번호 10자리"
+						 required>
 				</div>
 				<div class="form-group mt-2 w-50" style="margin: 0 auto">
 					<label for="password">비밀번호</label> <input type="password"

@@ -62,12 +62,6 @@ CREATE TABLE room
 	PRIMARY KEY (room_num)
 );
 
-INSERT INTO 
-	room(room_name, room_address, room_category, room_info, room_region, room_personnel, room_price, room_image)
-VALUES 
-	('까사드품산', '경상도 경주시', '펜션', '사계절 아름다운 품산지를 품은 이곳에서 미뤄온 여유를 맘껏 누려보기를 바랍니다.', '경주', 4, 420000, 'img/3001505.jpg'),
-	
-SELECT * FROM room 
 
 CREATE TABLE room_comment
 (
@@ -96,7 +90,7 @@ CREATE TABLE user
 	user_name varchar(100) NOT NULL,
 	user_regdate datetime DEFAULT now(),
 	authorities varchar(200),
-	business varchar(40),
+	business_num varchar(10),
 	PRIMARY KEY (user_num),
 	UNIQUE (user_id)
 );
@@ -168,5 +162,18 @@ ALTER TABLE room_like
 	ON DELETE CASCADE
 ;
 
+SELECT * FROM `user`  ORDER BY user_num  DESC;
+INSERT INTO `user`  (user_id , user_password ,user_name  , authorities) VALUES
+('USER', '1234', '회원1', 'ROLE_MEMBER'),
+('USER2', '1234', '회원2', null),
+('ADMIN1', '1234', '관리자1', 'ROLE_MEMBER,ROLE_ADMIN')
+;
+
+
+
+
+
+
+SELECT * FROM room  ORDER BY room_num DESC;
 
 

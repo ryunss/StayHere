@@ -34,6 +34,8 @@ public class LoginService implements Service {
 		SqlSession sqlSession = null;
 		UserDAO dao = null;
 		
+		
+		
 
 		try {
 			sqlSession = SqlSessionManager.getInstance().openSession();
@@ -43,7 +45,7 @@ public class LoginService implements Service {
 			List<UserDTO> list = dao.selectByUsername(dto);
 			if(list.size() == 0) {
 				
-				C.addRedirectAttribute(request, "error", "존재하지 않는 아이디(username)");
+				C.addRedirectAttribute(request, "error", "존재하지 않는 아이디입니다");
 				C.addRedirectAttribute(request, "username", username);				
 				
 				response.sendRedirect(conPath + "/user/login");
@@ -53,7 +55,7 @@ public class LoginService implements Service {
 			// 패스워드가 다른 경우
 			dto = list.get(0);
 			if(!dto.getUser_password().equals(password)) {
-				C.addRedirectAttribute(request, "error", "password 가 다릅니다");
+				C.addRedirectAttribute(request, "error", "비밀번호가 일치하지 않습니다");
 				C.addRedirectAttribute(request, "username", username);				
 				
 				response.sendRedirect(conPath + "/user/login");

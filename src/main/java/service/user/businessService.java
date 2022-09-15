@@ -19,7 +19,7 @@ import domain.UserDTO;
 import service.Service;
 import sqlmapper.SqlSessionManager;
 
-public class RegisterService implements Service {
+public class businessService implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -28,6 +28,7 @@ public class RegisterService implements Service {
 		String re_password = request.getParameter("re-password");
 		String name = request.getParameter("name"); // 유 이름
 		String authorities = request.getParameter("authorities"); // 권한
+		String business_num = request.getParameter("business_num");
 
 		username = username.trim();
 		password = password.trim();
@@ -42,23 +43,18 @@ public class RegisterService implements Service {
 		
 		Matcher matcher1 = Pattern.compile(pwpattern).matcher(password);
 		
+
+		
 		if(!matcher1.matches()) {
 			C.addRedirectAttribute(request, "error", "비밀번호는 영문(대소문자 구분), 숫자, 특수문자 조합, 9~12자리이어야 합니다");
 			C.addRedirectAttribute(request, "username", username);
 			C.addRedirectAttribute(request, "name", name);
 
-			response.sendRedirect(conPath + "/user/register");
+			response.sendRedirect(conPath + "/user/business");
 
 			return;
 		}
-		
-		if (username.length() < 5 || username.length() > 12) {
-			C.addRedirectAttribute(request, "error", "아이디는 5자이상 12자 이하이어야 합니다");
-			C.addRedirectAttribute(request, "name", name);
-			
-			response.sendRedirect(conPath + "/user/register");
-			return;
-		}
+
 
 		
 		if (!password.equals(re_password)) {
@@ -67,7 +63,7 @@ public class RegisterService implements Service {
 			C.addRedirectAttribute(request, "username", username);
 			C.addRedirectAttribute(request, "name", name);
 
-			response.sendRedirect(conPath + "/user/register");
+			response.sendRedirect(conPath + "/user/business");
 
 			return;
 		}
@@ -77,7 +73,16 @@ public class RegisterService implements Service {
 			C.addRedirectAttribute(request, "username", username);
 			C.addRedirectAttribute(request, "name", name);
 			
-			response.sendRedirect(conPath + "/user/register");
+			response.sendRedirect(conPath + "/user/business");
+			
+			return;
+		}
+		
+		if(business_num.length() != 10) {
+			C.addRedirectAttribute(request, "error", "유효하지않은 사업자번호입니다");
+			C.addRedirectAttribute(request, "username", username);
+			C.addRedirectAttribute(request, "name", name);
+			response.sendRedirect(conPath + "/user/business");
 			return;
 		}
 
@@ -101,7 +106,7 @@ public class RegisterService implements Service {
 				C.addRedirectAttribute(request, "username", username);
 				C.addRedirectAttribute(request, "name", name);
 
-				response.sendRedirect(conPath + "/user/register");
+				response.sendRedirect(conPath + "/user/business");
 
 				return;
 			}
