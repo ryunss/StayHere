@@ -74,7 +74,7 @@ public class UpdateService implements Service {
         	}        	
         }
 	    
-	    int num = Integer.parseInt(multi.getParameter("num"));
+	    int num = Integer.parseInt(multi.getParameter("qna_num"));
 		String subject = multi.getParameter("qna_subject");
 		String content = multi.getParameter("qna_content");
 		

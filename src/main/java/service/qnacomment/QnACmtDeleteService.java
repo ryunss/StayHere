@@ -47,7 +47,7 @@ public class QnACmtDeleteService implements Service {
 		}
 		
 		String output = mapper.writeValueAsString(obj);
-		response.setContentType("application.json; charset=utf-8");
+		response.setContentType("application/json; charset=utf-8");
 		response.getWriter().write(output);
 	}
 

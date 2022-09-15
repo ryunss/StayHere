@@ -1,5 +1,5 @@
 $(function(){
-	const num = $("input[name='id']").val().trim();
+	const num = $("input[name='qna_num']").val().trim();
 	
 	loadComment(num);
 	
@@ -36,7 +36,7 @@ $(function(){
 
 function loadComment(qna_num) {
 	$.ajax({
-		url: conPath + "/comment/list?id=" + write_id,
+		url: conPath + "/comment/list?num=" + qna_num,
 		type: "GET",
 		cache: false,
 		success: function(data, status){
@@ -61,7 +61,7 @@ function buildComment(result){
 	result.data.forEach(comment => {
         let qc_num = comment.qc_num;
         let qc_content = comment.qc_content.trim();
-        let regdate = comment.regdate;
+        let regdate = comment.qc_regdate;
 
         let user_num = parseInt(comment.user_num.user_num);
         let user_id = comment.user_num.user_id;
@@ -69,7 +69,7 @@ function buildComment(result){
         
         const delBtn = (logged_id !== user_num) ? '' : `
                 <i class="btn fa-solid fa-delete-left text-danger" data-bs-toggle="tooltip"
-                    data-cmtdel-id="${id}" title="삭제"></i>
+                    data-cmtdel-id="${qc_num}" title="삭제"></i>
             `;
             
         const row = `
@@ -78,7 +78,7 @@ function buildComment(result){
 	        <td>
 	            <span>${qc_content}</span>${delBtn}            
 	        </td>
-	        <td><span><small class="text-secondary">${regdate}</small></span></td>
+	        <td><span><small class="text-secondary">${qc_regdate}</small></span></td>
 	        </tr>      
 	        `;
 		out.push(row);		
@@ -89,7 +89,7 @@ function buildComment(result){
 
 function addDelete(){
 	// 현재 글의 id
-	const num = $("input[name='id']").val().trim();
+	const num = $("input[name='qna_num']").val().trim();
 	
 	$("[data-cmtdel-id]").click(function(){
 		if(!confirm("댓글을 삭제하시겟습니까?")) return;

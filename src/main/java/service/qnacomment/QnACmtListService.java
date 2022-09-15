@@ -49,7 +49,7 @@ public class QnACmtListService implements Service {
 		}
 		
 		String output = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
-		response.setContentType("application.json; charset=utf-8");
+		response.setContentType("application/json; charset=utf-8");
 		response.getWriter().write(output);
 	}
 }

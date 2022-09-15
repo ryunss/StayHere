@@ -54,7 +54,7 @@
                 <tr>
                     <td>${dto.qna_num }</td>
                     <td><a href="detail?num=${dto.qna_num }">${dto.qna_subject }</a></td>
-                    <td>${dto.user_num}</td>
+                    <td>${dto.user_num.user_name}</td>
                     <td>${dto.regDateTime}</td>
                 </tr>            
             </c:forEach>           

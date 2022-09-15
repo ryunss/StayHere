@@ -53,7 +53,7 @@
 
         <section>
         	<form name="frmDelete" action="delete" method="POST">
-        		<input type="hidden" name="id" value="${dto.qna_num}">
+        		<input type="hidden" name="qna_num" value="${dto.qna_num}">
         	</form>
             <div class="mb-3">
                 <label for="name">작성자:</label>

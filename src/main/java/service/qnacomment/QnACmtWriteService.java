@@ -62,7 +62,7 @@ public class QnACmtWriteService implements Service {
 		}
 		
 		String output = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj); //포맷팅
-		response.setContentType("application.json; charset=utf-8");
+		response.setContentType("application/json; charset=utf-8");
 		response.getWriter().write(output);
 	}
 }

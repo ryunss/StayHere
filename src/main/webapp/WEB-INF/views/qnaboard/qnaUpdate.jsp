@@ -36,7 +36,7 @@
         </div>
 
         <form action="update" method="POST" enctype="Multipart/form-data">
-            <input type="hidden" name="id" value="${dto.user_num }"/>
+            <input type="hidden" name="qna_num" value="${dto.qna_num }"/>
             <div class="mb-3">
                 <label for="name">작성자:</label>
                 <span class="form-control" readonly>${dto.user_num.user_id } (${dto.user_num.user_id })</span>
