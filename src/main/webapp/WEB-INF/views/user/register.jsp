@@ -77,7 +77,7 @@
 				<hr>
 			</div>
 		</div>
-		<div class="row mt-5">
+		<div class="row mt-5 text-center">
 			<div class="col-12 text-danger">${REDIRECT_ATTR.error }</div>
 		</div>
 		<div class="row">
@@ -86,17 +86,17 @@
 				<div class="form-group mt-2 w-50" style="margin: 0 auto">
 					<label for="username">사용자 아이디</label> <input type="text"
 						class="form-control" id="username" name="username"
-						placeholder="아이디" value="${REDIRECT_ATTR.username }" required>
+						placeholder="아이디 : 5~12자리" value="${REDIRECT_ATTR.username }" required>
 				</div>
 				<div class="form-group mt-2 w-50" style="margin: 0 auto">
 					<label for="name">사용자 이름</label> <input type="text"
-						class="form-control" id="name" name="name" placeholder="이름"
+						class="form-control" id="name" name="name" placeholder="사용자 이름"
 						value="${REDIRECT_ATTR.name }" required>
 				</div>
 				<div class="form-group mt-2 w-50" style="margin: 0 auto">
 					<label for="password">비밀번호</label> <input type="password"
 						class="form-control" id="password" name="password"
-						placeholder="영문(대소문자 구분), 숫자, 특수문자 조합, 9~12자리" required>
+						placeholder="비밀번호 : 영문(대소문자 구분), 숫자, 특수문자 조합, 9~12자리" required>
 				</div>
 				<div class="form-group mt-2 w-50" style="margin: 0 auto">
 					<label for="re-password">비밀번호 확인</label> <input type="password"

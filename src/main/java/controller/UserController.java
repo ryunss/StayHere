@@ -13,6 +13,7 @@ import common.C;
 import service.Service;
 import service.user.LoginService;
 import service.user.RegisterService;
+import service.user.businessService;
 
 @WebServlet("/user/*")
 public class UserController extends HttpServlet {
@@ -74,7 +75,7 @@ public class UserController extends HttpServlet {
 				viewPage = "/user/business.jsp";
 				break;
 			case "POST":
-				service = new RegisterService();
+				service = new businessService();
 				service.execute(request, response);
 				if (!response.isCommitted())
 					viewPage = "/user/registerOk.jsp";
@@ -95,20 +96,6 @@ public class UserController extends HttpServlet {
 
 					response.sendRedirect(redirectUrl);
 				}
-				break;
-			}
-			break;
-		case "/user/test":
-			switch (method) {
-			case "GET":
-				C.retrieveRedirectAttribute(request);
-				viewPage = "/user/test.jsp";
-				break;
-			case "POST":
-				service = new RegisterService();
-				service.execute(request, response);
-				if (!response.isCommitted())
-					viewPage = "/user/registerOk.jsp";
 				break;
 			}
 			break;
