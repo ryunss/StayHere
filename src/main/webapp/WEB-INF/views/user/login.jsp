@@ -84,8 +84,7 @@
 			<button class="w-50 btn btn-lg btn-dark mt-5" type="submit">로그인</button>
 			<a class="w-50 btn btn-lg btn-outline-dark mt-2"
 				href="${pageContext.request.contextPath}/user/register">회원가입</a>
-		</form>		
-
+		</form>
 	</div>
 
 	<%-- 카카오 로그인 --%>

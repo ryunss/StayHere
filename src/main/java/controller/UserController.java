@@ -15,7 +15,6 @@ import service.user.LoginService;
 import service.user.RegisterService;
 import service.user.businessService;
 
-
 @WebServlet("/user/*")
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -100,7 +99,6 @@ public class UserController extends HttpServlet {
 				break;
 			}
 			break;
-
 		case "/user/logout":
 			if (method.equals("POST")) {
 				request.getSession().removeAttribute(C.PRINCIPAL);
