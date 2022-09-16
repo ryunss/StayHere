@@ -173,7 +173,8 @@ INSERT INTO `user`  (user_id , user_password ,user_name  , authorities) VALUES
 
 
 
-
 SELECT * FROM room  ORDER BY room_num DESC;
+SELECT * FROM qnaboard  ORDER BY qna_num  DESC;
+
 
 
