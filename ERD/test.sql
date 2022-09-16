@@ -168,7 +168,11 @@ INSERT INTO `user`  (user_id , user_password ,user_name  , authorities) VALUES
 ('USER2', '1234', '회원2', null),
 ('ADMIN1', '1234', '관리자1', 'ROLE_MEMBER,ROLE_ADMIN')
 ;
-
+INSERT INTO room (room_name,room_address,room_category,room_info,room_region,room_personnel,room_price,room_image) VALUES
+('방이름1','주소1','분류1','정보1','지역1','1','100','1'),
+('방이름1','주소1','분류1','정보2','지역2','2','200','2'),
+('방이름1','주소1','분류1','정보3','지역3','3','300','3')
+;
 
 
 
