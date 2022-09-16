@@ -21,6 +21,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	const conPath = "${pageContext.request.contextPath}";
+	const logged_id = ${PRINCIPAL.user_num};
+</script>
+<script src="${pageContext.request.contextPath }/js/roomDetail.js"></script>
 <style>
 header, footer {
 	width: 100%;
@@ -82,6 +89,8 @@ function chkDelete(){
             <a class="btn btn-outline-dark" href="register">작성</a>
             <!-- 하단 링크 -->        
  
+ 			<!-- 댓글 -->
+ 			<jsp:include page="comment.jsp"></jsp:include>
         </section>
     </div>
 <footer>
