@@ -35,7 +35,6 @@ CREATE TABLE qnaboard
 	PRIMARY KEY (qna_num)
 );
 
-
 CREATE TABLE qna_comment
 (
 	qc_num int NOT NULL AUTO_INCREMENT,
@@ -45,7 +44,6 @@ CREATE TABLE qna_comment
 	qc_regdate datetime DEFAULT now(),
 	PRIMARY KEY (qc_num)
 );
-
 
 CREATE TABLE room
 (
@@ -62,7 +60,6 @@ CREATE TABLE room
 	PRIMARY KEY (room_num)
 );
 
-
 CREATE TABLE room_comment
 (
 	rc_num int NOT NULL AUTO_INCREMENT,
@@ -72,7 +69,6 @@ CREATE TABLE room_comment
 	rc_regdate datetime DEFAULT now(),
 	PRIMARY KEY (rc_num)
 );
-
 
 CREATE TABLE room_like
 (
@@ -162,7 +158,7 @@ ALTER TABLE room_like
 	ON DELETE CASCADE
 ;
 
-SELECT * FROM `user`  ORDER BY user_num  DESC;
+SELECT * FROM 'user'  ORDER BY user_num  DESC;
 INSERT INTO `user`  (user_id , user_password ,user_name  , authorities) VALUES
 ('USER', '1234', '회원1', 'ROLE_MEMBER'),
 ('USER2', '1234', '회원2', null),
