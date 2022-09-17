@@ -6,11 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-header, footer {
-	width: 100%;
-	height: 100px;
-	background-color: green;
-}
 #wrap{
 	width: 1200px;
 	height: hidden;
@@ -48,9 +43,7 @@ header, footer {
 </style>
 </head>
 <body>
-<header>
-	메인로고
-</header>
+<jsp:include page="header.jsp"/>
 <div id="wrap">
 <div id="s">검색조건설정</div>
 <form action="FormOk" method="post">
@@ -94,8 +87,6 @@ header, footer {
 	    </div>
     </div>
 </div>
-<footer>
-	project
-</footer>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

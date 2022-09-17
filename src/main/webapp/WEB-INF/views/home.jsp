@@ -57,6 +57,11 @@
 						<li class="nav-item ms-3 fw-bold">
 						<a class="nav-link text-dark" href="${pageContext.request.contextPath}/room/new">숙소 등록</a></li>
 					</c:if>
+					<!-- 숙소 list로 가는거 임시로 추가 -->
+					<li class="nav-item ms-3 fw-bold"><a
+						class="nav-link text-dark"
+						href="${pageContext.request.contextPath}/room/list">숙소</a></li>
+					<!-- ----------------------  -->
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/room/search">숙소 검색</a></li>
