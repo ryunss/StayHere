@@ -87,9 +87,6 @@
 	    </div>
     </div>
 </div>
-<<<<<<< HEAD
 <jsp:include page="footer.jsp"/>
-=======
->>>>>>> cd0075dccfb538703e8c41cc0b05acd899fae441
 </body>
 </html>

@@ -1,19 +1,8 @@
-<<<<<<< HEAD
- <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-=======
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
->>>>>>> cd0075dccfb538703e8c41cc0b05acd899fae441
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,68 +18,12 @@
 	rel="stylesheet">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<<<<<<< HEAD
-<style>
-	#frm{
-		width: 900px;
-		height: hidden;
-		margin : 0 auto;
-	}
-	
-	h4{
-		text-align : center;
-	}
-}
-</style>
-</head>
-<body>
-<jsp:include page="header.jsp"/>
-
-<form id="frm">
- <div class="container mt-3">
-
-	<hr>
-	<br>
-	
-    <h2>숙소 리스트</h2>
-	<br>
-    <table class="table table-hover">
-      <thead class="table-active">
-        <tr>
-          <th>#</th>
-          <th>숙소이미지</th>
-          <th>숙소이름</th>
-          <th>지역</th>
-          <th>조회수</th>
-        </tr>
-      </thead>
-      <tbody>
-      <c:forEach var="dto" items="${list}">
-        <tr>
-          <td>${dto.num }</td>
-          <td><a href="detail?num=${dto.num}"><img src="${pageContext.request.contextPath}/${dto.image }" alt="${dto.name }"/></a></td>
-          <td>${dto.name }</td>
-          <td>${dto.region }</td>
-          <td>${dto.viewcnt }</td>
-        </tr>
-      </c:forEach>
-      </tbody>
-    </table>
-  </div>
-</form>
-
-<jsp:include page="footer.jsp"/>
-
-=======
-
-</head>
-<body>
 <body>
 
 
 
-<nav
-		class="navbar navbar-expand-sm bg-white navbar-white fixed-top"  style="border: solid 1px gray;">
+	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top"
+		style="border: solid 1px gray;">
 		<div class="container-fluid">
 			<div>
 				<h1 class="ms-5">
@@ -114,9 +47,11 @@
 				</div>
 
 				<ul class="navbar-nav">
-					<c:if test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
-						<li class="nav-item ms-3 fw-bold">
-						<a class="nav-link text-dark" href="${pageContext.request.contextPath}/room/register">숙소 등록</a></li>
+					<c:if
+						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
+						<li class="nav-item ms-3 fw-bold"><a
+							class="nav-link text-dark"
+							href="${pageContext.request.contextPath}/room/register">숙소 등록</a></li>
 					</c:if>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
@@ -152,9 +87,9 @@
 	</nav>
 
 
-	
+
 	<form id="frm">
-		<div class="container text-center" style="margin-top:100px;">
+		<div class="container text-center" style="margin-top: 100px;">
 			<h1 class="h3 mb-5 fw-normal">L I S T</h1>
 
 			<table class="table table-hover">
@@ -185,7 +120,6 @@
 			</table>
 		</div>
 	</form>
->>>>>>> cd0075dccfb538703e8c41cc0b05acd899fae441
 </body>
 
 
