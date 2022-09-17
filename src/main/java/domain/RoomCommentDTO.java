@@ -28,8 +28,8 @@ public class RoomCommentDTO {
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	@JsonProperty("regdate")
 	private LocalDateTime regDate;
-	private UserDTO user_num;
+	private UserDTO user;
 	
 	@JsonIgnore
-	private RoomDTO room_num;
+	private RoomDTO room;
 }

@@ -12,7 +12,7 @@ import service.roomcomment.RoomCmtDeleteService;
 import service.roomcomment.RoomCmtListService;
 import service.roomcomment.RoomCmtWriteService;
 
-@WebServlet("/roomcomment/*")
+@WebServlet("/room/comment/*")
 public class RoomCommentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -44,17 +44,17 @@ public class RoomCommentController extends HttpServlet {
 		System.out.println("command: " + command);
 		
 		switch(command) {
-		case "/roomcomment/list":
+		case "/room/comment/list":
 			new RoomCmtListService().execute(request, response);
 			break;
 			
-		case "/roomcomment/write":
+		case "/room/comment/write":
 			if(method.equals("POST")) {
 				new RoomCmtWriteService().execute(request, response);
 			}
 			break;
 		
-		case "/roomcomment/delete":			
+		case "/room/comment/delete":			
 			if(method.equals("POST")) {
 				new RoomCmtDeleteService().execute(request, response);
 			}

@@ -33,8 +33,8 @@ public class RoomCmtWriteService implements Service {
 		user.setUser_num(userNum);
 		
 		RoomCommentDTO dto = RoomCommentDTO.builder()
-				.room_num(room)
-				.user_num(user)
+				.room(room)
+				.user(user)
 				.rc_content(content)
 				.build();
 		

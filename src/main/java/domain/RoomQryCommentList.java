@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class RoomQryCommentList extends RoomQryResult{
 	
 	@JsonProperty("data")
-	List<RoomCommentDTO> List; // 목록데이터
+	List<RoomCommentDTO> list; // 목록데이터
 }

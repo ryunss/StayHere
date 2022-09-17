@@ -1,46 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.RoomCommentDAO">
-	<resultMap type="domain.UserDTO" id="mapUser">
-		<result column="u_num" property="user_num"/>
-		<result column="u_id" property="user_id"/>
-		<result column="u_name" property="user_name"/>
-		<result column="u_authorities" property="authorities"/>
-		<result column="u_regdate" property="user_regdate"/>
-	</resultMap>
-	
-	<resultMap type="domain.RoomCommentDTO" id="mapComment">
-		<result column="rc_num" property="rc_num"/>
-		<result column="rc_content" property="rc_content"/>
-		<result column="rc-regdate" property="regDate"/>
-		<collection property="user_num" resultMap="mapUser"/>
-	</resultMap>
-	
-	<select id="selectByRoom" resultMap="mapComment">
-		SELECT
-			c.rc_num "rc_num",
-			c.rc_content "rc_content",
-			c.rc_regdate "regDate",
-			u.user_num "user_num",
-			u.user_id "user_id",
-			u.user_name "user_name",
-			u.authorities "authorities",
-			u.user_regdate "user_regdate"
-		FROM room_comment c, user u
-		WHERE
-			c.user_num = u.user_num
-			AND
-			c.room_num = #{param1}
-		ORDER BY c.rc_num DESC
-	</select>
-	
-	<insert id="insert" flushCache="true" parameterType="domain.RoomCommentDTO"
-		useGeneratedKeys="true" keyColumn="rc_num" keyProperty="rc_num">
-		INSERT INTO room_comment(user_num, room_num, rc_content)
-		VALUES(#(user_num.user_num), #(room_num.room_num), #(rc_content))
-	</insert>
-	
-	<delete id="deleteByNum" flushCache="true">
-		DELETE FROM room_comment WHERE rc_num = #{rc_num}
-	</delete>
+<resultMap type="domain.UserDTO" id="mapUser">
+    <result column="u_num" property="user_num"/>
+    <result column="u_id" property="user_id"/>
+    <result column="u_password" property="user_password"/>
+    <result column="u_name" property="user_name"/>
+    <result column="u_authorities" property="authorities"/>
+</resultMap>
+
+<resultMap type="domain.RoomCommentDTO" id="mapComment">
+    <result column="c_num" property="rc_num"/>
+    <result column="c_content" property="rc_content"/>
+    <result column="c_regdate" property="regDate"/>
+    <collection property="user" resultMap="mapUser"/>
+</resultMap>
+
+<select id="selectByRoom" resultMap="mapComment">
+    SELECT
+        c.rc_num "c_num",
+        c.rc_content "c_content",
+        c.rc_regdate "c_regdate",
+        u.user_num "u_num",
+        u.user_id "u_id",
+        u.user_password "u_password",
+        u.user_name "u_name",
+        u.authorities "u_authorities"       
+    FROM room_comment c, user u
+    WHERE
+        c.user_num = u.user_num
+        AND c.room_num = #{param1}
+    ORDER BY c.rc_num DESC
+</select>
 </mapper>

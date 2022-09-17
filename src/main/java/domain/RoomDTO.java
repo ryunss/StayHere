@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class RoomDTO {
-	private UserDTO user_num;
+	private UserDTO user;
 	private int num; // room_num - PK
 	private String name; // room_name - 숙소 이름
 	private String address; // room_address - 숙소 주소
