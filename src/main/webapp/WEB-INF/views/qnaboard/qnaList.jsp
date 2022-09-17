@@ -123,7 +123,7 @@
 
 
 		<div class="mb-3 mt-3 clearfix">
-			<div class="float-start">총 ${cnt }개 page ${page }/${totalPage }</div>
+			<div class="float-start">총 ${cnt}개 page ${page}/${totalPage }</div>
 			<div class="col-12">
 				<a class="btn btn-outline-dark float-end" href="write">작성</a>
 			</div>

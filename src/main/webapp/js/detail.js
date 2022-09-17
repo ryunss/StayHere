@@ -12,8 +12,8 @@ $(function(){
 		}
 		
 		const data = {
-			"qaa_num" : qna_num,
-			"user_num" : user_num,
+			"qna_num" : qna_num,
+			"user_num" : logged_num,
 			"qc_content" : qna_content,
 		};
 		
@@ -51,7 +51,7 @@ function loadComment(qna_num) {
 			}
 		},
 	});
-} 
+}
 
 function buildComment(result){
 	$("#cmt_cnt").text(result.count);   // 댓글 총 개수
@@ -61,13 +61,13 @@ function buildComment(result){
 	result.data.forEach(comment => {
         let qc_num = comment.qc_num;
         let qc_content = comment.qc_content.trim();
-        let regDate = comment.regDate;
+        let qc_regDate = comment.qc_regDate;
 
         let user_num = parseInt(comment.user_num);
         let user_id = comment.user_id;
         let user_name = comment.user_name;
         
-        const delBtn = (logged_id !== user_num) ? '' : `
+        const delBtn = (logged_num !== user_num) ? '' : `
                 <i class="btn fa-solid fa-delete-left text-danger" data-bs-toggle="tooltip"
                     data-cmtdel-id="${qc_num}" title="삭제"></i>
             `;
@@ -78,7 +78,7 @@ function buildComment(result){
 	        <td>
 	            <span>${qc_content}</span>${delBtn}            
 	        </td>
-	        <td><span><small class="text-secondary">${regDate}</small></span></td>
+	        <td><span><small class="text-secondary">${qc_regDate}</small></span></td>
 	        </tr>      
 	        `;
 		out.push(row);		
