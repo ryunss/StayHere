@@ -25,7 +25,7 @@ public class RoomCmtWriteService implements Service {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		int roomNum = Integer.parseInt(request.getParameter("room_num"));
 		int userNum	= Integer.parseInt(request.getParameter("user_num"));
-		String content = request.getParameter("content");
+		String content = request.getParameter("rc_content");
 		
 		RoomDTO room = new RoomDTO();
 		room.setNum(roomNum);

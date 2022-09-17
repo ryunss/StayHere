@@ -6,11 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-header, footer {
-	width: 100%;
-	height: 100px;
-	background-color: green;
-}
 #wrap{
 	width: 1200px;
 	height: hidden;
@@ -48,12 +43,10 @@ header, footer {
 </style>
 </head>
 <body>
-<header>
-	메인로고
-</header>
+<jsp:include page="header.jsp"/>
 <div id="wrap">
 <div id="s">검색조건설정</div>
-<form action="FormOk" method="post">
+<form action="${pageContext.request.contextPath}/room/FormOk" method="post">
 	지역 : <select name="region">
 		<option value="seoul">서울</option>
 		<option value="kwang">광주</option>
@@ -77,7 +70,7 @@ header, footer {
 		<option value="100000">100000</option>
 		<option value="200000">200000</option>
 	</select>
-	<input type="submit" value="검색"> 
+	<input type="submit" value="option"> 
 </form>
 <h3>검색결과</h3>
 <hr>
@@ -94,8 +87,6 @@ header, footer {
 	    </div>
     </div>
 </div>
-<footer>
-	project
-</footer>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

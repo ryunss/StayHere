@@ -26,12 +26,9 @@
 
 
 	<nav
-		class="navbar navbar-expand-sm bg-white navbar-white navbar-fixed-top">
+		class="navbar navbar-expand-sm bg-white navbar-white fixed-top"  style="border: solid 1px gray;">
 		<div class="container-fluid">
 			<div>
-				<%-- 
-			<img src="${pageContext.request.contextPath}/img/main0.png" class="ms-3">
-		--%>
 				<h1 class="ms-5">
 					<a class="text-decoration-none fw-bold text-dark"
 						href="${pageContext.request.contextPath}/home">여긴 어때</a>
@@ -48,18 +45,26 @@
 						class="mx-2" style="color: black">|</a> <a
 						href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark "
-						style="margin-right: 350px; color: black; font-weight: bold;">
+						style="margin-right: 250px; color: black; font-weight: bold;">
 						언제 떠날까요 ? </a>
 				</div>
 
 				<ul class="navbar-nav">
 					<c:if test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
 						<li class="nav-item ms-3 fw-bold">
-						<a class="nav-link text-dark" href="${pageContext.request.contextPath}/room/new">숙소 등록</a></li>
+						<a class="nav-link text-dark" href="${pageContext.request.contextPath}/room/register">숙소 등록</a></li>
 					</c:if>
+					<!-- 숙소 list로 가는거 임시로 추가 -->
+					<li class="nav-item ms-3 fw-bold"><a
+						class="nav-link text-dark"
+						href="${pageContext.request.contextPath}/room/list">숙소</a></li>
+					<!-- ----------------------  -->
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/room/search">숙소 검색</a></li>
+					<li class="nav-item ms-3 fw-bold"><a
+						class="nav-link text-dark"
+						href="${pageContext.request.contextPath}/room/list">숙소 목록</a></li>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/qna/list">문의하기</a></li>
@@ -89,7 +94,7 @@
 
 
 	<!-- Carousel -->
-	<div id="demo" class="carousel slide" data-bs-ride="carousel">
+	<div id="demo" class="carousel slide" data-bs-ride="carousel" style="margin-top:90px;">
 
 		<!-- The slideshow/carousel -->
 

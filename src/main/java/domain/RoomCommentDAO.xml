@@ -32,4 +32,14 @@
         AND c.room_num = #{param1}
     ORDER BY c.rc_num DESC
 </select>
+
+<insert id="insert" flushCache="true" parameterType="domain.RoomCommentDTO"
+	keyProperty="rc_num" useGeneratedKeys="true" keyColumn="rc_num">
+	INSERT INTO room_comment(user_num, room_num, rc_content)
+	VALUES(#{user.user_num}, #{room.num}, #{rc_content})
+</insert>
+	
+<delete id="deleteByNum" flushCache="true">
+	DELETE FROM room_comment WHERE rc_num = #{rc_num}
+</delete>
 </mapper>
