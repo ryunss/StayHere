@@ -100,6 +100,7 @@ public class UserController extends HttpServlet {
 				break;
 			}
 			break;
+
 		case "/user/logout":
 			if (method.equals("POST")) {
 				request.getSession().removeAttribute(C.PRINCIPAL);
