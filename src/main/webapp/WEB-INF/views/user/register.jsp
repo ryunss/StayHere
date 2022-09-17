@@ -25,9 +25,6 @@
 	<nav class="navbar navbar-expand-sm bg-white navbar-white">
 		<div class="container-fluid">
 			<div>
-				<%-- 
-			<img src="${pageContext.request.contextPath}/img/main0.png" class="ms-3">
-		--%>
 				<h1 class="ms-5">
 					<a class="text-decoration-none fw-bold text-dark"
 						href="${pageContext.request.contextPath}/home">여긴 어때</a>

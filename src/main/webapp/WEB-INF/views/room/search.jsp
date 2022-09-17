@@ -46,7 +46,7 @@
 <jsp:include page="header.jsp"/>
 <div id="wrap">
 <div id="s">검색조건설정</div>
-<form action="FormOk" method="post">
+<form action="${pageContext.request.contextPath}/room/FormOk" method="post">
 	지역 : <select name="region">
 		<option value="seoul">서울</option>
 		<option value="kwang">광주</option>
@@ -70,7 +70,7 @@
 		<option value="100000">100000</option>
 		<option value="200000">200000</option>
 	</select>
-	<input type="submit" value="검색"> 
+	<input type="submit" value="option"> 
 </form>
 <h3>검색결과</h3>
 <hr>
@@ -87,6 +87,9 @@
 	    </div>
     </div>
 </div>
+<<<<<<< HEAD
 <jsp:include page="footer.jsp"/>
+=======
+>>>>>>> cd0075dccfb538703e8c41cc0b05acd899fae441
 </body>
 </html>

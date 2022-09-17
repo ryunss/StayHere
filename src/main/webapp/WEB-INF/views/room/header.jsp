@@ -66,7 +66,7 @@ color: skyblue;
         <ul>
           <li><a href="${pageContext.request.contextPath}/room/list">LIST</a></li>
           <li><a href="${pageContext.request.contextPath}/room/search">SEARCH</a></li>
-          <li><a href="${pageContext.request.contextPath}/qna/qnaList">Q&A</a></li>
+          <li><a href="${pageContext.request.contextPath}/qna/list">Q&A</a></li>
           <li><a href="#">MAP</a></li>
         </ul>
 </header>

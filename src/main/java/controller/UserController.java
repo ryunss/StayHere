@@ -68,6 +68,7 @@ public class UserController extends HttpServlet {
 				break;
 			}
 			break;
+
 		case "/user/business":
 			switch (method) {
 			case "GET":

@@ -67,7 +67,7 @@ public class QnAWriteService implements Service {
 				
 				if(originalFileName != null && fileSystemName != null) {
 					// Map.of(k1, v1, k2, v2 ..) 로 Map 객체 생성   (Java9 에서 추가)
-					nameList.add(Map.of("source", originalFileName, "file", fileSystemName));
+					nameList.add(Map.of("file_source", originalFileName, "file_name", fileSystemName));
 				}
 			}
 			

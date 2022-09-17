@@ -3,46 +3,67 @@
 <mapper namespace="domain.RoomDAO">
 	<select id="select" resultType="domain.RoomDTO">
 		SELECT
-			room_num "num",
-			room_name "name",
-			room_image "image",
-			room_region "region",
-			room_viewcnt "viewcnt"
+		room_num "num",
+		room_name "name",
+		room_image "image",
+		room_region "region",
+		room_viewcnt "viewcnt",
+		room_category "category",
+		room_price "price",
+		room_address "address"
 		FROM room
 	</select>
 
-	<insert id="insert" flushCache="true" parameterType="domain.RoomDTO" keyProperty="num" useGeneratedKeys="true" keyColumn="room_num">
-	INSERT INTO room
-		(room_name, room_address, room_category, room_info, room_region, room_personnel, room_price, room_image) 
-	VALUES 
-		(#{name}, #{address}, #{category}, #{info}, #{region}, #{personnel}, #{price}, #{image})
+	<insert id="insert" flushCache="true"
+		parameterType="domain.RoomDTO" keyProperty="num"
+		useGeneratedKeys="true" keyColumn="room_num">
+		INSERT INTO room
+		(room_name, room_address, room_category, room_info,
+		room_region, room_personnel, room_price, room_image)
+		VALUES
+		(#{name}, #{address}, #{category}, #{info}, #{region}, #{personnel}, #{price},
+		#{image})
 	</insert>
-	
+
 	<select id="selectByNum" resultType="domain.RoomDTO">
 		SELECT
-			room_num "num",
-			room_name "name",
-			room_image "image",
-			room_info "info",
-			room_viewcnt "viewcnt"
+		room_num "num",
+		room_name "name",
+		room_image "image",
+		room_info "info",
+		room_viewcnt "viewcnt"
 		FROM room
 		WHERE room_num = #{num}
 	</select>
-	
+
 	<update id="incViewCnt" flushCache="true">
 		UPDATE room
-		SET room_viewcnt = room_viewcnt + 1
+		SET room_viewcnt =
+		room_viewcnt + 1
 		WHERE room_num = #{num}
 	</update>
-	
-	<update id="update" flushCache="true" parameterType="domain.RoomDTO">
+
+	<update id="update" flushCache="true"
+		parameterType="domain.RoomDTO">
 		UPDATE room
-		SET room_image = #{image}, room_name = #{name}, room_info = #{info}
-		WHERE room_num = #{num} 
+		SET room_image = #{image}, room_name =
+		#{name}, room_info = #{info}
+		WHERE room_num = #{num}
 	</update>
-	
+
 	<delete id="deleteByNum" flushCache="true">
-		DELETE FROM room WHERE room_num = #{num}
+		DELETE FROM room WHERE
+		room_num = #{num}
 	</delete>
-	
+	<insert id="search" flushCache="true"
+		parameterType="domain.RoomDTO" keyProperty="num"
+		useGeneratedKeys="true" keyColumn="room_num">
+		INSERT INTO room
+		(room_name, room_address, room_category, room_info,
+		room_region, room_personnel, room_price, room_image)
+		VALUES
+		(#{name}, #{address}, #{category}, #{info}, #{region}, #{personnel}, #{price},
+		#{image})
+	</insert>
+
 </mapper>
