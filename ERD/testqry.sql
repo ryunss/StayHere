@@ -31,3 +31,7 @@ INSERT INTO qna_comment (user_num, qna_num, qc_content) VALUES
 (3, 4, '15. admin1이 4번글에 댓글 작성.'),
 (3, 4, '16. admin1이 4번글에 댓글 작성.')
 ;
+
+INSERT INTO `user`  (user_id , user_password ,user_name, authorities) VALUES
+('USER1', '1234', '회원1', 'ROLE_MEMBER')
+;
