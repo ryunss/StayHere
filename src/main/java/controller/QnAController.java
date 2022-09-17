@@ -13,6 +13,7 @@ import common.C;
 import service.Service;
 import service.qna.DetailService;
 import service.qna.ListService;
+import service.qna.QnADeleteService;
 import service.qna.QnADownloadService;
 import service.qna.QnAWriteService;
 import service.qna.SelectService;
@@ -100,6 +101,18 @@ public class QnAController extends HttpServlet {
 				}
 			}
 			break;
+		
+		case "/qna/delete":
+			if(C.securityCheck(request, response, new String[] {"ROLE_MEMBER"} )) {
+				switch(method) {
+				case "POST":
+					service = new QnADeleteService();
+					service.execute(request, response);
+					if(!response.isCommitted()) {
+						viewPage = "qnaDeleteOk.jsp";
+					}
+				}
+			}
 			
 		//페이징
 		//pageRows 변경시 동작

@@ -25,7 +25,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	const conPath = "${pageContext.request.contextPath}";
-	const logged_id = ${PRINCIPAL.user_num};
+	const logged_num = ${PRINCIPAL.user_num};
 </script>
 <script src="${pageContext.request.contextPath }/js/roomDetail.js"></script>
 <style>
@@ -62,7 +62,6 @@ function chkDelete(){
         <div class="mb-3 mt-3 clearfix">
             <span class="float-start me-2">${dto.image }</span>
             <span class="float-end ms-4">${dto.name}</span>
-            <span class="float-end">${dto.viewcnt}</span>
         </div>
  
         <section>

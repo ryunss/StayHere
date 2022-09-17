@@ -1,1 +1,1 @@
-{"resources":{"ERD/test.sql":{"default-datasource":"mysql8-18317723339-43bd49ba4dcfe39b","default-catalog":"staydb"}}}
+{"resources":{"ERD/test.sql":{"default-datasource":"mysql8-18317723339-43bd49ba4dcfe39b","default-catalog":"staydb"},"ERD/testqry.sql":{"default-datasource":"mysql8-18317723339-43bd49ba4dcfe39b","default-catalog":"staydb"}}}
