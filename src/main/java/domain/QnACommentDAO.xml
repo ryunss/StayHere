@@ -12,22 +12,22 @@
 	</resultMap>
 	
 	<resultMap type="domain.QnACommentDTO" id="mapComment">
-		<result column="qc_num" property="qc_num"/>
-		<result column="qc_content" property="qc_content"/>
-		<result column="qc_regdate" property="regDate"/>
-		<collection property="user_num" resultMap="mapUser"/>
+		<result column="c_num" property="qc_num"/>
+		<result column="c_content" property="qc_content"/>
+		<result column="c_regdate" property="regDate"/>
+		<collection property="user" resultMap="mapUser"/>
 	</resultMap>
 	
 	<select id="selectByQnA" resultMap="mapComment">
 		SELECT
-			c.qc_num "qc_num",
-			c.qc_content "qc_content",
-			c.qc_regdate "regDate",
-			u.user_num "user_num",
-			u.user_id "user_id",
-			u.user_name "user_name",
+			c.qc_num "c_num",
+			c.qc_content "c_content",
+			c.qc_regdate "c_regdate",
+			u.user_num "u_num",
+			u.user_id "u_id",
+			u.user_name "u_name",
 			u.authorities "authorities",
-			u.user_regdate "user_regdate"
+			u.user_regdate "u_regdate"
 		FROM qna_comment c, user u
 		WHERE
 			c.user_num = u.user_num
@@ -39,7 +39,7 @@
 	<insert id="insert" flushCache="true" parameterType="domain.QnACommentDTO"
 		useGeneratedKeys="true" keyColumn="qc_num" keyProperty="qc_num">
 		INSERT INTO qna_comment(user_num, qna_num, qc_content)
-		VALUES(#{user_num.user_num}, #{qna_num.qna_num}, #{qc_content})
+		VALUES(#{user.user_num}, #{qna_num.qna_num}, #{qc_content})
 	</insert>
 	
 	<delete id="deleteByNum" flushCache="true">

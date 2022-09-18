@@ -24,7 +24,7 @@ public class QnACmtWriteService implements Service {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		int qnaNum = Integer.parseInt(request.getParameter("qna_num"));
 		int userNum	= Integer.parseInt(request.getParameter("user_num"));
-		String content = request.getParameter("content");
+		String content = request.getParameter("qc_content");
 		
 		QnADTO qna = new QnADTO();
 		qna.setQna_num(qnaNum);
@@ -33,7 +33,7 @@ public class QnACmtWriteService implements Service {
 		
 		QnACommentDTO dto = QnACommentDTO.builder()
 				.qna_num(qna)
-				.user_num(user)
+				.user(user)
 				.qc_content(content)
 				.build();
 		

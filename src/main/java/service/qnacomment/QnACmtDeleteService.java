@@ -20,7 +20,7 @@ public class QnACmtDeleteService implements Service {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//댓글 번호
-		int num = Integer.parseInt(request.getParameter("qc_num"));
+		int num = Integer.parseInt(request.getParameter("num"));
 		
 		QnAQryResult obj = new QnAQryResult();
 		ObjectMapper mapper = new ObjectMapper();

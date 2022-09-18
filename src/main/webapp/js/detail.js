@@ -4,7 +4,7 @@ $(function(){
 	loadComment(num);
 	
 	$("#btn_comment").click(function(){
-		const content = $("input_comment").val().trim();
+		const content = $("#input_comment").val().trim();
 		
 		if(!content){
 			alert("댓글을 입력하세요.");
@@ -12,9 +12,9 @@ $(function(){
 		}
 		
 		const data = {
-			"qna_num" : qna_num,
+			"qna_num" : num,
 			"user_num" : logged_num,
-			"qc_content" : qna_content,
+			"qc_content" : content,
 		};
 		
 		$.ajax({
@@ -61,11 +61,11 @@ function buildComment(result){
 	result.data.forEach(comment => {
         let qc_num = comment.qc_num;
         let qc_content = comment.qc_content.trim();
-        let qc_regDate = comment.qc_regDate;
+        let regdate = comment.regdate;
 
-        let user_num = parseInt(comment.user_num);
-        let user_id = comment.user_id;
-        let user_name = comment.user_name;
+        let user_num = parseInt(comment.user.user_num);
+        let id = comment.user.user_id;
+        let name = comment.user.user_name;
         
         const delBtn = (logged_num !== user_num) ? '' : `
                 <i class="btn fa-solid fa-delete-left text-danger" data-bs-toggle="tooltip"
@@ -74,11 +74,11 @@ function buildComment(result){
             
         const row = `
 	        <tr>
-	        <td><span><strong>${user_id}</strong><br><small class="text-secondary">(${user_name})</small></span></td>
+	        <td><span><strong>${id}</strong><br><small class="text-secondary">(${name})</small></span></td>
 	        <td>
 	            <span>${qc_content}</span>${delBtn}            
 	        </td>
-	        <td><span><small class="text-secondary">${qc_regDate}</small></span></td>
+	        <td><span><small class="text-secondary">${regdate}</small></span></td>
 	        </tr>      
 	        `;
 		out.push(row);		
