@@ -27,10 +27,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 	const conPath = "${pageContext.request.contextPath}";
-	const logged_id = $
-	{
-		PRINCIPAL.user_num
-	};
+	const logged_id = ${PRINCIPAL.user_num};
 </script>
 <script src="${pageContext.request.contextPath }/js/roomDetail.js"></script>
 

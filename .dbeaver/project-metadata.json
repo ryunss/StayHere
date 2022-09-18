@@ -1,13 +1,1 @@
-<<<<<<< HEAD
-{"resources":{"ERD/test.sql":{"sql-editor-data-source-id":"mysql8-18317723339-43bd49ba4dcfe39b","default-datasource":"mysql8-18317723339-43bd49ba4dcfe39b","default-catalog":"staydb"},"ERD/testqry.sql":{"sql-editor-data-source-id":"mysql8-182fe408f06-c5ed874ce678bc8","default-datasource":"mysql8-182fe408f06-c5ed874ce678bc8","default-catalog":"staydb"}}}
-=======
-{
-  "resources": {
-    "ERD/test.sql": {
-      "sql-editor-data-source-id": "mysql8-18317723339-43bd49ba4dcfe39b",
-      "default-datasource": "mysql8-18317723339-43bd49ba4dcfe39b",
-      "default-catalog": "staydb"
-    }
-  }
-}
->>>>>>> 957f41f4f28ffeaa834b23de7085b532b77821d8
+{"resources":{"ERD/test.sql":{"sql-editor-data-source-id":"mysql8-18317723339-43bd49ba4dcfe39b","default-datasource":"mysql8-18317723339-43bd49ba4dcfe39b","default-catalog":"staydb"}}}
