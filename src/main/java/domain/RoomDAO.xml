@@ -36,7 +36,8 @@
 		room_viewcnt "viewcnt",
 		room_price "price",
 		room_personnel "personnel",
-		room_category "category"
+		room_category "category",
+		room_summary "summary"
 		FROM room
 		WHERE room_num = #{num}
 	</select>

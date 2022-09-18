@@ -43,7 +43,8 @@
 </script>
 
 <body>
-<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top" style="border-bottom: solid 1px gray;">
+	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top"
+		style="border-bottom: solid 1px gray;">
 		<div class="container-fluid">
 			<div>
 				<h1 class="ms-5">
@@ -58,8 +59,8 @@
 
 					<a href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark"
-						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a>
-						<a class="mx-2" style="color: black">|</a> <a
+						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a> <a
+						class="mx-2" style="color: black">|</a> <a
 						href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark "
 						style="margin-right: 400px; color: black; font-weight: bold;">
@@ -140,7 +141,9 @@
 				</tbody>
 			</table>
 			<div class="mb-3 mt-3">
-				<label for="info">정보</label> <span class="form-control">${dto.info}</span>
+				<label for="info">정보</label> <span class="form-control">${dto.summary}
+					<br> ${dto.info}
+				</span>
 			</div>
 
 			<!-- 하단 링크 -->

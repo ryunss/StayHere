@@ -102,7 +102,7 @@ li:hover {
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<img src="${pageContext.request.contextPath}/img/test1.jpg"
-					class="mx-auto d-block" alt="New York" class="d-block"
+					class="mx-auto d-block"class="d-block"
 					style="width: 1800px" height="850px">
 			</div>
 			<c:forEach var="dto" items="${list}">

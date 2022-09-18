@@ -21,7 +21,8 @@
 <body>
 
 
-	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top" style="border-bottom: solid 1px gray;">
+	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top"
+		style="border-bottom: solid 1px gray;">
 		<div class="container-fluid">
 			<div>
 				<h1 class="ms-5">
@@ -36,8 +37,8 @@
 
 					<a href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark"
-						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a>
-						<a class="mx-2" style="color: black">|</a> <a
+						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a> <a
+						class="mx-2" style="color: black">|</a> <a
 						href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark "
 						style="margin-right: 400px; color: black; font-weight: bold;">
@@ -95,6 +96,7 @@
 						<th>#</th>
 						<th>숙소이미지</th>
 						<th>숙소이름</th>
+						<th>숙소요약</th>
 						<th>지역</th>
 						<th>종류</th>
 						<th>가격</th>
@@ -108,6 +110,7 @@
 									src="${pageContext.request.contextPath}/${dto.image }"
 									style="width: 350px; height: 150px;" alt="${dto.name }" /></a></td>
 							<td>${dto.name }</td>
+							<td>${dto.summary }</td>
 							<td>${dto.region }</td>
 							<td>${dto.category }</td>
 							<td>${dto.price }원</td>
@@ -117,6 +120,7 @@
 			</table>
 		</div>
 	</form>
+
 </body>
 
 
