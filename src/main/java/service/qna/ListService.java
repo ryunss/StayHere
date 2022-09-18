@@ -77,7 +77,7 @@ public class ListService implements Service {
 		request.setAttribute("cnt", cnt);
 		request.setAttribute("writePages", writePages);
 		request.setAttribute("pageRows", pageRows);
-		request.setAttribute("page", page);
+		session.setAttribute("page", page);
 		request.setAttribute("startPage", startPage);
 		request.setAttribute("endPage", endPage);
 		request.setAttribute("totalPage", totalPage);

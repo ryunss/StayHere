@@ -113,6 +113,7 @@ public class QnAController extends HttpServlet {
 					}
 				}
 			}
+			break;
 			
 		//페이징
 		//pageRows 변경시 동작
