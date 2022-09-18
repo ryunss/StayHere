@@ -69,7 +69,7 @@
 	
 	<!-- 글삭제 -->
 	<delete id="deleteByNum" flushCache="true">
-		DELETE FROM qnaboard WHERE file_num = #{file_num}
+		DELETE FROM qnaboard WHERE qna_num = #{qna_num}
 	</delete>
 	
 	<!-- 페이징 -->

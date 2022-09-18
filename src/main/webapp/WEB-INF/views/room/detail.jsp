@@ -6,14 +6,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <c:choose>
-	<c:when test="${empty list || fn:length(list) == 0}">
-		<script>
-			alert("해당 숙소가 삭제되거나 없습니다");
-			history.back();
-		</script>
-	</c:when>
-	<c:otherwise>
-		<c:set var="dto" value="${list[0]}"/>
+   <c:when test="${empty list || fn:length(list) == 0}">
+      <script>
+         alert("해당 숙소가 삭제되거나 없습니다");
+         history.back();
+      </script>
+   </c:when>
+   <c:otherwise>
+      <c:set var="dto" value="${list[0]}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +22,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-	const conPath = "${pageContext.request.contextPath}";
-	const logged_id = ${PRINCIPAL.user_num};
+   const conPath = "${pageContext.request.contextPath}";
+   const logged_id = ${PRINCIPAL.user_num};
 </script>
 <script src="${pageContext.request.contextPath }/js/roomDetail.js"></script>
 
@@ -31,10 +31,10 @@
 
 <script>
 function chkDelete(){
-	let answer = confirm("삭제하시겠습니까?");
-	if(answer){
-		document.forms['frmDelete'].submit();
-	}
+   let answer = confirm("삭제하시겠습니까?");
+   if(answer){
+      document.forms['frmDelete'].submit();
+   }
 }
 </script>
 
@@ -50,12 +50,12 @@ function chkDelete(){
  
         <section>
         <form name="frmDelete" action="delete" method="POST">
-        	<input type="hidden" name="num" value="${dto.num }">
+           <input type="hidden" name="num" value="${dto.num }">
         </form>
             <div class="container mt-3">
-			  <img src="http://localhost:8085/StayHere/${dto.image }" alt="${dto.name }"
-			  	class="mx-auto d-block" style="width:50%"/> 
-			</div>
+           <img src="http://localhost:8085/StayHere/${dto.image }" alt="${dto.name }"
+              class="mx-auto d-block" style="width:50%"/> 
+         </div>
             <div class="mb-3 mt-3">
                 <label for="name">숙소명</label>
                 <span class="form-control" >${dto.name}</span>
@@ -72,14 +72,14 @@ function chkDelete(){
             <a class="btn btn-outline-dark" href="register">작성</a>
             <!-- 하단 링크 -->        
  
- 			<!-- 댓글 -->
- 			<jsp:include page="comment.jsp"></jsp:include>
+          <!-- 댓글 -->
+          <jsp:include page="comment.jsp"></jsp:include>
         </section>
     </div>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>
 
-	
-	</c:otherwise>
+   
+   </c:otherwise>
 </c:choose>
