@@ -59,7 +59,7 @@ public class UpdateService implements Service {
                
                 if(originalFileName != null && fileSystemName != null) {
                     // Map.of(k1, v1, k2, v2 ..) 로 Map 객체 생성   (Java9 에서 추가)
-                    nameList.add(Map.of("source", originalFileName, "file", fileSystemName));
+                    nameList.add(Map.of("file_source", originalFileName, "file_name", fileSystemName));
                 }
             }
         }
@@ -74,7 +74,7 @@ public class UpdateService implements Service {
         	}        	
         }
 	    
-	    int num = Integer.parseInt(multi.getParameter("qna_num"));
+	    int qna_num = Integer.parseInt(multi.getParameter("qna_num"));
 		String subject = multi.getParameter("qna_subject");
 		String content = multi.getParameter("qna_content");
 		
@@ -86,7 +86,7 @@ public class UpdateService implements Service {
 		List<FileDTO> fileList = null;
 		
 		QnADTO dto = QnADTO.builder()
-				.qna_num(num)
+				.qna_num(qna_num)
 				.qna_subject(subject)
 				.qna_content(content)
 				.build()
@@ -109,7 +109,7 @@ public class UpdateService implements Service {
             
             // 5. 추가된 파일들은 DB에 저장하기
             if(nameList != null && nameList.size() > 0) {              
-                fileDao.insert(nameList, num);
+                fileDao.insert(nameList, qna_num);
             }
 
 			// 6. 글 수정

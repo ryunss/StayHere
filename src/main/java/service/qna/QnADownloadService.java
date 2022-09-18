@@ -23,7 +23,7 @@ public class QnADownloadService implements Service{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		//첨부파일 num
-		int num = Integer.parseInt(request.getParameter("file_num"));
+		int num = Integer.parseInt(request.getParameter("num"));
 		
 		FileInputStream in = null;
 		ServletOutputStream sout = null;

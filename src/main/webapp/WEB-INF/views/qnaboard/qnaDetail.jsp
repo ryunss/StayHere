@@ -133,7 +133,7 @@
 			        <!--첨부파일 이름, 다운로드 링크 -->
 			        <ul class="list-group mb-1">
 			            <c:forEach var="fileDto" items="${fileList}">
-			                <li class="list-group-item"><a href="download?id=${fileDto.file_num}">${fileDto.file_source}</a></li>
+			                <li class="list-group-item"><a href="download?num=${fileDto.file_num}">${fileDto.file_source}</a></li>
 			            </c:forEach>
 			        </ul>
 			        <%-- 이미지인 경우 보여주기 --%>

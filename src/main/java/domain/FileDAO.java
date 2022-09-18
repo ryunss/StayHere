@@ -17,7 +17,7 @@ public interface FileDAO {
      * @return : DML 수행 결과값
      */
 	
-	public int insert(List<Map<String, Object>> list, int qna_num) throws SQLException;
+	public int insert(List<Map<String, Object>> list, int num) throws SQLException;
 	
 	// 특정 글의 첨부파일 읽어오기
 	public List<FileDTO> selectFileByQnA(int qna_num) throws SQLException;

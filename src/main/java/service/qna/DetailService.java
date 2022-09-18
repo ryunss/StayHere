@@ -59,7 +59,7 @@ public class DetailService implements Service {
 					}
 					if(imgData != null) fileDto.setImage(true);
 				}//end for
-				request.setAttribute("fileDto", fileList);
+				request.setAttribute("fileList", fileList);
 			}
 			request.setAttribute("list", list);
 			sqlSession.commit();

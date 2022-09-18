@@ -96,7 +96,6 @@ public class QnAWriteService implements Service {
 		SqlSession sqlSession = null;  // 트랜잭션을 위한 객체
 		QnADAO dao = null;
 		FileDAO fileDao = null;   // 파일정보 동작
-				
 		try {
 			sqlSession = SqlSessionManager.getInstance().openSession();
 			dao = sqlSession.getMapper(QnADAO.class); // MyBatis 가 생성한 DAO
