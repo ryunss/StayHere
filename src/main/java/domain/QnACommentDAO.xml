@@ -14,7 +14,7 @@
 	<resultMap type="domain.QnACommentDTO" id="mapComment">
 		<result column="qc_num" property="qc_num"/>
 		<result column="qc_content" property="qc_content"/>
-		<result column="qc-regdate" property="regDate"/>
+		<result column="qc_regdate" property="regDate"/>
 		<collection property="user_num" resultMap="mapUser"/>
 	</resultMap>
 	
@@ -39,7 +39,7 @@
 	<insert id="insert" flushCache="true" parameterType="domain.QnACommentDTO"
 		useGeneratedKeys="true" keyColumn="qc_num" keyProperty="qc_num">
 		INSERT INTO qna_comment(user_num, qna_num, qc_content)
-		VALUES(#(user_num.user_num), #(qna_num.qna_num), #(qc_content))
+		VALUES(#{user_num.user_num}, #{qna_num.qna_num}, #{qc_content})
 	</insert>
 	
 	<delete id="deleteByNum" flushCache="true">

@@ -7,7 +7,7 @@
 		INSERT INTO file (qna_num, file_source, file_name)
 		VALUES
 			<foreach collection="param1" item="e" separator=",">
-				(#{e.param1}, #{e.file_source}, #{e.file_name})
+				(#{e.param2}, #{e.file_source}, #{e.file_name})
 			</foreach>
 	</insert>
 

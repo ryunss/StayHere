@@ -50,6 +50,10 @@ SELECT * FROM `user`;
 
 select * from qna_comment where qna_num = '377';
 
+select * from file;
+
+
+
 insert INTO
 room(room_name, room_address, room_category, room_info, room_region, room_personnel, room_price, room_image)
 VALUES 
