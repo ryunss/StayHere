@@ -65,12 +65,14 @@ function chkDelete(){
                 <span class="form-control" >${dto.info}</span>
             </div>    
  
-            <!-- 하단 링크 -->
-            <a class="btn btn-outline-dark" href="update?num=${dto.num}">수정</a>
+             <!-- 하단 링크 -->
             <a class="btn btn-outline-dark" href="list">목록</a>
-            <button type="button" class="btn btn-outline-dark" onclick="chkDelete()">삭제</button>
-            <a class="btn btn-outline-dark" href="register">작성</a>
-            <!-- 하단 링크 -->        
+            <c:if test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
+           	 	<a class="btn btn-outline-dark" href="update?num=${dto.num}">수정</a>
+           	 	<button type="button" class="btn btn-outline-dark" onclick="chkDelete()">삭제</button>
+            	<a class="btn btn-outline-dark" href="register">작성</a>
+            </c:if>
+            <!-- 하단 링크 -->     
  
           <!-- 댓글 -->
           <jsp:include page="comment.jsp"></jsp:include>
