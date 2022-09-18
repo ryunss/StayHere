@@ -57,7 +57,7 @@
         	</form>
             <div class="mb-3">
                 <label for="name">작성자:</label>
-                <span class="form-control" >${dto.user_num.user_id} (${dto.user_num.user_id})</span>
+                <span class="form-control" >${dto.user_num.user_id} (${dto.user_num.user_name})</span>
             </div>    
             <div class="mb-3 mt-3">
                 <label for="subject">제목:</label>
