@@ -12,5 +12,8 @@ public interface UserDAO {
 	
 
 	int register(UserDTO dto) throws SQLException;
+
+
+
 	
 }
