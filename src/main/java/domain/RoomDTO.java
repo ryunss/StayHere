@@ -21,4 +21,5 @@ public class RoomDTO {
 	private int price; // room_price - 가격
 	private int viewcnt; // room_viewcnt - 조회수
 	private String image; // room_image - 숙소 이미지
+	private String summary; // room_image_big - 숙소 이미지
 }

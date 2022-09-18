@@ -25,8 +25,8 @@
 
 
 
-	<nav
-		class="navbar navbar-expand-sm bg-white navbar-white fixed-top"  style="border: solid 1px gray;">
+	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top"
+		style="border: solid 1px gray;">
 		<div class="container-fluid">
 			<div>
 				<h1 class="ms-5">
@@ -50,9 +50,11 @@
 				</div>
 
 				<ul class="navbar-nav">
-					<c:if test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
-						<li class="nav-item ms-3 fw-bold">
-						<a class="nav-link text-dark" href="${pageContext.request.contextPath}/room/register">숙소 등록</a></li>
+					<c:if
+						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
+						<li class="nav-item ms-3 fw-bold"><a
+							class="nav-link text-dark"
+							href="${pageContext.request.contextPath}/room/register">숙소 등록</a></li>
 					</c:if>
 					<!-- 숙소 list로 가는거 임시로 추가 -->
 					<li class="nav-item ms-3 fw-bold"><a
@@ -94,7 +96,8 @@
 
 
 	<!-- Carousel -->
-	<div id="demo" class="carousel slide" data-bs-ride="carousel" style="margin-top:90px;">
+	<div id="demo" class="carousel slide" data-bs-ride="carousel"
+		style="margin-top: 90px;">
 
 		<!-- The slideshow/carousel -->
 
@@ -104,31 +107,27 @@
 					class="mx-auto d-block" alt="New York" class="d-block"
 					style="width: 1800px" height="850px">
 				<div class="carousel-caption"
-					style="width: 250px; height: 250px; background-color: white; margin-left: 1200px; margin-bottom: 75px;">
-					<h3 style="color: black">test</h3>
-					<p style="color: black">asdasd</p>
+					style="width: 250px; height: 125px; background-color: white; margin-left: 1200px; margin-bottom: 75px;">
+					<h3 style="color: black">여긴 어때</h3>
+					<p style="color: black">여긴 어때가 <br>편안한 여행을 제안합니다</p>
 				</div>
 			</div>
-			<div class="carousel-item">
-				<img src="${pageContext.request.contextPath}/img/test2.jpg"
-					class="mx-auto d-block" alt="New York" class="d-block"
-					style="width: 1800px" height="850px">
-				<div class="carousel-caption"
-					style="width: 250px; height: 250px; background-color: white; margin-left: 1200px; margin-bottom: 75px;">
-					<h3 style="color: black">test</h3>
-					<p style="color: black">asdasd</p>
+			<c:forEach var="dto" items="${list}">
+				<div class="carousel-item">
+
+
+					<a href="${pageContext.request.contextPath}/room/detail?num=${dto.num}"><img class="mx-auto d-block" style="width: 1800px" height="850px"
+						src="${pageContext.request.contextPath}/${dto.image }"
+						alt="${dto.name }" /></a>
+								<div class="carousel-caption"
+					style="width: 250px; height: 125px; background-color: white; margin-left: 1200px; margin-bottom: 75px;">
+					<h3 style="color: black">${dto.name }</h3>
+					<p style="color: black">${dto.summary }</p>
 				</div>
-			</div>
-			<div class="carousel-item">
-				<img src="${pageContext.request.contextPath}/img/test3.jpg"
-					class="mx-auto d-block" alt="New York" class="d-block"
-					style="width: 1800px" height="850px">
-				<div class="carousel-caption"
-					style="width: 250px; height: 250px; background-color: white; margin-left: 1200px; margin-bottom: 75px;">
-					<h3 style="color: black">test</h3>
-					<p style="color: black">asdasd</p>
+
 				</div>
-			</div>
+			</c:forEach>
+
 		</div>
 
 		<!-- Left and right controls/icons -->
@@ -140,7 +139,10 @@
 			data-bs-target="#demo" data-bs-slide="next">
 			<span class="carousel-control-next-icon"></span>
 		</button>
+
+
 	</div>
+	<div></div>
 
 
 </body>
