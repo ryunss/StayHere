@@ -99,6 +99,13 @@ public class C {
    	
    } // end securityCheck()
    
+   public static String retrieveUrlPrior(HttpServletRequest request) {
+	   	HttpSession session = request.getSession();
+	   	String urlPrior = (String)session.getAttribute(URL_PRIOR);
+	   	session.removeAttribute(urlPrior);
+	   	return urlPrior;
+   }   
+   
    public static int deleteFiles(List<FileDTO> list, HttpServletRequest request) {
    	int cnt = 0;  // 삭제 성공한 파일 개수
    	

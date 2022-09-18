@@ -105,9 +105,9 @@ public class QnAWriteService implements Service {
 			cnt = dao.insert(dto);  // 글 작성하고 auto-generated된 id값을 dto 에 받아옴
 			
 			// 첨부파일 정보 -> DB 저장  (위에서 생성된 글의 id 값을 FK 로 전달)
-//			if(nameList != null && nameList.size() > 0) {
-//				fileDao.insert(nameList, dto.getQna_num());
-//			}
+			if(nameList != null && nameList.size() > 0) {
+				fileDao.insert(nameList, dto.getQna_num());
+			}
 			
 			System.out.println("글작성 성공 " + cnt + " : " + dto.getQna_num());
 			

@@ -62,7 +62,7 @@ public class ListService implements Service {
 			int fromRow = (page -1) * pageRows;
 			list = dao.selectFormRow(fromRow, pageRows);
 			
-			startPage = ((int)((page =1 )/ writePages) * writePages) + 1;
+			startPage = ((int)((page = 1 )/ writePages) * writePages) + 1;
 			endPage = startPage + writePages - 1;
 			if(endPage >= totalPage) endPage = totalPage;
 			

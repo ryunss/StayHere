@@ -28,7 +28,7 @@ public class QnACommentDTO {
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	@JsonProperty("regdate")
 	private LocalDateTime regDate;
-	private UserDTO user_num;
+	private UserDTO user;
 	
 	@JsonIgnore
 	private QnADTO qna_num;
