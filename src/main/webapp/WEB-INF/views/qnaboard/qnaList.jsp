@@ -23,8 +23,7 @@
 
 <body>
 
-	<nav
-		class="navbar navbar-expand-sm bg-white navbar-white navbar-fixed-top">
+<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top" style="border-bottom: solid 1px gray;">
 		<div class="container-fluid">
 			<div>
 				<h1 class="ms-5">
@@ -39,29 +38,31 @@
 
 					<a href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark"
-						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a> <a
-						class="mx-2" style="color: black">|</a> <a
+						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a>
+						<a class="mx-2" style="color: black">|</a> <a
 						href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark "
-						style="margin-right: 350px; color: black; font-weight: bold;">
+						style="margin-right: 400px; color: black; font-weight: bold;">
 						언제 떠날까요 ? </a>
 				</div>
 
 				<ul class="navbar-nav">
 					<c:if
-						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
+						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'REGISTER_MEMBER' )}">
 						<li class="nav-item ms-3 fw-bold"><a
 							class="nav-link text-dark"
-							href="${pageContext.request.contextPath}/room/new">숙소 등록</a></li>
+							href="${pageContext.request.contextPath}/room/register">숙소 등록</a></li>
 					</c:if>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/room/search">숙소 검색</a></li>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
+						href="${pageContext.request.contextPath}/room/list">숙소 목록</a></li>
+					<li class="nav-item ms-3 me-3 fw-bold"><a
+						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/qna/list">문의하기</a></li>
-					<li class="nav-item me-5 ms-3 fw-bold"><a
-						class="nav-link text-dark" href="#">지도</a></li>
+
 				</ul>
 				<c:choose>
 					<c:when test="${empty sessionScope.PRINCIPAL}">
@@ -85,7 +86,7 @@
 	</nav>
 	<hr>
 	<div class="container mt-3">
-		<h2>목록</h2>
+		<h1 class="h3 fw-normal mb-2 text-center" style="margin-top: 80px;">Q & A</h1>
 
 		<div class="float-end mb-2">
 			<form name="frmPageRows">

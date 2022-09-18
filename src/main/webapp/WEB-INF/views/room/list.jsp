@@ -21,9 +21,7 @@
 <body>
 
 
-
-	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top"
-		style="border: solid 1px gray;">
+	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top" style="border-bottom: solid 1px gray;">
 		<div class="container-fluid">
 			<div>
 				<h1 class="ms-5">
@@ -38,17 +36,17 @@
 
 					<a href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark"
-						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a> <a
-						class="mx-2" style="color: black">|</a> <a
+						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a>
+						<a class="mx-2" style="color: black">|</a> <a
 						href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark "
-						style="margin-right: 250px; color: black; font-weight: bold;">
+						style="margin-right: 400px; color: black; font-weight: bold;">
 						언제 떠날까요 ? </a>
 				</div>
 
 				<ul class="navbar-nav">
 					<c:if
-						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
+						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'REGISTER_MEMBER' )}">
 						<li class="nav-item ms-3 fw-bold"><a
 							class="nav-link text-dark"
 							href="${pageContext.request.contextPath}/room/register">숙소 등록</a></li>
@@ -59,11 +57,10 @@
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/room/list">숙소 목록</a></li>
-					<li class="nav-item ms-3 fw-bold"><a
+					<li class="nav-item ms-3 me-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/qna/list">문의하기</a></li>
-					<li class="nav-item me-5 ms-3 fw-bold"><a
-						class="nav-link text-dark" href="#">지도</a></li>
+
 				</ul>
 				<c:choose>
 					<c:when test="${empty sessionScope.PRINCIPAL}">
@@ -109,7 +106,7 @@
 							<td>${dto.num }</td>
 							<td><a href="detail?num=${dto.num}"><img
 									src="${pageContext.request.contextPath}/${dto.image }"
-									alt="${dto.name }" /></a></td>
+									style="width: 350px; height: 150px;" alt="${dto.name }" /></a></td>
 							<td>${dto.name }</td>
 							<td>${dto.region }</td>
 							<td>${dto.category }</td>

@@ -17,7 +17,12 @@
 <script src="https://kit.fontawesome.com/0ea8cc9cbf.js"
 	crossorigin="anonymous"></script>
 
+<style>
+li:hover {
+  border-bottom: 1px solid black;
+}
 
+</style>
 
 
 </head>
@@ -25,8 +30,7 @@
 
 
 
-	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top"
-		style="border: solid 1px gray;">
+	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top" style="border-bottom: solid 1px gray;">
 		<div class="container-fluid">
 			<div>
 				<h1 class="ms-5">
@@ -41,17 +45,17 @@
 
 					<a href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark"
-						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a> <a
-						class="mx-2" style="color: black">|</a> <a
+						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a>
+						<a class="mx-2" style="color: black">|</a> <a
 						href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark "
-						style="margin-right: 250px; color: black; font-weight: bold;">
+						style="margin-right: 400px; color: black; font-weight: bold;">
 						언제 떠날까요 ? </a>
 				</div>
 
 				<ul class="navbar-nav">
 					<c:if
-						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
+						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'REGISTER_MEMBER' )}">
 						<li class="nav-item ms-3 fw-bold"><a
 							class="nav-link text-dark"
 							href="${pageContext.request.contextPath}/room/register">숙소 등록</a></li>
@@ -62,11 +66,10 @@
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/room/list">숙소 목록</a></li>
-					<li class="nav-item ms-3 fw-bold"><a
+					<li class="nav-item ms-3 me-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/qna/list">문의하기</a></li>
-					<li class="nav-item me-5 ms-3 fw-bold"><a
-						class="nav-link text-dark" href="#">지도</a></li>
+
 				</ul>
 				<c:choose>
 					<c:when test="${empty sessionScope.PRINCIPAL}">
@@ -88,11 +91,11 @@
 			</div>
 		</div>
 	</nav>
-
+	<hr>
 
 	<!-- Carousel -->
 	<div id="demo" class="carousel slide" data-bs-ride="carousel"
-		style="margin-top: 90px;">
+		style="margin-top: 70px;">
 
 		<!-- The slideshow/carousel -->
 
@@ -101,24 +104,22 @@
 				<img src="${pageContext.request.contextPath}/img/test1.jpg"
 					class="mx-auto d-block" alt="New York" class="d-block"
 					style="width: 1800px" height="850px">
-				<div class="carousel-caption"
-					style="width: 250px; height: 125px; background-color: white; margin-left: 1200px; margin-bottom: 75px;">
-					<h3 style="color: black">여긴 어때</h3>
-					<p style="color: black">여긴 어때가 <br>편안한 여행을 제안합니다</p>
-				</div>
 			</div>
 			<c:forEach var="dto" items="${list}">
-				<div class="carousel-item">
+				<div class="carousel-item ">
 
 
-					<a href="${pageContext.request.contextPath}/room/detail?num=${dto.num}"><img class="mx-auto d-block" style="width: 1800px" height="850px"
+					<a
+						href="${pageContext.request.contextPath}/room/detail?num=${dto.num}"><img
+						class="mx-auto d-block" style="width: 1800px" height="850px"
 						src="${pageContext.request.contextPath}/${dto.image }"
 						alt="${dto.name }" /></a>
-								<div class="carousel-caption"
-					style="width: 250px; height: 125px; background-color: white; margin-left: 1200px; margin-bottom: 75px;">
-					<h3 style="color: black">${dto.name }</h3>
-					<p style="color: black">${dto.summary }</p>
-				</div>
+					<div class="carousel-caption"
+						style="width: 300px; height: 110px; background-color: white; margin-left: 1150px; margin-bottom: 75px;">
+						<h4 style="color: black">${dto.name }</h4>
+						<p style="color: black">${dto.summary }</p>
+
+					</div>
 
 				</div>
 			</c:forEach>

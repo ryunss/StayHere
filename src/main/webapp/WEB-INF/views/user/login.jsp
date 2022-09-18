@@ -20,7 +20,7 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-white navbar-white">
+		<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top" style="border-bottom: solid 1px gray;">
 		<div class="container-fluid">
 			<div>
 				<h1 class="ms-5">
@@ -30,15 +30,36 @@
 			</div>
 			<div class="collapse navbar-collapse justify-content-end"
 				id="collapsibleNavbar">
+
+				<div>
+
+					<a href="${pageContext.request.contextPath}/room/search"
+						class="text-decoration-none fw-boldtext-dark"
+						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a>
+						<a class="mx-2" style="color: black">|</a> <a
+						href="${pageContext.request.contextPath}/room/search"
+						class="text-decoration-none fw-boldtext-dark "
+						style="margin-right: 400px; color: black; font-weight: bold;">
+						언제 떠날까요 ? </a>
+				</div>
+
 				<ul class="navbar-nav">
+					<c:if
+						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'REGISTER_MEMBER' )}">
+						<li class="nav-item ms-3 fw-bold"><a
+							class="nav-link text-dark"
+							href="${pageContext.request.contextPath}/room/register">숙소 등록</a></li>
+					</c:if>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
-						href="${pageContext.request.contextPath}/room/search">SEARCH</a></li>
+						href="${pageContext.request.contextPath}/room/search">숙소 검색</a></li>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
-						href="${pageContext.request.contextPath}/qnaboard/qnaList">QnA</a></li>
-					<li class="nav-item me-5 ms-3 fw-bold"><a
-						class="nav-link text-dark" href="#">MAP</a></li>
+						href="${pageContext.request.contextPath}/room/list">숙소 목록</a></li>
+					<li class="nav-item ms-3 me-3 fw-bold"><a
+						class="nav-link text-dark"
+						href="${pageContext.request.contextPath}/qna/list">문의하기</a></li>
+
 				</ul>
 				<c:choose>
 					<c:when test="${empty sessionScope.PRINCIPAL}">
@@ -49,6 +70,7 @@
 							<button class="btn btn-outline-dark me-5 ms-2" type="submit">JOIN</button>
 						</form>
 					</c:when>
+
 					<c:otherwise>
 						<form action="${pageContext.request.contextPath}/user/logout"
 							method="POST">
@@ -63,10 +85,9 @@
 	<div class="container mt-5 text-center">
 		<form action="${pageContext.request.contextPath }/user/login"
 			method="POST">
-			<h1 class="h3 mb-3 fw-normal">L O G I N</h1>
+			<h1 class="h3 mb-3 fw-normal" style="margin-top:150px;">L O G I N</h1>
 			<h5 class="h5 mb-5 fw-normal">로그인</h5>
 			<div class="w-50" style="margin: 0 auto">
-				<hr>
 			</div>
 			<div class="row mt-5">
 				<div class="col-12 text-danger">${REDIRECT_ATTR.error }</div>

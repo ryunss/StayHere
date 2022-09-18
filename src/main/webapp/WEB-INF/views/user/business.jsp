@@ -107,7 +107,7 @@
 						placeholder="비밀번호 확인" required>
 				</div>
 
-				<input type="hidden" name="authorities" id="authorities" value="ROLE_MEMBER">
+				<input type="hidden" name="authorities" id="authorities" value="REGISTER_MEMBER,ROLE_MEMBER">
 				
 
 				<div class="text-center">

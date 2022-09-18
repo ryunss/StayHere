@@ -22,7 +22,7 @@
 
 
 <body>
-	<nav class="navbar navbar-expand-sm bg-white navbar-white">
+		<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top" style="border-bottom: solid 1px gray;">
 		<div class="container-fluid">
 			<div>
 				<h1 class="ms-5">
@@ -32,20 +32,41 @@
 			</div>
 			<div class="collapse navbar-collapse justify-content-end"
 				id="collapsibleNavbar">
+
+				<div>
+
+					<a href="${pageContext.request.contextPath}/room/search"
+						class="text-decoration-none fw-boldtext-dark"
+						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a>
+						<a class="mx-2" style="color: black">|</a> <a
+						href="${pageContext.request.contextPath}/room/search"
+						class="text-decoration-none fw-boldtext-dark "
+						style="margin-right: 400px; color: black; font-weight: bold;">
+						언제 떠날까요 ? </a>
+				</div>
+
 				<ul class="navbar-nav">
+					<c:if
+						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'REGISTER_MEMBER' )}">
+						<li class="nav-item ms-3 fw-bold"><a
+							class="nav-link text-dark"
+							href="${pageContext.request.contextPath}/room/register">숙소 등록</a></li>
+					</c:if>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
-						href="${pageContext.request.contextPath}/room/search">SEARCH</a></li>
+						href="${pageContext.request.contextPath}/room/search">숙소 검색</a></li>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
-						href="${pageContext.request.contextPath}/qnaboard/qnaList">QnA</a></li>
-					<li class="nav-item me-5 ms-3 fw-bold"><a
-						class="nav-link text-dark" href="#">MAP</a></li>
+						href="${pageContext.request.contextPath}/room/list">숙소 목록</a></li>
+					<li class="nav-item ms-3 me-3 fw-bold"><a
+						class="nav-link text-dark"
+						href="${pageContext.request.contextPath}/qna/list">문의하기</a></li>
+
 				</ul>
 				<c:choose>
 					<c:when test="${empty sessionScope.PRINCIPAL}">
 						<form action="${pageContext.request.contextPath}/user/login">
-							<button class="btn btn-outline-dark ms-5 w-60" type="submit">LOGIN</button>
+							<button class="btn btn-outline-dark ms-5" type="submit">LOGIN</button>
 						</form>
 						<form action="${pageContext.request.contextPath}/user/register">
 							<button class="btn btn-outline-dark me-5 ms-2" type="submit">JOIN</button>
@@ -67,7 +88,7 @@
 
 		<div class="row mt-5">
 			<div class="col-12 text-center">
-				<h1 class="h3 mb-3 fw-normal">J O I N</h1>
+				<h1 class="h3 mb-3 mt-5 fw-normal">J O I N</h1>
 				<h5 class="h5 mb-5 fw-normal">회원가입</h5>
 			</div>
 			<div class="w-50" style="margin: 0 auto">
