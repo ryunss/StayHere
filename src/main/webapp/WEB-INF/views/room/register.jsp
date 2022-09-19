@@ -23,9 +23,17 @@
 h4 {
 	text-align: center;
 }
+
+#all{
+	width: 100%;
+	height: 100%;
+	background-image : url(../img/main20.jpg);
+	color : white;
+}
 </style>
 </head>
 <body>
+<div id="all">
 	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top"
 		style="border-bottom: solid 1px gray;">
 		<div class="container-fluid">
@@ -154,5 +162,6 @@ h4 {
 			<button type="submit" class="btn mt-3 btn-block btn-dark" >등록</button>
 		</div>
 	</form>
+</div>	
 </body>
 </html>

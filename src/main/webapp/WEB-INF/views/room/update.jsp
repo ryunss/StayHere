@@ -21,30 +21,77 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-header, footer {
-	width: 100%;
-	height: 100px;
-	background-color: green;
-}
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-        *{
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size : 20px;
-        }
-</style>
 </head>
 <body>
-<header>
-	메인로고
-</header>
+<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top"
+		style="border-bottom: solid 1px gray;">
+		<div class="container-fluid">
+			<div>
+				<h1 class="ms-5">
+					<a class="text-decoration-none fw-bold text-dark"
+						href="${pageContext.request.contextPath}/home">여긴 어때</a>
+				</h1>
+			</div>
+			<div class="collapse navbar-collapse justify-content-end"
+				id="collapsibleNavbar">
+
+				<div>
+
+					<a href="${pageContext.request.contextPath}/room/search"
+						class="text-decoration-none fw-boldtext-dark"
+						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a> <a
+						class="mx-2" style="color: black">|</a> <a
+						href="${pageContext.request.contextPath}/room/search"
+						class="text-decoration-none fw-boldtext-dark "
+						style="margin-right: 400px; color: black; font-weight: bold;">
+						언제 떠날까요 ? </a>
+				</div>
+
+				<ul class="navbar-nav">
+					<c:if
+						test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'REGISTER_MEMBER' )}">
+						<li class="nav-item ms-3 fw-bold"><a
+							class="nav-link text-dark"
+							href="${pageContext.request.contextPath}/room/register">숙소 등록</a></li>
+					</c:if>
+					<li class="nav-item ms-3 fw-bold"><a
+						class="nav-link text-dark"
+						href="${pageContext.request.contextPath}/room/search">숙소 검색</a></li>
+					<li class="nav-item ms-3 fw-bold"><a
+						class="nav-link text-dark"
+						href="${pageContext.request.contextPath}/room/list">숙소 목록</a></li>
+					<li class="nav-item ms-3 me-3 fw-bold"><a
+						class="nav-link text-dark"
+						href="${pageContext.request.contextPath}/qna/list">문의하기</a></li>
+
+				</ul>
+				<c:choose>
+					<c:when test="${empty sessionScope.PRINCIPAL}">
+						<form action="${pageContext.request.contextPath}/user/login">
+							<button class="btn btn-outline-dark ms-5" type="submit">LOGIN</button>
+						</form>
+						<form action="${pageContext.request.contextPath}/user/register">
+							<button class="btn btn-outline-dark me-5 ms-2" type="submit">JOIN</button>
+						</form>
+					</c:when>
+
+					<c:otherwise>
+						<form action="${pageContext.request.contextPath}/user/logout"
+							method="POST">
+							<button class="btn btn-outline-dark me-5" type="submit">Logout</button>
+						</form>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</div>
+	</nav>
     <div class="container mt-3">
         <h2>수정</h2>
         <hr>
         <div class="mb-3 mt-3 clearfix">
-            <span class="float-start me-2">image ${dto.image}</span>
-            <span class="float-end ms-4">num ${dto.num}</span>
-            <span class="float-end">조회수: ${dto.viewcnt}</span>
+            <span class="float-start me-2">${dto.name }</span>
+            <span class="float-end ms-4">Number : ${dto.num}</span>
+            <span class="float-end">조회수 : ${dto.viewcnt}</span>
         </div>
  
         <form action="update" method="POST">
@@ -70,9 +117,6 @@ header, footer {
 
         </form>
     </div>
-<footer>
-	project
-</footer>
 </body>
 </html>
 

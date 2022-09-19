@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,31 +23,39 @@
 }
 
 .wrapper div {
-	border: 2px solid black;
+	margin : 10px;
 	width: 300px;
 	height: 200px;
 	background-color: blanchedalmond;
 }
 
 .container {
-	justify-content: space-evenly;
+	justify-content: space-around;
 }
 
 #s {
 	margin-top : 10px;
 	margin-bottom : 10px;
-	border : 3px solid black;
 	width: 100%;
-	height: 100px;
+	height: hidden;
 	text-align : center;
-	background-color: skyblue;
+	background-color: black;
+	color: white;
+	font-size : 40px;
+}
+.text{
+	text-align : center;
+}
+#sub{
+	height: hidden;
 }
 </style>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+<br><br><br><br>
 <div id="wrap">
-<div id="s">검색조건설정</div>
+<div id="s">SEARCH</div>
 <form action="${pageContext.request.contextPath}/room/FormOk" method="post">
 	지역 : <select name="region">
 		<option value="seoul">서울</option>
@@ -70,23 +80,22 @@
 		<option value="100000">100000</option>
 		<option value="200000">200000</option>
 	</select>
-	<input type="submit" value="option"> 
+	<input type="submit" value="검색"> 
 </form>
 <h3>검색결과</h3>
 <hr>
-	<div>
+	<div id="sub">
 	    <div class="wrapper container">
-	      <div><img src="file:///C:/Users/doyex/Desktop/IT/Backend/DevRoot/Dropbox/Web/Project/StayHere/src/test1.jpg"></div>
-	      <div><p>img2</p></div>
-	      <div><p>img3</p></div>
+	      <div class="text"><img src="${pageContext.request.contextPath}/img/test11.jpg">슬로우소랑</div>
+	      <div class="text"><img src="${pageContext.request.contextPath}/img/test22.jpg">생활서가</div>
+	      <div class="text"><img src="${pageContext.request.contextPath}/img/test33.jpg">공간동백</div>
 	    </div>
 	    <div class="wrapper container">
-	      <div><p>img4</p></div>
-	      <div><p>img5</p></div>
-	      <div><p>img6</p></div>
+	      <div class="text"><img src="${pageContext.request.contextPath}/img/test44.jpg">선현재</div>
+	      <div class="text"><img src="${pageContext.request.contextPath}/img/test55.jpg">테오리아</div>
+	      <div class="text"><img src="${pageContext.request.contextPath}/img/test66.jpg">브리드호텔</div>
 	    </div>
     </div>
 </div>
-<jsp:include page="footer.jsp"/>
 </body>
 </html>

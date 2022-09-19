@@ -106,6 +106,7 @@ public class RoomController extends HttpServlet {
 				break;
 			}
 		}
+		
 
 		if (viewPage != null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/room/" + viewPage);

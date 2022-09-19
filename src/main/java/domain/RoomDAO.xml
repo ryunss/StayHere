@@ -57,8 +57,7 @@
 	</update>
 
 	<delete id="deleteByNum" flushCache="true">
-		DELETE FROM room WHERE
-		room_num = #{num}
+		DELETE FROM room WHERE room_num= #{num}
 	</delete>
 	<insert id="search" flushCache="true"
 		parameterType="domain.RoomDTO" keyProperty="num"
