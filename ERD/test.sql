@@ -190,5 +190,6 @@ VALUES
 ('공간동백', '제주', '민박', '공간동백은 여행에서 만난 우리 집 처럼 편안함을 드립니다 여긴어때와 공간동백이 만나 편안한 여행을 제안합니다.', '제주', 4, 550000, 'img/main19.jpg','온전히 나에게 집중하는 공간');
 
 
+SELECT * FROM room WHERE room_viewcnt = (SELECT MAX(room_viewcnt) FROM room);
 
-select * from room_comment ;
+

@@ -21,4 +21,7 @@ public interface RoomDAO {
 	
 	// 특정 num 숙소 삭제
 	public abstract int deleteByNum(int num) throws SQLException;
+	
+	// 숙소 전체 SELECT 중 best viewcnt
+	public abstract List<RoomDTO> selectViewcnt() throws SQLException;
 }

@@ -16,8 +16,16 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&family=Roboto:wght@400;500;700;900&display=swap"
 	rel="stylesheet">
+
 <meta charset="UTF-8">
 <title>Insert title here</title> 
+<style>
+	#best{
+		border: 2px solid grey;
+		width: 355px;
+		margin : 0 auto;
+	}
+</style>
 <body>
 
 
@@ -89,6 +97,23 @@
 	<form id="frm">
 		<div class="container text-center" style="margin-top: 100px;">
 			<h1 class="h3 mb-5 fw-normal">L I S T</h1>
+			<br>
+			
+				<c:forEach var="dtoa" items="${listViewcnt}">
+				<img src="${pageContext.request.contextPath}/img/best.png"/>
+				<div id="best">
+					<tr>
+						<td>
+							<a  href="detail?num=${dtoa.num}">
+								<img src="${pageContext.request.contextPath}/${dtoa.image }" style="width: 350px; height: 150px;"/>
+							</a>
+							<br><b>${dtoa.name }</b>	
+						</td>
+					</tr>
+				</div>	
+				</c:forEach>
+			
+				<hr>
 			<table class="table table-hover">
 				<thead class="table-active">
 					<tr>

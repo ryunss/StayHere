@@ -18,18 +18,22 @@ public class ListService implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
 		SqlSession sqlSession = null;
 		RoomDAO dao = null;
 		
 		List<RoomDTO> list = null;
+		List<RoomDTO> listViewcnt = null;
 		
 		try {
 			sqlSession = SqlSessionManager.getInstance().openSession();
 			dao = sqlSession.getMapper(RoomDAO.class);
 			
 			list = dao.select();
+			listViewcnt = dao.selectViewcnt();
 			
 			request.setAttribute("list", list);
+			request.setAttribute("listViewcnt", listViewcnt);
 			
 			sqlSession.commit();
 		}catch(SQLException e) {
