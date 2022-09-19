@@ -59,10 +59,10 @@ public class ListService implements Service {
 			if(page < 1) page = 1;
 			if(page > totalPage) page = totalPage;
 			
-			int fromRow = (page -1) * pageRows;
+			int fromRow = (page - 1) * pageRows;
 			list = dao.selectFormRow(fromRow, pageRows);
 			
-			startPage = ((int)((page = 1 )/ writePages) * writePages) + 1;
+			startPage = ((int)((page - 1 )/ writePages) * writePages) + 1;
 			endPage = startPage + writePages - 1;
 			if(endPage >= totalPage) endPage = totalPage;
 			
