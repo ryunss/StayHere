@@ -13,7 +13,6 @@ import common.C;
 import service.Service;
 import service.user.LoginService;
 import service.user.RegisterService;
-import service.user.SearchService;
 import service.user.businessService;
 
 @WebServlet("/user/*")
@@ -52,6 +51,7 @@ public class UserController extends HttpServlet {
 		System.out.println("command: " + command);
 
 		Service service = null;
+
 		String viewPage = null;
 
 		switch (command) {
@@ -91,6 +91,7 @@ public class UserController extends HttpServlet {
 				viewPage = "/user/login.jsp";
 				break;
 			case "POST":
+				
 				service = new LoginService();
 				service.execute(request, response);
 				if (!response.isCommitted()) {
@@ -101,23 +102,7 @@ public class UserController extends HttpServlet {
 				break;
 			}
 			break;
-		case "/user/search":
-			switch (method) {
-			case "GET":
-				C.retrieveRedirectAttribute(request);
-				viewPage = "/user/search.jsp";
-				break;
-			case "POST":
-				service = new SearchService();
-				service.execute(request, response);
-				if (!response.isCommitted()) {
-					String redirectUrl = request.getContextPath() + "/home";
-					
-					response.sendRedirect(redirectUrl);
-				}
-				break;
-			}
-			break;
+
 
 		case "/user/logout":
 			if (method.equals("POST")) {

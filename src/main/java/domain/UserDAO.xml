@@ -17,13 +17,6 @@
 		FROM user
 		WHERE user_num = #{user_num}
 </select>
-<select id="selectSearch" parameterType="domain.UserDTO" 
-	    resultType="domain.UserDTO">
-		SELECT user_num, user_id, user_password, user_name
-		FROM user
-		WHERE user_num = #{user_num}
-</select>
-
 
 <insert id="register" flushCache="true" parameterType="domain.UserDTO"
 	keyProperty="user_num" useGeneratedKeys="true" keyColumn="user_num">

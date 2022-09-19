@@ -17,7 +17,7 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&family=Roboto:wght@400;500;700;900&display=swap"
 	rel="stylesheet">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Insert title here</title> 
 <body>
 
 
@@ -89,7 +89,6 @@
 	<form id="frm">
 		<div class="container text-center" style="margin-top: 100px;">
 			<h1 class="h3 mb-5 fw-normal">L I S T</h1>
-
 			<table class="table table-hover">
 				<thead class="table-active">
 					<tr>

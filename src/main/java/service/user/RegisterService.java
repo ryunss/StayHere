@@ -40,23 +40,23 @@ public class RegisterService implements Service {
 		
 		String pwpattern = "^(?=.*\\d)(?=.*[~`!@#$%\\^&*()-])(?=.*[a-z])(?=.*[A-Z]).{9,12}$";
 		
-		Matcher matcher1 = Pattern.compile(pwpattern).matcher(password);
 		
-		if(!matcher1.matches()) {
-			C.addRedirectAttribute(request, "error", "비밀번호는 영문(대소문자 구분), 숫자, 특수문자 조합, 9~12자리이어야 합니다");
-			C.addRedirectAttribute(request, "username", username);
-			C.addRedirectAttribute(request, "name", name);
-
-			response.sendRedirect(conPath + "/user/register");
-
-			return;
-		}
 		
 		if (username.length() < 5 || username.length() > 12) {
 			C.addRedirectAttribute(request, "error", "아이디는 5자이상 12자 이하이어야 합니다");
 			C.addRedirectAttribute(request, "name", name);
 			
 			response.sendRedirect(conPath + "/user/register");
+			return;
+		}
+		Matcher matcher1 = Pattern.compile(pwpattern).matcher(password);
+		if(!matcher1.matches()) {
+			C.addRedirectAttribute(request, "error", "비밀번호는 영문(대소문자 구분), 숫자, 특수문자 조합, 9~12자리이어야 합니다");
+			C.addRedirectAttribute(request, "username", username);
+			C.addRedirectAttribute(request, "name", name);
+			
+			response.sendRedirect(conPath + "/user/register");
+			
 			return;
 		}
 
@@ -71,16 +71,6 @@ public class RegisterService implements Service {
 
 			return;
 		}
-		
-		if(password.length() < 8) {
-			C.addRedirectAttribute(request, "error", "비밀번호는 8자 이상이어야 합니다");
-			C.addRedirectAttribute(request, "username", username);
-			C.addRedirectAttribute(request, "name", name);
-			
-			response.sendRedirect(conPath + "/user/register");
-			return;
-		}
-
 		SqlSession sqlSession = null;
 		UserDAO dao = null;
 

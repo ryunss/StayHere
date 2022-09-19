@@ -21,10 +21,9 @@
 		useGeneratedKeys="true" keyColumn="room_num">
 		INSERT INTO room
 		(room_name, room_address, room_category, room_info,
-		room_region, room_personnel, room_price, room_image)
+		room_region, room_personnel, room_price, room_summary, room_image)
 		VALUES
-		(#{name}, #{address}, #{category}, #{info}, #{region}, #{personnel}, #{price},
-		#{image})
+		(#{name}, #{address}, #{category}, #{info}, #{region}, #{personnel}, #{price}, #{summary}, #{image})
 	</insert>
 
 	<select id="selectByNum" resultType="domain.RoomDTO">
