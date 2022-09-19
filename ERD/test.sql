@@ -63,7 +63,6 @@ CREATE TABLE room
 	PRIMARY KEY (room_num)
 );
 
-
 CREATE TABLE room_comment
 (
 	rc_num int NOT NULL AUTO_INCREMENT,
@@ -119,7 +118,7 @@ ALTER TABLE room_comment
 	ADD FOREIGN KEY (room_num)
 	REFERENCES room (room_num)
 	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
+	ON DELETE CASCADE
 ;
 
 
@@ -189,7 +188,6 @@ VALUES
 ('테일러센츠', '강원', '민박', '후각은 그 어떤 감각보다 우리의 감정과 기억에 깊은 영향을 줍니다. 그래서 우리는 향기를 통해 누군가를 떠올리기도 하고 공간을 기억하기도하죠 코끝에 신선한 바람이 불어오는 찰나의 가을 이 아름다운 계절의 여행을 깊이 추억할 수 있도록 여긴어때가 테일러센츠와 만나 고유한 향기를 제안합니다.', '양양', 4, 550000, 'img/main18.jpg','감정을 움직이는 공간과 향기 with 테일러센츠'),
 ('공간동백', '제주', '민박', '공간동백은 여행에서 만난 우리 집 처럼 편안함을 드립니다 여긴어때와 공간동백이 만나 편안한 여행을 제안합니다.', '제주', 4, 550000, 'img/main19.jpg','온전히 나에게 집중하는 공간');
 
-
-SELECT * FROM room WHERE room_viewcnt = (SELECT MAX(room_viewcnt) FROM room);
+SELECT * FROM user
 
 
