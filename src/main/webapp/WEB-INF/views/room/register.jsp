@@ -1,29 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	#frm{
-		width: 700px;
-		height: hidden;
-		margin : 0 auto;
-	}
-	
-	h4{
-		text-align : center;
-	}
+#frm {
+	width: 700px;
+	height: hidden;
+	margin: 0 auto;
+}
+
+h4 {
+	text-align: center;
+}
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top" style="border-bottom: solid 1px gray;">
+	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top"
+		style="border-bottom: solid 1px gray;">
 		<div class="container-fluid">
 			<div>
 				<h1 class="ms-5">
@@ -38,8 +42,8 @@
 
 					<a href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark"
-						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a>
-						<a class="mx-2" style="color: black">|</a> <a
+						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a> <a
+						class="mx-2" style="color: black">|</a> <a
 						href="${pageContext.request.contextPath}/room/search"
 						class="text-decoration-none fw-boldtext-dark "
 						style="margin-right: 400px; color: black; font-weight: bold;">
@@ -84,48 +88,71 @@
 			</div>
 		</div>
 	</nav>
-<form id="frm" action="register" method="post">
+	<form id="frm" action="register" method="post">
 
-<h1 class="h3 mb-5 fw-normal text-center"style="margin-top:120px;">R E G I S T E R </h1>
-	
-	<div class="col-md-12">
-		<label for="exampleFormControlInput1" class="form-label">숙소 이름</label> 
-		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="room-name" id="name" name="name">
-	</div>
-	<div class="col-md-12">
-		<label for="exampleFormControlInput1" class="form-label">숙소 주소</label> 
-		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="room-address" id="address" name="address">
-	</div>
-	<div class="col-md-12">
-		<label for="exampleFormControlTextarea1" class="form-label">숙소 지역</label>
-		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="room-region" id="region" name="region">
-	</div>
-	<div class="col-md-12">
-		<label for="exampleFormControlInput1" class="form-label">숙소 유형</label> 
-		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="room-category" id="category" name="category">
-	</div>
-	<div class="col-md-12">
-		<label for="exampleFormControlInput1" class="form-label">숙소 요약</label> 
-		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="room-summary" id="summary" name="summary">
-	</div>
+		<h1 class="h3 mb-5 fw-normal text-center" style="margin-top: 120px;">R
+			E G I S T E R</h1>
 
-	<div class="col-md-12">
-		<label for="exampleFormControlTextarea1" class="form-label">숙소 정보</label>
-		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="info" id="info" name="info"></textarea>
-	</div>
-	<div class="col-md-12">
-		<label for="exampleFormControlInput1" class="form-label">숙소 인원</label> 
-		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="room-personnel" id="personnel" name="personnel"> 
-	</div>
-	<div class="col-md-12">
-		<label for="exampleFormControlInput1" class="form-label">숙소 금액</label> 
-		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="room-price" id="price" name="price">
-	</div>
-	<div class="col-md-12">
-		<label for="exampleFormControlInput1" class="form-label">숙소 이미지</label> 
-		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="room-image" id="image" name="image">
-	</div>
-	<button type="submit" class="btn btn-info ">등록</button>
-</form>
+		<div class="col-md-12">
+			<label for="exampleFormControlInput1" class="form-label">숙소
+				이름</label> <input type="text" class="form-control"
+				id="exampleFormControlInput1" placeholder="room-name" id="name"
+				name="name">
+		</div>
+		<div class="col-md-12">
+			<label for="exampleFormControlInput1" class="form-label">숙소
+				주소</label> <input type="text" class="form-control"
+				id="exampleFormControlInput1" placeholder="room-address"
+				id="address" name="address">
+		</div>
+		<div class="col-md-12">
+			<label for="exampleFormControlTextarea1" class="form-label">숙소
+				지역</label> <input type="text" class="form-control"
+				id="exampleFormControlInput1" placeholder="room-region" id="region"
+				name="region">
+		</div>
+		<div class="col-md-12">
+			<label for="exampleFormControlInput1" class="form-label">숙소
+				유형</label> <input type="text" class="form-control"
+				id="exampleFormControlInput1" placeholder="room-category"
+				id="category" name="category">
+		</div>
+		<div class="col-md-12">
+			<label for="exampleFormControlInput1" class="form-label">숙소
+				요약</label> <input type="text" class="form-control"
+				id="exampleFormControlInput1" placeholder="room-summary"
+				id="summary" name="summary">
+		</div>
+
+		<div class="col-md-12">
+			<label for="exampleFormControlTextarea1" class="form-label">숙소
+				정보</label>
+			<textarea class="form-control" id="exampleFormControlTextarea1"
+				rows="3" placeholder="info" id="info" name="info"></textarea>
+		</div>
+		<div class="col-md-12">
+			<label for="exampleFormControlInput1" class="form-label">숙소
+				인원</label> <input type="text" class="form-control"
+				id="exampleFormControlInput1" placeholder="room-personnel"
+				id="personnel" name="personnel">
+		</div>
+		<div class="col-md-12">
+			<label for="exampleFormControlInput1" class="form-label">숙소
+				금액</label> <input type="text" class="form-control"
+				id="exampleFormControlInput1" placeholder="room-price" id="price"
+				name="price">
+		</div>
+		<div class="col-md-12">
+			<label for="exampleFormControlInput1" class="form-label">숙소
+				이미지</label> <input type="text" class="form-control"
+				id="exampleFormControlInput1" placeholder="room-image" id="image"
+				name="image">
+		</div>
+
+
+		<div class="d-grid">
+			<button type="submit" class="btn mt-3 btn-block btn-dark" >등록</button>
+		</div>
+	</form>
 </body>
 </html>

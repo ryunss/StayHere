@@ -26,7 +26,6 @@ public class RegisterService implements Service {
 		int personnel = Integer.parseInt(request.getParameter("personnel"));
 		int price = Integer.parseInt(request.getParameter("price"));
 		String image = request.getParameter("image");
-		String summary = request.getParameter("summary");
 
 		RoomDTO dto = new RoomDTO();
 		dto.setName(name);
