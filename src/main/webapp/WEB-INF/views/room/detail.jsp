@@ -147,9 +147,9 @@
 			</div>
 
 			<!-- 하단 링크 -->
-			<a class="btn btn-outline-dark mt-3" href="list">목록</a>
+				<a class="btn btn-outline-dark" href="list">목록</a>
 			<c:if
-				test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'ROLE_MEMBER' )}">
+				test="${fn:contains(sessionScope.PRINCIPAL.authorities, 'REGISTER_MEMBER' )}">
 				<a class="btn btn-outline-dark" href="update?num=${dto.num}">수정</a>
 				<button type="button" class="btn btn-outline-dark"
 					onclick="chkDelete()">삭제</button>
