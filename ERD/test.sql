@@ -162,5 +162,3 @@ ALTER TABLE room_like
 	ON DELETE CASCADE
 ;
 
-
-

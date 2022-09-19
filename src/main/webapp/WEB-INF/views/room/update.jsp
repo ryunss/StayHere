@@ -70,9 +70,7 @@ header, footer {
 
         </form>
     </div>
-<footer>
-	project
-</footer>
+
 </body>
 </html>
 

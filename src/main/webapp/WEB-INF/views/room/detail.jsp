@@ -161,7 +161,6 @@
 			<jsp:include page="comment.jsp"></jsp:include>
 		</section>
 	</div>
-	<jsp:include page="footer.jsp" />
 </body>
 		</html>
 
