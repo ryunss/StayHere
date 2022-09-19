@@ -120,7 +120,7 @@
 			</form>
 			<div class="container mt-3">
 				<img src="http://localhost:8085/StayHere/${dto.image }"
-					alt="${dto.name }" class="mx-auto d-block" style="width: 100%" />
+					class="mx-auto d-block" style="width: 100%" />
 			</div>
 			<table class="table text-center mt-3">
 				<thead>

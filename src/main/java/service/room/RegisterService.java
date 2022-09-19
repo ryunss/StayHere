@@ -25,6 +25,7 @@ public class RegisterService implements Service {
 		int personnel = Integer.parseInt(request.getParameter("personnel"));
 		int price = Integer.parseInt(request.getParameter("price"));
 		String image = request.getParameter("image");
+		String summary = request.getParameter("summary");
 
 		RoomDTO dto = new RoomDTO();
 		dto.setName(name);
@@ -35,7 +36,7 @@ public class RegisterService implements Service {
 		dto.setPersonnel(personnel);
 		dto.setPrice(price);
 		dto.setImage(image);
-		
+		dto.setSummary(summary);
 		int cnt = 0;
 		
 		SqlSession sqlSession = null;

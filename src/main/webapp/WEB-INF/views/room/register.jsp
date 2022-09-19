@@ -105,7 +105,7 @@
 		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="room-category" id="category" name="category">
 	</div>
 	<div class="col-md-12">
-		<label for="exampleFormControlInput1" class="form-label">숙소 유형</label> 
+		<label for="exampleFormControlInput1" class="form-label">숙소 요약</label> 
 		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="room-summary" id="summary" name="summary">
 	</div>
 
@@ -125,7 +125,7 @@
 		<label for="exampleFormControlInput1" class="form-label">숙소 이미지</label> 
 		<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="room-image" id="image" name="image">
 	</div>
-	<button type="submit" class="btn btn-info">등록</button>
+	<button type="submit" class="btn btn-info ">등록</button>
 </form>
 </body>
 </html>

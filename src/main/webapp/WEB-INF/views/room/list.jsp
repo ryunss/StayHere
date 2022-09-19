@@ -107,7 +107,7 @@
 							<td>${dto.num }</td>
 							<td><a href="detail?num=${dto.num}"><img
 									src="${pageContext.request.contextPath}/${dto.image }"
-									style="width: 350px; height: 150px;" alt="${dto.name }" /></a></td>
+									style="width: 350px; height: 150px;"/></a></td>
 							<td>${dto.name }</td>
 							<td>${dto.summary }</td>
 							<td>${dto.region }</td>
