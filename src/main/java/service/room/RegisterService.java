@@ -20,6 +20,7 @@ public class RegisterService implements Service {
 		String name = request.getParameter("name");
 		String address = request.getParameter("address");
 		String category = request.getParameter("category");
+		String summary = request.getParameter("summary");
 		String info = request.getParameter("info");
 		String region = request.getParameter("region");
 		int personnel = Integer.parseInt(request.getParameter("personnel"));
@@ -30,6 +31,7 @@ public class RegisterService implements Service {
 		dto.setName(name);
 		dto.setAddress(address);
 		dto.setCategory(category);
+		dto.setSummary(summary);
 		dto.setInfo(info);
 		dto.setRegion(region);
 		dto.setPersonnel(personnel);
