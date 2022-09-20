@@ -56,7 +56,7 @@
 					</c:if>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
-						href="${pageContext.request.contextPath}/room/search">숙소 검색</a></li>
+						href="${pageContext.request.contextPath}/room/testSearch">숙소 검색</a></li>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/room/list">숙소 목록</a></li>
@@ -89,10 +89,10 @@
     <div class="container mt-3">
         <h2>수정</h2>
         <hr>
-        <div class="mb-3 mt-3 clearfix">
+       <!--  <div class="mb-3 mt-3 clearfix">
             <span class="float-start me-2">id: ${dto.user_num }</span>
             <span class="float-end ms-4">작성일: ${dto.regDateTime }</span>
-        </div>
+        </div>  -->
 
         <form action="update" method="POST" enctype="Multipart/form-data">
             <input type="hidden" name="qna_num" value="${dto.qna_num }"/>
