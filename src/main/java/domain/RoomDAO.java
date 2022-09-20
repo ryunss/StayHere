@@ -24,4 +24,8 @@ public interface RoomDAO {
 	
 	// 숙소 전체 SELECT 중 best viewcnt
 	public abstract List<RoomDTO> selectViewcnt() throws SQLException;
+	
+	// 숙소 선택조건에 맞는 결과
+	public abstract List<RoomDTO> selectWhere(RoomDTO dto) throws SQLException;
+	
 }

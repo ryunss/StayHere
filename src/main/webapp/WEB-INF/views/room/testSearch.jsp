@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,19 +16,23 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&family=Roboto:wght@400;500;700;900&display=swap"
 	rel="stylesheet">
-
 <meta charset="UTF-8">
-<title>Insert title here</title> 
+<title>Insert title here</title>
 <style>
-	#best{
-		border: 2px solid grey;
-		width: 355px;
+	#size{
+		width: 500px;
+		height: hidden;
 		margin : 0 auto;
+		color : white;
+	}
+	#all{
+		background-color : black;
+		width: 100%;
+		height: 700px;
 	}
 </style>
+</head>
 <body>
-
-
 	<nav class="navbar navbar-expand-sm bg-white navbar-white fixed-top"
 		style="border-bottom: solid 1px gray;">
 		<div class="container-fluid">
@@ -62,7 +66,7 @@
 					</c:if>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
-						href="${pageContext.request.contextPath}/room/testSearch">숙소 검색</a></li>
+						href="${pageContext.request.contextPath}/room/search">숙소 검색</a></li>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/room/list">숙소 목록</a></li>
@@ -91,61 +95,41 @@
 			</div>
 		</div>
 	</nav>
+	
+	<br><br><br>
+	<div id="all">
+<form id="size" action="testSearchOk" method="POST">
+<br><br><br><br><br>
+	지역	<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="region">
+ 		<option selected value="서울">서울</option>
+  		<option value="경주">경주</option>
+ 		<option value="부산">부산</option>
+ 		<option value="강릉">강릉</option>
+	</select>
 
+	인원	<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="personnel">
+ 		<option selected value="1">1명</option>
+  		<option value="2">2명</option>
+ 		<option value="3">3명</option>
+ 		<option value="4">4명</option>
+	</select>
 
+	숙소 유형 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="category">
+ 		<option selected value="호텔">호텔</option>
+  		<option value="펜션">펜션</option>
+	</select>
 
-	<form id="frm">
-		<div class="container text-center" style="margin-top: 100px;">
-			<h1 class="h3 mb-5 fw-normal">L I S T</h1>
-			<br>
-			
-				<c:forEach var="dtoa" items="${listViewcnt}">
-				<img src="${pageContext.request.contextPath}/img/best.png"/>
-				<div id="best">
-					<tr>
-						<td>
-							<a  href="detail?num=${dtoa.num}">
-								<img src="${pageContext.request.contextPath}/${dtoa.image }" style="width: 350px; height: 150px;"/>
-							</a>
-							<br><b>${dtoa.name }</b>	
-						</td>
-					</tr>
-				</div>	
-				</c:forEach>
-			
-				<hr>
-			<table class="table table-hover">
-				<thead class="table-active">
-					<tr>
-						<th>#</th>
-						<th>숙소이미지</th>
-						<th>숙소이름</th>
-						<th>숙소요약</th>
-						<th>지역</th>
-						<th>종류</th>
-						<th>가격</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="dto" items="${list}">
-						<tr>
-							<td>${dto.num }</td>
-							<td><a href="detail?num=${dto.num}"><img
-									src="${pageContext.request.contextPath}/${dto.image }"
-									style="width: 350px; height: 150px;"/></a></td>
-							<td>${dto.name }</td>
-							<td>${dto.summary }</td>
-							<td>${dto.region }</td>
-							<td>${dto.category }</td>
-							<td>${dto.price }원</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-	</form>
-
+	가격 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="price">
+ 		<option selected value="50000">50,000원</option>
+		<option value="100000">100,000원</option>
+		<option value="200000">200,000원</option>
+		<option value="300000">300,000원</option>
+	</select>
+	<br>
+	<div class="d-grid">
+			<button type="submit" class="btn mt-3 btn-block btn-light" >검색</button>
+	</div>
+</form>
+</div>
 </body>
-
-
 </html>

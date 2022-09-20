@@ -56,10 +56,17 @@ public class RoomController extends HttpServlet {
 		String viewPage = null;
 
 		switch (command) {
-		case "/room/search":
-			service = new SearchService();
-			service.execute(request, response);
-			viewPage = "search.jsp";
+		case "/room/testSearch":
+			viewPage = "testSearch.jsp";
+			break;
+		case "/room/testSearchOk":
+			switch(method) {
+			case "POST":
+				service = new SearchService();
+				service.execute(request, response);
+				viewPage = "testSearchOk.jsp";				
+				break;
+			}
 			break;
 		case "/room/detail":
 			service = new DetailService();

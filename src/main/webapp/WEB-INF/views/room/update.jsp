@@ -37,7 +37,7 @@
 
 				<div>
 
-					<a href="${pageContext.request.contextPath}/room/search"
+					<a href="${pageContext.request.contextPath}/room/testSearch"
 						class="text-decoration-none fw-boldtext-dark"
 						style="color: black; font-weight: bold;">어디로 떠날까요 ? </a> <a
 						class="mx-2" style="color: black">|</a> <a
@@ -56,7 +56,7 @@
 					</c:if>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
-						href="${pageContext.request.contextPath}/room/search">숙소 검색</a></li>
+						href="${pageContext.request.contextPath}/room/testSearch">숙소 검색</a></li>
 					<li class="nav-item ms-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/room/list">숙소 목록</a></li>

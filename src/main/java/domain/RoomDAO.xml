@@ -84,4 +84,20 @@
 			room_summary "summary"
 		FROM room WHERE room_viewcnt = (SELECT MAX(room_viewcnt) FROM room);
 	</select>
+	
+	<select id="selectWhere" resultType="domain.RoomDTO" parameterType="domain.RoomDTO" >
+		SELECT 
+			room_num "num",
+			room_name "name",
+			room_image "image",
+			room_region "region",
+			room_viewcnt "viewcnt",
+			room_category "category",
+			room_personnel "personnel",
+			room_price "price",
+			room_address "address",
+			room_info "info",
+			room_summary "summary"
+		FROM room WHERE (room_region = #{region}) AND (room_personnel = #{personnel}) AND (room_category = #{category}) AND (room_price = #{price})		
+	</select>
 </mapper>

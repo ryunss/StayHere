@@ -56,7 +56,7 @@
 <br><br><br><br>
 <div id="wrap">
 <div id="s">SEARCH</div>
-<form action="${pageContext.request.contextPath}/room/FormOk" method="post">
+<form action="searchOk" method="post">
 	지역 : <select name="region">
 		<option value="seoul">서울</option>
 		<option value="kwang">광주</option>
