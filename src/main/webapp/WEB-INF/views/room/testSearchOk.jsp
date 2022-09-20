@@ -100,9 +100,15 @@
 <div id="wrap">
 
 <br><h3>검색결과</h3><br>
-	
-	<hr>
-	<c:forEach var="dto" items="${list}">
+	<c:choose>
+	<c:when test="${result == 1}">
+		<script>
+			alert("검색에 맞는 결과가 없습니다");
+			history.back();
+		</script>
+	</c:when>
+	<c:otherwise>
+			<c:forEach var="dto" items="${list}">
 					<tr>
 						<td>
 							<a href="detail?num=${dto.num}">
@@ -115,6 +121,11 @@
 						</td>
 					</tr>
 	</c:forEach>
+	</c:otherwise>
+</c:choose>
+	
+	<hr>
+
 	<hr>
 </div>
 </div>

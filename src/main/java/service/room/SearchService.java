@@ -25,8 +25,8 @@ public class SearchService implements Service {
 		
 		SqlSession sqlSession = null;
 		RoomDAO dao = null;
-		
 		List<RoomDTO> list = null;
+		int result = 0;
 		
 		RoomDTO dto = new RoomDTO();
 		dto.setRegion(region);
@@ -41,8 +41,14 @@ public class SearchService implements Service {
 			dao = sqlSession.getMapper(RoomDAO.class);
 			
 			list = dao.selectWhere(dto);
+			if(list.isEmpty()) {
+				result = 1;
+			}
 			
+			request.setAttribute("result", result);
 			request.setAttribute("list", list);
+			
+			System.out.println(result);
 			
 			sqlSession.commit();
 		}catch(SQLException e) {
