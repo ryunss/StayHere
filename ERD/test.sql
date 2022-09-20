@@ -190,4 +190,4 @@ VALUES
 
 SELECT * FROM user
 
-SELECT * FROM room
+SELECT * FROM room;
