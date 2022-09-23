@@ -25,7 +25,7 @@
 			<div>
 				<h1 class="ms-5">
 					<a class="text-decoration-none fw-bold text-dark"
-						href="${pageContext.request.contextPath}/home">여긴 어때</a>
+						href="${pageContext.request.contextPath}/home">StayHere</a>
 				</h1>
 			</div>
 			<div class="collapse navbar-collapse justify-content-end"
