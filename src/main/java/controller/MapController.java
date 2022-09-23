@@ -9,23 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.Service;
-import service.room.DeleteService;
-import service.room.DetailService;
-import service.room.ListService;
-import service.room.RegisterService;
-import service.room.SearchService;
-import service.room.SelectService;
-import service.room.UpdateService;
 
-@WebServlet("/home")
-public class HomeController extends HttpServlet {
+@WebServlet("/map")
+public class MapController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	public HomeController() {
+	
+	public MapController() {
 		super();
 	}
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -39,21 +31,18 @@ public class HomeController extends HttpServlet {
 		System.out.println("conPath: " + conPath);
 		System.out.println("command: " + command);
 
-		Service service = null;
 		String viewPage = null;
-
+		
 		switch (command) {
-		case "/home":
-			service = new ListService();
-			service.execute(request, response);
-			viewPage = "home.jsp";
+		case "/map":
+			viewPage = "mapView.jsp";
 			break;
 
 		}
 		
 
 		if (viewPage != null) {
-			 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/home.jsp");
+			 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/map/mapView.jsp");
 
 			dispatcher.forward(request, response);
 		}
@@ -64,5 +53,4 @@ public class HomeController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 	}
-
 }

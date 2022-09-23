@@ -83,6 +83,9 @@
 					<li class="nav-item ms-3 me-3 fw-bold"><a
 						class="nav-link text-dark"
 						href="${pageContext.request.contextPath}/qna/list">문의하기</a></li>
+						<li class="nav-item ms-3 me-3 fw-bold"><a
+						class="nav-link text-dark"
+						href="${pageContext.request.contextPath}/map">둘러보기</a></li>
 
 				</ul>
 				<c:choose>
