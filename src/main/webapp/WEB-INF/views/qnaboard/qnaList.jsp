@@ -128,7 +128,21 @@
 
 
 		<div class="mb-3 mt-3 clearfix">
-			<div class="float-start">총 ${cnt}개 page ${page}/${totalPage}</div>
+			<div class="float-start">총 ${cnt}개 page ${page}/${totalPage}
+				<form name="qnaSearch" action="qnaSearchResult" method="GET">
+					<table class="pull-right">
+						<tr>
+							<td><select class="form-select" name="searchField">
+									<option value="Qtitle">제목</option>
+									<option value="userName">작성자</option>
+							</select></td>
+							<td><input type="text" class="form-control"
+								placeholder="검색어 입력" name="searchText" maxlength="100" value="${keyword}"></td>
+							<td><button type="submit" class="btn btn-outline-dark float-end">검색</button></td>
+						</tr>
+					</table>
+				</form>
+			</div>
 			<div class="col-12">
 				<a class="btn btn-outline-dark float-end" href="write">작성</a>
 			</div>

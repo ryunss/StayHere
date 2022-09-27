@@ -20,6 +20,9 @@ public class QnADTO {
 	private String qna_content;
 	private LocalDateTime qna_regdate;
 	
+	private String keywordField;
+	private String keyword;
+	
 	public String getRegDateTime() {
 		if(this.qna_regdate == null) return "";		
 		return this.qna_regdate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));

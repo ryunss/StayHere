@@ -2,6 +2,7 @@ package service.qna;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +32,11 @@ public class ListService implements Service {
 			}
 		}
 		
+		
+		String keywordF = request.getParameter("searchField");
+		String keyword = request.getParameter("keyword");
+		
+		
 		HttpSession session = request.getSession();
 		Integer writePages = (Integer)session.getAttribute("writePages");
 		if(writePages == null) writePages = C.WRITE_PAGES;
@@ -49,9 +55,12 @@ public class ListService implements Service {
 		int startPage = 1;
 		int endPage = 10;
 		
+		
 		try {
 			sqlSession = SqlSessionManager.getInstance().openSession();
 			dao = sqlSession.getMapper(QnADAO.class);
+			
+			
 			
 			cnt = dao.countAll();
 			totalPage = (int)Math.ceil(cnt / (double)pageRows);

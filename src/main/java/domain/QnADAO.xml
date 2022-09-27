@@ -75,11 +75,17 @@
 	<!-- 페이징 -->
 	<select id="selectFormRow" resultMap="mapQnA">
 		<include refid="SELECTQnA"/>
+		<!-- <if test="keyword != null">
+			WHERE #{?} LIKE CONCAT('%',#{keyword},'%')
+		</if> -->
 		ORDER BY q.qna_num DESC
 		LIMIT  #{param1}, #{param2}
 	</select>
 	
 	<select id="countAll" resultType="int">
 		SELECT count(*) FROM qnaboard
+		<!-- <if test="keyword != null">
+			WHERE #{?} LIKE CONCAT('%',#{keyword},'%')
+		</if> -->
 	</select>
 </mapper>

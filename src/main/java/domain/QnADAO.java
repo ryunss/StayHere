@@ -11,6 +11,9 @@ public interface QnADAO {
 	//QnA 목록
 	public List<QnADTO> select() throws SQLException;
 	
+	//QnA 검색 결과
+//	public List<QnADTO> ;
+	
 	//특정 num 글 읽어오기
 	public List<QnADTO> selectByNum(int qna_num) throws SQLException;
 	
